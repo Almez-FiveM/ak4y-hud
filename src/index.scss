@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+body {
+  margin: 0;
+  font-family: "Chakra Petch", sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: white;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+* {
+  user-select: none !important;
+}
+
+.crt {
+  background-image: linear-gradient(
+    rgba(53, 17, 17, 0.1),
+    rgba(31, 52, 78, 0.432)
+  );
+  background-repeat: repeat;
+  background-size: 100% 24px;
+  animation: bgscroll 2s linear infinite;
+}
+
+@keyframes bgscroll {
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+::selection {
+  background: rgba(var(--color-primary), 1);
+}
+
+.index_terminal__teubZ,
+.index_curvedTop__LX9XS {
+  border-radius: 0 !important;
+}
+
+:root {
+  --contexify-menu-bgColor: rgba(20, 20, 20, 0.98) !important;
+  --contexify-separator-color: #4c4c4c !important;
+  --contexify-item-color: #fff !important;
+  --contexify-activeItem-color: #141414 !important;
+  --contexify-activeItem-bgColor: rgba(var(--color-primary), 1) !important;
+  --contexify-rightSlot-color: #6f6e77 !important;
+  --contexify-activeRightSlot-color: #454545 !important;
+  --contexify-arrow-color: #6f6e77 !important;
+  --contexify-activeArrow-color: #2e2e2e !important;
+  --contexify-zIndex: 9999 !important;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.header-buttons {
+  background: #E81131;
+  border: 0.8625px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0px 0px 41.4px rgba(232, 17, 49, 0.95);
+}
+
+.settings-item-indicator {
+  background: rgba(109, 109, 109, 0.81);
+  filter: blur(30px);  
+}

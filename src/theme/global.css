@@ -1,0 +1,36 @@
+img {
+  user-select: none;
+}
+
+/* disable vertical overflow */
+
+html {
+  overflow-x: hidden;
+}
+
+@tailwind base;
+
+@layer base {
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"] {
+    -webkit-appearance: none;
+    margin: 0;
+    appearance: textfield !important;
+    -moz-appearance: textfield !important;
+  }
+
+  input[type="checkbox"] {
+    accent-color: #ff7b00;
+  }
+
+  input[type="radio"] {
+    accent-color: #ff7b00;
+  }
+}
+
+/* remove scrollbar */
+
+::-webkit-scrollbar {
+  display: none;
+}

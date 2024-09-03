@@ -186,3 +186,33 @@ table {
   background: rgba(109, 109, 109, 0.81);
   filter: blur(30px);  
 }
+
+.status-gradient {
+  display: flow-root;
+  position: relative;
+}
+
+.status-gradient::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
+.status-gradient.box-gradient::before {
+  border-radius: 6px;
+}
+
+.status-icon-gradient {
+
+  path {
+    box-shadow: 0 0 0 4px #fff
+  }
+}

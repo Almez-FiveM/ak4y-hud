@@ -1,52 +1,68 @@
-import { Hide } from '@chakra-ui/react';
+import { grid, Hide, Icon } from '@chakra-ui/react';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-
+import Icons from '../Constants/Icons';
 const initialHudState = {
-  selectedStatus: 1,
-  health: {
+  selectedStatus: 2,
+  microphone: {
     value: 100,
-    color: 'red',
+    color: '#FFF',
     visible: true,
     hideBelow: 80,
+    useHideBelow: false,
+    icon: Icons.Microphone,
+  },
+  health: {
+    value: 10,
+    color: '#FF3333',
+    visible: true,
+    hideBelow: 80,
+    useHideBelow: true,
+    icon: Icons.Heart,
   },
   armor: {
-    value: 100,
-    color: 'blue',
+    value: 30,
+    color: '#339DFF',
     visible: true,
     hideBelow: 80,
     useHideBelow: true,
+    icon: Icons.Shield,
   },
   hunger: {
-    value: 100,
-    color: 'orange',
+    value: 40,
+    color: '#FF7C33',
     visible: true,
     hideBelow: 80,
     useHideBelow: true,
+    icon: Icons.Hamburger,
   },
   thirst: {
-    value: 100,
-    color: 'aqua',
+    value: 50,
+    color: '#50CAFF',
     visible: true,
     hideBelow: 80,
     useHideBelow: true,
+    icon: Icons.Droplet,
   },
   stamina: {
-    value: 100,
-    color: 'purple',
+    value: 75,
+    color: '#8133FF',
     visible: true,
     hideBelow: 80,
     useHideBelow: true,
+    icon: Icons.Flash,
   },
   stress: {
-    value: 100,
-    color: 'brown',
+    value: 80,
+    color: '#FF7033',
     visible: true,
     hideBelow: 80,
     useHideBelow: true,
+    icon: Icons.Stress,
   },
 };
 
 const initialGeneralSettingsState = {
+  showSettingsMenu: false,
   showLocation: true,
   cinematicMode: false,
   showMinimap: true,
@@ -69,6 +85,11 @@ const initialUserInfoSettingsState = {
 // Define the reducer functions
 const hudReducer = (state = initialHudState, action: { type: any; payload: any; }) => {
   switch (action.type) {
+    case 'UPDATE_SELECTED_STATUS':
+      return {
+        ...state,
+        selectedStatus: action.payload,
+      };
     case 'UPDATE_HEALTH':
       return {
         ...state,
@@ -130,6 +151,11 @@ const hudReducer = (state = initialHudState, action: { type: any; payload: any; 
 // Define the reducer functions
 const generalSettingsReducer = (state = initialGeneralSettingsState, action: { type: any; payload: any; }) => {
   switch (action.type) {
+    case 'TOGGLE_SETTINGS_MENU':
+      return {
+        ...state,
+        showSettingsMenu: !state.showSettingsMenu,
+      };
     case 'TOGGLE_LOCATION':
       return {
         ...state,
@@ -230,3 +256,122 @@ export const selectHud = (state: { hud: any; }) => state.hud;
 export const selectGeneralSettings = (state: { generalSettings: any; }) => state.generalSettings;
 export const selectSpeedometerSettings = (state: { speedometerSettings: any; }) => state.speedometerSettings;
 export const selectUserInfoSettings = (state: { userInfoSettings: any; }) => state.userInfoSettings;
+
+
+// Define the action creators
+export const updateSelectedStatus = (status: number) => {
+  return {
+    type: 'UPDATE_SELECTED_STATUS',
+    payload: status,
+  };
+}
+
+export const updateHealth = (health: number) => {
+  return {
+    type: 'UPDATE_HEALTH',
+    payload: health,
+  };
+};
+
+export const updateArmor = (armor: number) => {
+  return {
+    type: 'UPDATE_ARMOR',
+    payload: armor,
+  };
+};
+
+export const updateHunger = (hunger: number) => {
+  return {
+    type: 'UPDATE_HUNGER',
+    payload: hunger,
+  };
+};
+
+export const updateThirst = (thirst: number) => {
+  return {
+    type: 'UPDATE_THIRST',
+    payload: thirst,
+  };
+};
+
+export const updateStamina = (stamina: number) => {
+  return {
+    type: 'UPDATE_STAMINA',
+    payload: stamina,
+  };
+};
+
+export const updateStress = (stress: number) => {
+  return {
+    type: 'UPDATE_STRESS',
+    payload: stress,
+  };
+};
+
+export const toggleSettingsMenu = () => {
+  return {
+    type: 'TOGGLE_SETTINGS_MENU',
+  };
+};
+
+export const toggleLocation = () => {
+  return {
+    type: 'TOGGLE_LOCATION',
+  };
+};
+
+export const toggleCinematicMode = () => {
+  return {
+    type: 'TOGGLE_CINEMATIC_MODE',
+  };
+};
+
+export const toggleMinimap = () => {
+  return {
+    type: 'TOGGLE_MINIMAP',
+  };
+};
+
+export const toggleEditMode = () => {
+  return {
+    type: 'TOGGLE_EDIT_MODE',
+  };
+};
+
+export const toggleHideEverything = () => {
+  return {
+    type: 'TOGGLE_HIDE_EVERYTHING',
+  };
+};
+
+export const toggleMicrophone = () => {
+  return {
+    type: 'TOGGLE_MICROPHONE',
+  };
+};
+
+export const togglePercentageInStatus = () => {
+  return {
+    type: 'TOGGLE_PERCENTAGE_IN_STATUS',
+  };
+};
+
+export const toggleMapLocationEditMode = () => {
+  return {
+    type: 'TOGGLE_MAP_LOCATION_EDIT_MODE',
+  };
+};
+
+export const updateSpeedometer = (speedometer: number) => {
+  return {
+    type: 'UPDATE_SPEEDOMETER',
+    payload: speedometer,
+  };
+};
+
+export const updateUserInfo = (userInfo: number) => {
+  return {
+    type: 'UPDATE_USER_INFO',
+    payload: userInfo,
+  };
+};

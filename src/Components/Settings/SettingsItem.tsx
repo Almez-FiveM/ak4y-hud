@@ -6,9 +6,10 @@ interface SettingsItemProps {
   children: React.ReactNode;
   style?: React.CSSProperties;
   index?: number;
+  click?: (index: number) => void;
 }
 
-const SettingsItem: React.FC<SettingsItemProps> = ({ children, style, index }) => {
+const SettingsItem: React.FC<SettingsItemProps> = ({ children, style, index, click}) => {
   const hud = useSelector(selectHud);
   const isSelected = hud.selectedStatus === index;
   console.log(isSelected);
@@ -57,6 +58,12 @@ const SettingsItem: React.FC<SettingsItemProps> = ({ children, style, index }) =
         <Flex
           justifyContent={'center'}
           alignItems={'center'}
+          cursor={'pointer'}
+          onClick={
+            () => {
+              click && click(index as number);
+            }
+          }
           {...isSelected ? {
             style: {
               filter: 'drop-shadow(0px 0px 8px rgba(232, 17, 49, 0.87))',

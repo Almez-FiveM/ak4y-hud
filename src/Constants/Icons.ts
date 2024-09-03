@@ -1,37 +1,25 @@
-import {
-  MdSettings,
-  MdClose,
-  MdDashboard,
-} from "react-icons/md";
-import { IoTicket } from "react-icons/io5";
+import { IoFlash } from "react-icons/io5";
+
 import { 
-  FaMusic,
-  FaStar,
-  FaUsers,
-  FaFlagCheckered
+  FaMicrophone,
+  FaHeart,
+  FaHamburger,
 } from "react-icons/fa";
-import { IoLogoDropbox } from "react-icons/io";
-import { TbCrosshair } from "react-icons/tb";
-import { GiUpgrade, GiDervishSwords, GiCrossedSwords } from "react-icons/gi";
-import { PiCrownSimple  } from "react-icons/pi";
-import { LuSwords } from "react-icons/lu";
-import { CiBadgeDollar } from "react-icons/ci";
+
+import { 
+  FaShield,
+  FaDroplet,
+} from "react-icons/fa6";
+
+import { PiBrainDuotone } from "react-icons/pi";
 const Icons = {
-  Star: FaStar,
-  Ticket: IoTicket,
-  Settings: MdSettings,
-  Close: MdClose,
-  Dropbox: IoLogoDropbox,
-  Crosshair: TbCrosshair,
-  Upgrade: GiUpgrade,
-  Sound: FaMusic,
-  Swords: GiCrossedSwords,
-  Crown: PiCrownSimple,
-  LuSwords: LuSwords,
-  Dollar: CiBadgeDollar,
-  Users: FaUsers,
-  Dashboard: MdDashboard,
-  Flag: FaFlagCheckered,
+  Microphone: FaMicrophone,
+  Heart: FaHeart,
+  Shield: FaShield,
+  Hamburger: FaHamburger,
+  Droplet: FaDroplet,
+  Flash: IoFlash,
+  Stress: PiBrainDuotone,
 };
 
 export default Icons;

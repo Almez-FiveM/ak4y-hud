@@ -20,13 +20,13 @@ const SettingsItem: React.FC<SettingsItemProps> = ({ children, style, index, cli
       {...axis === 'row' ? {
         style: {
           ...style,
-          width: '50%',
+          width: '100%',
           height: '8.8vh',
         }
       } : {
         style: {
           ...style,
-          width: '12vw',
+          width: '100%',
           height: '20vh',
         }
       }}
@@ -36,7 +36,21 @@ const SettingsItem: React.FC<SettingsItemProps> = ({ children, style, index, cli
       position={'relative'}
       overflow={'hidden'}
     >
-      {children}
+      <Box
+        width={'100%'}
+        height={'100%'}
+        display={'flex'}
+        justifyContent={'center'}
+        alignItems={'center'}
+        style={
+          {
+            zoom: '0.56',
+          }
+        }
+        className='settings-item-content'
+      >
+        {children}
+      </Box>
       <Box
         pos={'absolute'}
         left={'0'}

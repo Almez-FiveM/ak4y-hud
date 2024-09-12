@@ -2,22 +2,14 @@ import { selectHud, selectGeneralSettings } from '../../Store/store';
 import { useSelector } from 'react-redux';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { colord } from "colord";
-import Icons from '../../Constants/Icons';
 
-const hudList = ["microphone", "health", "thirst", "hunger", "stamina", "armor", "stress"];
-
-const colorDarken = (color: any, percent: any) => {
-  return colord(color).darken(percent).toHex();
-}
+const hudList = ["health", "thirst", "hunger", "stamina", "armor", "stress"];
 
 const StatusV3 = () => {
   const hud = useSelector(selectHud);
   const generalSettings = useSelector(selectGeneralSettings);
   return (
     <Flex
-      position={'absolute'}
-      bottom={0}
-      left={0}
       display={'flex'}
       justifyContent={'center'}
       alignItems={'center'}
@@ -37,6 +29,7 @@ const StatusV3 = () => {
               alignItems={'center'}
               gap={'.25vw'}
               flexDirection={'column'}
+              key={index}
             >
               <Flex
                 width={'4.5vh'}
@@ -82,10 +75,12 @@ const StatusV3 = () => {
                 </Box>
               </Flex>
               <Text fontSize={'1.2vh'} color={hud[status].color}>
-                {generalSettings.showPercentageInStatus && hud[status].value}%
+                {generalSettings.showPercentageInStatus && hud[status].value + '%'}
               </Text>
             </Flex>
           )
+        } else {
+          return null;
         }
       })}
     </Flex>

@@ -26,7 +26,7 @@ const Settings = () => {
         <Flex className="settingsBody"
           w={'full'}
           h={'90%'}
-          padding={'4vh 4vw'}
+          padding={'4vh 1vw'}
           overflow={'hidden'}
         >
           <Flex

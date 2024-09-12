@@ -1,10 +1,9 @@
-import { grid, Hide, Icon } from '@chakra-ui/react';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import Icons from '../Constants/Icons';
 const initialHudState = {
-  selectedStatus: 2,
+  selectedStatus: 5,
   microphone: {
-    value: 100,
+    value: 66,
     color: '#FFF',
     visible: true,
     hideBelow: 80,
@@ -53,7 +52,7 @@ const initialHudState = {
   },
   stress: {
     value: 80,
-    color: '#FF7033',
+    color: '#df9a67',
     visible: true,
     hideBelow: 80,
     useHideBelow: true,
@@ -69,7 +68,7 @@ const initialGeneralSettingsState = {
   editMode: false,
   hideEverything: false,
   showMicrophone: true,
-  showPercentageInStatus: true,
+  showPercentageInStatus: false,
   mapLocationEditMode: false,
 };
 

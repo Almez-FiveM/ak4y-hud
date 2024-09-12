@@ -1,4 +1,4 @@
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Flex, Grid } from '@chakra-ui/react';
 import React from 'react';
 import SettingsItem from '../Settings/SettingsItem';
 import StatusList from '../../Constants/StatusList';
@@ -10,10 +10,12 @@ const StatusSettings = () => {
     dispatch(updateSelectedStatus(index));
   };
   return (
-    <Flex
+    <Grid
       w={'100%'}
       h={'100%'}
-      gap={4}
+      gridTemplateColumns={'repeat(5, 1fr)'}
+      rowGap={'0'}
+      columnGap={'2'}
     >
       {Object.values(StatusList).map((status, index) => {
         return (
@@ -31,17 +33,12 @@ const StatusSettings = () => {
             }
           >
             <Box
-              style={
-                {
-                  zoom: 0.2,
-                }
-              }
               as={status.page}
             ></Box>
           </SettingsItem>
         );
       })}
-    </Flex>
+    </Grid>
   );
 };
 

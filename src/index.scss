@@ -216,3 +216,36 @@ table {
     box-shadow: 0 0 0 4px #fff
   }
 }
+
+$hexagonSize: 38px;
+
+.hexagon:before,
+.hexagon:after {
+  box-sizing: border-box;
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: $hexagonSize;
+  height: $hexagonSize;
+  transform: scaleY(0.5774) rotate(-45deg);
+}
+
+.hexagon:before {
+  top: -8px;
+  border-top: solid 7.0711px #333333;
+  border-right: solid 7.0711px #333333;
+  background: transparent;
+}
+
+.hexagon:after {
+  bottom: -5px;
+  border-bottom: solid 7.0711px #333333;
+  border-left: solid 7.0711px #333333;
+  background: transparent;
+}
+
+.settings-item-content {
+  * {
+    margin: 0 !important;
+  }
+}

@@ -2,6 +2,8 @@ import StatusV1 from "../Components/Status/StatusV1";
 import StatusV2 from "../Components/Status/StatusV2";
 import StatusV3 from "../Components/Status/StatusV3";
 import StatusV4 from "../Components/Status/StatusV4";
+import StatusV5 from "../Components/Status/StatusV5";
+import StatusV6 from "../Components/Status/StatusV6";
 
 const StatusList: { [key: number]: { label: string; desc: string; page: () => JSX.Element } } = {
   [0] : {
@@ -23,6 +25,16 @@ const StatusList: { [key: number]: { label: string; desc: string; page: () => JS
     label: 'STATUS V4',
     desc: 'STATUS DESCRIPTION',
     page: StatusV4,
+  },
+  [4] : {
+    label: 'STATUS V5',
+    desc: 'STATUS DESCRIPTION',
+    page: StatusV5,
+  },
+  [5] : {
+    label: 'STATUS V6',
+    desc: 'STATUS DESCRIPTION',
+    page: StatusV6,
   },
 }
 

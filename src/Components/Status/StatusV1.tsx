@@ -9,9 +9,6 @@ const StatusV1 = () => {
   const generalSettings = useSelector(selectGeneralSettings);
   return (
     <Flex
-      position={'absolute'}
-      bottom={0}
-      left={0}
       display={'flex'}
       justifyContent={'center'}
       alignItems={'center'}
@@ -65,12 +62,12 @@ const StatusV1 = () => {
                 </Box>
               </Flex>
               <Text fontSize={'1.2vh'} color={hud[status].color}>
-                {generalSettings.showPercentageInStatus && hud[status].value}%
+                {generalSettings.showPercentageInStatus && hud[status].value + '%'}
               </Text>
             </Flex>
           )
         }
-      })};
+      })}
     </Flex>
   );
 };

@@ -231,21 +231,77 @@ $hexagonSize: 38px;
 }
 
 .hexagon:before {
-  top: -8px;
-  border-top: solid 7.0711px #333333;
-  border-right: solid 7.0711px #333333;
+  top: calc(-100% + 12px);
+  border-top: solid 3px #333333;
+  border-right: solid 3px #333333;
   background: transparent;
 }
 
 .hexagon:after {
-  bottom: -5px;
-  border-bottom: solid 7.0711px #333333;
-  border-left: solid 7.0711px #333333;
+  bottom: calc(-100% + 14px);
+  border-bottom: solid 3px #333333;
+  border-left: solid 3px #333333;
+  background: transparent;
+}
+
+$hexagonSecondSize: 38px;
+
+.hexagon-2th:before,
+.hexagon-2th:after {
+  box-sizing: border-box;
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: $hexagonSize;
+  height: $hexagonSize;
+  transform: scaleY(0.5774) rotate(-45deg);
+}
+
+.hexagon-2th:before {
+  top: -9px;
+  border-top: solid 7px #333333;
+  border-right: solid 7px #333333;
+  background: transparent;
+}
+
+.hexagon-2th:after {
+  bottom: -9px;
+  border-bottom: solid 7px #333333;
+  border-left: solid 7px #333333;
   background: transparent;
 }
 
 .settings-item-content {
   * {
     margin: 0 !important;
+  }
+}
+
+.cubic-text-bg {
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    width: 5%;
+    height: 60%;
+    margin: auto;
+    margin-left: 0;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    width: 5%;
+    height: 60%;
+    margin: auto;
+    margin-right: 0;
   }
 }

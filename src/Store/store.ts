@@ -1,7 +1,7 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import Icons from '../Constants/Icons';
 const initialHudState = {
-  selectedStatus: 5,
+  selectedStatus: 7,
   microphone: {
     value: 66,
     color: '#FFF',
@@ -11,7 +11,7 @@ const initialHudState = {
     icon: Icons.Microphone,
   },
   health: {
-    value: 10,
+    value: 0,
     color: '#FF3333',
     visible: true,
     hideBelow: 80,
@@ -19,7 +19,7 @@ const initialHudState = {
     icon: Icons.Heart,
   },
   armor: {
-    value: 30,
+    value: 10,
     color: '#339DFF',
     visible: true,
     hideBelow: 80,
@@ -27,7 +27,7 @@ const initialHudState = {
     icon: Icons.Shield,
   },
   hunger: {
-    value: 40,
+    value: 25,
     color: '#FF7C33',
     visible: true,
     hideBelow: 80,
@@ -51,7 +51,7 @@ const initialHudState = {
     icon: Icons.Flash,
   },
   stress: {
-    value: 80,
+    value: 100,
     color: '#df9a67',
     visible: true,
     hideBelow: 80,
@@ -68,7 +68,7 @@ const initialGeneralSettingsState = {
   editMode: false,
   hideEverything: false,
   showMicrophone: true,
-  showPercentageInStatus: false,
+  showPercentageInStatus: true,
   mapLocationEditMode: false,
 };
 

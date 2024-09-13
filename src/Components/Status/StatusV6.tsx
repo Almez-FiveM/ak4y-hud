@@ -24,7 +24,7 @@ const StatusV6 = () => {
         padding={'1vh 1vw'}
         gap={'.5vw'}
         pl={'1vw'}
-        mb={'8vh'}
+        mb={'12vh'}
       >
         {hudList.map((status, index) => {
           if (hud[status].visible) {
@@ -35,7 +35,7 @@ const StatusV6 = () => {
                 alignItems={'center'}
                 gap={'.25vw'}
                 flexDirection={'column'}
-                className='hexagon'
+                className='hexagon-2th'
                 _before={
                   {
                     borderTopColor: hud[status].color,
@@ -82,7 +82,7 @@ const StatusV6 = () => {
                     <Box
                       pos={'absolute'}
                       top={hud[status].value ? `${80 - hud[status].value}%` : '100%'}
-                      {...hud[status].value >= 99 && { top: '-32%' }}
+                      {...hud[status].value >= 99 && { top: '0%' }}
                       right={'0'}
                       width={'100%'}
                       height={'100%'}
@@ -105,9 +105,16 @@ const StatusV6 = () => {
                     </Box>
                   </Box>
                 </Flex>
-                <Text fontSize={'1.2vh'} color={hud[status].color}>
-                  {generalSettings.showPercentageInStatus && hud[status].value + '%'}
-                </Text>
+                {generalSettings.showPercentageInStatus &&(
+                  <Box
+                    position={'absolute'}
+                    bottom={'-2.5vh'}
+                  >
+                    <Text fontSize={'1.2vh'} color={hud[status].color}>
+                      {hud[status].value + '%'}
+                    </Text>
+                  </Box>
+                )}
               </Flex>
             )
           }

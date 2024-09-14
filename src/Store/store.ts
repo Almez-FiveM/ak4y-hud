@@ -60,6 +60,24 @@ const initialHudState = {
   },
 };
 
+const initialSpeedometerState = {
+  selectedSpeedometer: 0,
+  speedometerVisible: true,
+  speed: 99,
+  speedometerType: 'KMH',
+  speedometerColor: '#5ACBE3',
+  fuel: 50,
+  fuelColor: '#FFD850',
+  fuelIcon: Icons.GasPump,
+  nitrous: 50,
+  nitrousColor: '#E35ABD',
+  nitrousIcon: Icons.Flash,
+  seatbelt: true,
+  doors: false,
+  lights: 0, // 0: off, 1: low beam, 2: high beam
+  engine: true,
+};
+
 const initialGeneralSettingsState = {
   showSettingsMenu: false,
   showLocation: true,
@@ -72,9 +90,6 @@ const initialGeneralSettingsState = {
   mapLocationEditMode: false,
 };
 
-const initialSpeedometerSettingsState = {
-  selectedSpeedometer: 1,
-};
 
 const initialUserInfoSettingsState = {
   selectedUserInfo: 1,
@@ -209,20 +224,6 @@ const generalSettingsReducer = (state = initialGeneralSettingsState, action: { t
 };
 
 // Define the reducer functions
-const speedometerSettingsReducer = (state = initialSpeedometerSettingsState, action: { type: any; payload: any; }) => {
-  switch (action.type) {
-    case 'UPDATE_SPEEDOMETER':
-      return {
-        ...state,
-        selectedSpeedometer: action.payload,
-      };
-
-    default:
-      return state;
-  }
-};
-
-// Define the reducer functions
 const userInfoSettingsReducer = (state = initialUserInfoSettingsState, action: { type: any; payload: any; }) => {
   switch (action.type) {
     case 'UPDATE_USER_INFO':
@@ -236,11 +237,24 @@ const userInfoSettingsReducer = (state = initialUserInfoSettingsState, action: {
   }
 };
 
+// Define the reducer functions
+const speedometerReducer = (state = initialSpeedometerState, action: { type: any; payload: any; }) => {
+  switch (action.type) {
+    case 'UPDATE_SPEEDOMETER_DATA':
+      return {
+        state: action.payload,
+      };
+
+    default:
+      return state;
+  }
+};
+
 // Combine the reducers
 const rootReducer = combineReducers({
   hud: hudReducer,
+  speedometer: speedometerReducer,
   generalSettings: generalSettingsReducer,
-  speedometerSettings: speedometerSettingsReducer,
   userInfoSettings: userInfoSettingsReducer,
 });
 
@@ -252,8 +266,8 @@ const store = configureStore({
 export default store;
 
 export const selectHud = (state: { hud: any; }) => state.hud;
+export const selectSpeedometer = (state: { speedometer: any; }) => state.speedometer;
 export const selectGeneralSettings = (state: { generalSettings: any; }) => state.generalSettings;
-export const selectSpeedometerSettings = (state: { speedometerSettings: any; }) => state.speedometerSettings;
 export const selectUserInfoSettings = (state: { userInfoSettings: any; }) => state.userInfoSettings;
 
 

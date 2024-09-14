@@ -8,46 +8,48 @@ import StatusV7 from "../Components/Status/StatusV7";
 import StatusV8 from "../Components/Status/StatusV8";
 
 const StatusList: { [key: number]: { label: string; desc: string; page: () => JSX.Element } } = {
-  [0] : {
+  0 : {
     label: 'STATUS V1',
     desc: 'STATUS DESCRIPTION',
     page: StatusV1,
   },
-  [1] : {
+  1 : {
     label: 'STATUS V2',
     desc: 'STATUS DESCRIPTION',
     page: StatusV2,
   },
-  [2] : {
+  2 : {
     label: 'STATUS V3',
     desc: 'STATUS DESCRIPTION',
     page: StatusV3,
   },
-  [3] : {
+  3 : {
     label: 'STATUS V4',
     desc: 'STATUS DESCRIPTION',
     page: StatusV4,
   },
-  [4] : {
+  4 : {
     label: 'STATUS V5',
     desc: 'STATUS DESCRIPTION',
     page: StatusV5,
   },
-  [5] : {
+  5 : {
     label: 'STATUS V6',
     desc: 'STATUS DESCRIPTION',
     page: StatusV6,
   },
-  [6] : {
+  6 : {
     label: 'STATUS V7',
     desc: 'STATUS DESCRIPTION',
     page: StatusV7,
   },
-  [7] : {
+  7 : {
     label: 'STATUS V8',
     desc: 'STATUS DESCRIPTION',
     page: StatusV8,
   },
 }
+
+
 
 export default StatusList;

@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
 body {
   margin: 0;
   font-family: "Chakra Petch", sans-serif !important;
@@ -238,7 +238,7 @@ $hexagonSize: 38px;
 }
 
 .hexagon:after {
-  bottom: calc(-100% + 14px);
+  bottom: calc(-100% + 12px);
   border-bottom: solid 3px #333333;
   border-left: solid 3px #333333;
   background: transparent;

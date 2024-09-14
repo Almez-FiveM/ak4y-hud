@@ -2,13 +2,8 @@ import { selectHud, selectGeneralSettings } from '../../Store/store';
 import { useSelector } from 'react-redux';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { colord } from "colord";
-import MicrophoneStatus from './MicrophoneStatus';
 
 const hudList = ["health", "armor", "hunger", "thirst", "stamina", "stress"];
-
-const colorDarken = (color: any, percent: any) => {
-  return colord(color).darken(percent).toHex();
-}
 
 const StatusV6 = () => {
   const hud = useSelector(selectHud);
@@ -117,6 +112,8 @@ const StatusV6 = () => {
                 )}
               </Flex>
             )
+          } else {
+            return null;
           }
         })}
       </Flex>

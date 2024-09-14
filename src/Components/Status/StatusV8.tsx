@@ -1,15 +1,13 @@
-import { selectHud, selectGeneralSettings } from '../../Store/store';
+import { selectHud } from '../../Store/store';
 import { useSelector } from 'react-redux';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { colord } from "colord";
-import MicrophoneStatus from './MicrophoneStatus';
 
 const hudList = ["health", "armor", "hunger", "thirst", "stamina", "stress"];
 
 
 const StatusV8 = () => {
   const hud = useSelector(selectHud);
-  const generalSettings = useSelector(selectGeneralSettings);
   return (
     <>
       <Flex
@@ -128,9 +126,10 @@ const StatusV8 = () => {
                       {hud[status].value + '%'}
                     </Text>
                   </Box>
-                {/* )} */}
               </Flex>
             )
+          } else {
+            return null;
           }
         })}
       </Flex>

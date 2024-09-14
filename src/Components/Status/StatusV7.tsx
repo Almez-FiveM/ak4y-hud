@@ -1,8 +1,6 @@
 import { selectHud, selectGeneralSettings } from '../../Store/store';
 import { useSelector } from 'react-redux';
 import { Box, Flex, Text } from '@chakra-ui/react';
-import { colord } from "colord";
-import MicrophoneStatus from './MicrophoneStatus';
 
 const hudList = ["health", "armor", "hunger", "thirst", "stamina", "stress"];
 
@@ -46,26 +44,9 @@ const StatusV7 = () => {
                 >
                   <Box as={hud[status].icon} size={'1.4vh'} color={hud[status].color} zIndex={1}/>
                   {[...Array(8)].map((_, i) => {
-                    let opacity = 0.5;
-                    if (i === 5) {
-                      if (hud[status].value > 0) opacity = 1
-                    }
-                    if (i === 7 || i === 3) {
-                      if (hud[status].value >= 50) opacity = 1
-                    }
-
-                    if (i === 6 || i === 4) {
-                      if (hud[status].value >= 25) opacity = 1
-                    }
-                    
-                    if (i === 0 || i === 2) {
-                      if (hud[status].value >= 75) opacity = 1
-                    }
-
-                    if (i === 1) {
-                      if (hud[status].value >= 100) opacity = 1
-                    }
-
+                    const thresholds = [75, 100, 75, 50, 25, 0, 25, 50];
+                    let opacity = hud[status].value >= thresholds[i] ? 1 : 0.5;
+                    if (i === 5 && hud[status].value === 0) opacity = 0.5;
                     return (
                       <Box
                         key={i}
@@ -88,6 +69,8 @@ const StatusV7 = () => {
                 </Text>
               </Flex>
             )
+          } else {
+            return null;
           }
         })}
       </Flex>

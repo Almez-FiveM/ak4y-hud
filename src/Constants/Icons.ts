@@ -4,14 +4,19 @@ import {
   FaMicrophone,
   FaHeart,
   FaHamburger,
+  FaGasPump,
 } from "react-icons/fa";
+
+import {
+  GiCarDoor
+} from "react-icons/gi";
 
 import { 
   FaShield,
   FaDroplet,
 } from "react-icons/fa6";
 
-import { PiBrainDuotone } from "react-icons/pi";
+import { PiBrainDuotone, PiEngineFill } from "react-icons/pi";
 const Icons = {
   Microphone: FaMicrophone,
   Heart: FaHeart,
@@ -20,6 +25,9 @@ const Icons = {
   Droplet: FaDroplet,
   Flash: IoFlash,
   Stress: PiBrainDuotone,
+  GasPump: FaGasPump,
+  Engine: PiEngineFill,
+  CarDoor: GiCarDoor,
 };
 
 export default Icons;

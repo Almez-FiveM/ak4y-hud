@@ -1,11 +1,10 @@
-import React from 'react';
-import { Box, Flex, Text } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { selectGeneralSettings } from '../Store/store';
 import Background from '../Assets/bg.svg';
 import Settings from './Settings';
 import { useDispatch, useSelector } from 'react-redux';
 import StatusBox from './Status/StatusBox';
-
+import SpeedoBox from './Speedometer/SpeedoBox';
 import { toggleSettingsMenu } from '../Store/store';
 
 const Home = () => {
@@ -66,6 +65,7 @@ const Home = () => {
           <Settings/>
         )}
         <StatusBox/>
+        <SpeedoBox/>
       </Flex>
     </>
   );

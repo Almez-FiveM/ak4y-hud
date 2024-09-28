@@ -81,7 +81,7 @@ const SettignsHeader: React.FC<SettingsHeaderProps> = ({ onClick, selected }) =>
       w={'4vw'}
       h={'100%'}
       cursor={'pointer'}
-      onClick={() => dispatch(toggleSettingsMenu())}
+      onClick={() => dispatch(toggleSettingsMenu(false))}
     >
       <Flex
         justifyContent={'center'}

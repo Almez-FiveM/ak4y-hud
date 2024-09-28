@@ -14,7 +14,7 @@ const Home = () => {
   const dispatch = useDispatch();
 
   const handleSettingsMenu = () => {
-    dispatch(toggleSettingsMenu());
+    dispatch(toggleSettingsMenu(!generalSettings.showSettingsMenu));
   };
   return (
     <>

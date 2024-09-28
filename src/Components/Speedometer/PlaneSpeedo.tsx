@@ -29,22 +29,22 @@ export const PlaneSpeedo = () => {
       >
         <Flex pos={'absolute'} width={'100%'} height={'100%'} align={'center'} justify={'center'}>
           <svg width="110%" height="90%" viewBox="0 0 309 309" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="155.168" y="308.547" width="0.951122" height="12" transform="rotate(180 155.168 308.547)" fill="white" fill-opacity="0.3" data-index={1} {...speedo.speed >= 0 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
-            <rect x="96.1436" y="297.118" width="0.951122" height="12" transform="rotate(-157.5 96.1436 297.118)" fill="white" fill-opacity="0.3" data-index={2} {...speedo.speed >= 10 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
-            <rect x="45.9863" y="263.973" width="0.951122" height="12" transform="rotate(-135 45.9863 263.973)" fill="white" fill-opacity="0.3" data-index={3} {...speedo.speed >= 20 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
-            <rect x="12.3311" y="214.156" width="0.951122" height="12" transform="rotate(-112.5 12.3311 214.156)" fill="white" fill-opacity="0.3" data-index={4} {...speedo.speed >= 30 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
-            <rect x="0.300781" y="155.251" width="0.951122" height="12" transform="rotate(-90 0.300781 155.251)" fill="white" fill-opacity="0.3" data-index={5} {...speedo.speed >= 40 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
-            <rect x="11.7285" y="96.2266" width="0.951122" height="12" transform="rotate(-67.5 11.7285 96.2266)" fill="white" fill-opacity="0.3" data-index={6} {...speedo.speed >= 50 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
-            <rect x="44.875" y="46.0684" width="0.951122" height="12" transform="rotate(-45 44.875 46.0684)" fill="white" fill-opacity="0.3" data-index={7} {...speedo.speed >= 60 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
-            <rect x="94.6914" y="12.4121" width="0.951122" height="12" transform="rotate(-22.5 94.6914 12.4121)" fill="white" fill-opacity="0.3" data-index={8} {...speedo.speed >= 70 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
-            <rect x="153.597" y="0.382812" width="0.951122" height="12" fill="white" fill-opacity="0.3" data-index={9} {...speedo.speed >= 80 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
-            <rect x="212.621" y="11.8105" width="0.951122" height="12" transform="rotate(22.5 212.621 11.8105)" fill="white" fill-opacity="0.3" data-index={10} {...speedo.speed >= 90 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
-            <rect x="262.779" y="44.9561" width="0.951122" height="12" transform="rotate(45 262.779 44.9561)" fill="white" fill-opacity="0.3" data-index={11} {...speedo.speed >= 100 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
-            <rect x="296.437" y="94.7734" width="0.951122" height="12" transform="rotate(67.5 296.437 94.7734)" fill="white" fill-opacity="0.3" data-index={12} {...speedo.speed >= 110 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
-            <rect x="308.465" y="153.679" width="0.951122" height="12" transform="rotate(90 308.465 153.679)" fill="white" fill-opacity="0.3" data-index={13} {...speedo.speed >= 120 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
-            <rect x="297.037" y="212.703" width="0.951122" height="12" transform="rotate(112.5 297.037 212.703)" fill="white" fill-opacity="0.3" data-index={14} {...speedo.speed >= 130 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
-            <rect x="263.891" y="262.861" width="0.951122" height="12" transform="rotate(135 263.891 262.861)" fill="white" fill-opacity="0.3" data-index={15} {...speedo.speed >= 140 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
-            <rect x="214.074" y="296.517" width="0.951122" height="12" transform="rotate(157.5 214.074 296.517)" fill="white" fill-opacity="0.3" data-index={16} {...speedo.speed >= 150 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
+            <rect x="155.168" y="308.547" width="0.951122" height="12" transform="rotate(180 155.168 308.547)" fill="white" fillOpacity="0.3" data-index={1} {...speedo.speed >= 0 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
+            <rect x="96.1436" y="297.118" width="0.951122" height="12" transform="rotate(-157.5 96.1436 297.118)" fill="white" fillOpacity="0.3" data-index={2} {...speedo.speed >= 10 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
+            <rect x="45.9863" y="263.973" width="0.951122" height="12" transform="rotate(-135 45.9863 263.973)" fill="white" fillOpacity="0.3" data-index={3} {...speedo.speed >= 20 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
+            <rect x="12.3311" y="214.156" width="0.951122" height="12" transform="rotate(-112.5 12.3311 214.156)" fill="white" fillOpacity="0.3" data-index={4} {...speedo.speed >= 30 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
+            <rect x="0.300781" y="155.251" width="0.951122" height="12" transform="rotate(-90 0.300781 155.251)" fill="white" fillOpacity="0.3" data-index={5} {...speedo.speed >= 40 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
+            <rect x="11.7285" y="96.2266" width="0.951122" height="12" transform="rotate(-67.5 11.7285 96.2266)" fill="white" fillOpacity="0.3" data-index={6} {...speedo.speed >= 50 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
+            <rect x="44.875" y="46.0684" width="0.951122" height="12" transform="rotate(-45 44.875 46.0684)" fill="white" fillOpacity="0.3" data-index={7} {...speedo.speed >= 60 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
+            <rect x="94.6914" y="12.4121" width="0.951122" height="12" transform="rotate(-22.5 94.6914 12.4121)" fill="white" fillOpacity="0.3" data-index={8} {...speedo.speed >= 70 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
+            <rect x="153.597" y="0.382812" width="0.951122" height="12" fill="white" fillOpacity="0.3" data-index={9} {...speedo.speed >= 80 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
+            <rect x="212.621" y="11.8105" width="0.951122" height="12" transform="rotate(22.5 212.621 11.8105)" fill="white" fillOpacity="0.3" data-index={10} {...speedo.speed >= 90 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
+            <rect x="262.779" y="44.9561" width="0.951122" height="12" transform="rotate(45 262.779 44.9561)" fill="white" fillOpacity="0.3" data-index={11} {...speedo.speed >= 100 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
+            <rect x="296.437" y="94.7734" width="0.951122" height="12" transform="rotate(67.5 296.437 94.7734)" fill="white" fillOpacity="0.3" data-index={12} {...speedo.speed >= 110 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
+            <rect x="308.465" y="153.679" width="0.951122" height="12" transform="rotate(90 308.465 153.679)" fill="white" fillOpacity="0.3" data-index={13} {...speedo.speed >= 120 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
+            <rect x="297.037" y="212.703" width="0.951122" height="12" transform="rotate(112.5 297.037 212.703)" fill="white" fillOpacity="0.3" data-index={14} {...speedo.speed >= 130 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
+            <rect x="263.891" y="262.861" width="0.951122" height="12" transform="rotate(135 263.891 262.861)" fill="white" fillOpacity="0.3" data-index={15} {...speedo.speed >= 140 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
+            <rect x="214.074" y="296.517" width="0.951122" height="12" transform="rotate(157.5 214.074 296.517)" fill="white" fillOpacity="0.3" data-index={16} {...speedo.speed >= 150 && { fill: '#FFEB3B', fillOpacity: 1, stroke: '#FFEB3B', strokeWidth: '1px' }} />
           </svg>
         </Flex>
         <Flex pos={'absolute'} width={'100%'} height={'100%'} justify={'center'} transform={'rotate(90deg)'}>
@@ -105,7 +105,7 @@ export const PlaneSpeedo = () => {
               )}
               <Text fontFamily={'Orbitron'} lineHeight={'1'} color={'#FFF'}>{speedo.speed}</Text>
             </Flex>
-            <Text pl={'.2vw'} fontFamily={'Orbitron'} fontSize={'.6vw'} lineHeight={'1'} color={'#fff'}>KMH</Text>
+            <Text pl={'.2vw'} fontFamily={'Orbitron'} fontSize={'.6vw'} lineHeight={'1'} color={'#fff'}>{speedo.speedometerType}</Text>
           </Flex>
         </Flex>
       </Flex>

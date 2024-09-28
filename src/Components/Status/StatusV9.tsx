@@ -25,6 +25,7 @@ const StatusV9 = () => {
           if (hud[status].visible) {
             return (
               <Flex
+                key={index}
                 display={'flex'}
                 justifyContent={'center'}
                 alignItems={'center'}

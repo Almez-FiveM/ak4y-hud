@@ -63,7 +63,7 @@ const initialHudState = {
 const initialSpeedometerState = {
   selectedSpeedometer: 4,
   speedometerVisible: true,
-  speed: 150,
+  speed: 180,
   speedometerType: 'KMH',
   speedometerColor: '#5ACBE3',
   fuel: 50,
@@ -76,7 +76,7 @@ const initialSpeedometerState = {
   doors: false,
   lights: 0, // 0: off, 1: low beam, 2: high beam
   engine: false,
-  vehType: "plane" as VehicleType,
+  vehType: "boat" as VehicleType,
 };
 
 // CarTypes
@@ -235,7 +235,7 @@ const generalSettingsReducer = (state = initialGeneralSettingsState, action: { t
     case 'TOGGLE_SETTINGS_MENU':
       return {
         ...state,
-        showSettingsMenu: !state.showSettingsMenu,
+        showSettingsMenu: action.payload,
       };
     case 'TOGGLE_LOCATION':
       return {
@@ -443,9 +443,10 @@ export const toggleStress = () => {
   };
 };
 
-export const toggleSettingsMenu = () => {
+export const toggleSettingsMenu = (bool: boolean) => {
   return {
     type: 'TOGGLE_SETTINGS_MENU',
+    payload: bool,
   };
 };
 

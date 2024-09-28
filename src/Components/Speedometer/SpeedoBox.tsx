@@ -6,6 +6,7 @@ import SpeedoList from '../../Constants/SpeedoList';
 import { useNuiEvent } from '../../Hooks/useNuiEvent';
 import { BikeSpeedo } from './BikeSpeedo';
 import { PlaneSpeedo } from './PlaneSpeedo';
+import { BoatSpeedo } from './BoatSpeedo';
 const SpeedoBox = () => {
   const speedo = useSelector(selectSpeedometer);
 
@@ -37,6 +38,11 @@ const SpeedoBox = () => {
         {speedo.vehType === 'plane' && (
           <Box
             as={PlaneSpeedo}
+          ></Box>
+        )}
+        {speedo.vehType === 'boat' && (
+          <Box
+            as={BoatSpeedo}
           ></Box>
         )}
       </Flex>

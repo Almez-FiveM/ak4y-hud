@@ -1,11 +1,19 @@
 import { selectHud, selectGeneralSettings } from '../../Store/store';
 import { useSelector } from 'react-redux';
 import { Box, Flex, Text } from '@chakra-ui/react';
+import Icons from '../../Constants/Icons';
 
 const hudList = ["health", "armor", "hunger", "thirst", "stamina", "stress"];
 
+interface HudStatus {
+  visible: boolean;
+  icon: keyof typeof Icons;
+  color: string;
+  value: number;
+}
+
 const StatusV7 = () => {
-  const hud = useSelector(selectHud);
+  const hud = useSelector(selectHud) as Record<string, HudStatus>;
   const generalSettings = useSelector(selectGeneralSettings);
 
   return (
@@ -42,7 +50,7 @@ const StatusV7 = () => {
                   pos={'relative'}
                   className='status-circular-wrapper'
                 >
-                  <Box as={hud[status].icon} size={'1.4vh'} color={hud[status].color} zIndex={1}/>
+                  <Box as={Icons[hud[status].icon]} size={'1.4vh'} color={hud[status].color} zIndex={1}/>
                   {[...Array(8)].map((_, i) => {
                     const thresholds = [75, 100, 75, 50, 25, 0, 25, 50];
                     let opacity = hud[status].value >= thresholds[i] ? 1 : 0.5;

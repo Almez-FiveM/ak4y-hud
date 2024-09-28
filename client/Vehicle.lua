@@ -7,6 +7,13 @@ CreateThread(function()
       DisplayRadar(1)
       local vehicle = GetVehiclePedIsIn(ped, false)
       _, lightsOn, highlightsOn = GetVehicleLightsState(vehicle)
+      local lights = 0 
+      if lightsOn == 1 then 
+        lights = 1 
+      end
+      if highlightsOn == 1 then 
+        lights = 2 
+      end
       vehicleRunning = GetIsVehicleEngineRunning(vehicle)
       carSpeed = GetEntitySpeed(vehicle)
       realSpeed = ("%.1d"):format(math.ceil(carSpeed * 2.236936))
@@ -25,19 +32,27 @@ CreateThread(function()
         vites = "D" .. gear
       end
       if vehReversing then vites = "R" end
-      SendReactMessage("updateVehicle", {
+      SendReactMessage("updateSpeedometer", {
         speed = realSpeed,
         fuel = vehicleFuel,
         rpm = rpm,
         gear = vites,
-        lightsOn = lightsOn,
-        nitro = vehicleNitro,
-        engineHealth = GetVehicleEngineHealth(vehicle),
-        seatBelt = SeatBelt
+        nitrous = 0,
+        seatbelt = SeatBelt,
+        engine = vehicleRunning,
+        lights = lights,
+        speedometerVisible = true,
       })
     else
-      SendNUIMessage({ action = "hideVehicle" })
+      SendReactMessage("updateSpeedometer", {
+        speedometerVisible = false,
+      })
     end
     Wait(100)
   end
+end)
+
+RegisterCommand('hud', function ()
+  SendReactMessage("toggleSettings", true)
+  SetNuiFocus(true, true)
 end)

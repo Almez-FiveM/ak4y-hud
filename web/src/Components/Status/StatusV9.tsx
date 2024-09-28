@@ -2,12 +2,20 @@ import { selectHud } from '../../Store/store';
 import { useSelector } from 'react-redux';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { colord } from "colord";
+import Icons from '../../Constants/Icons';
 
 const hudList = ["health", "armor", "hunger", "thirst", "stamina", "stress"];
 
 
+interface HudStatus {
+  visible: boolean;
+  icon: keyof typeof Icons;
+  color: string;
+  value: number;
+}
+
 const StatusV9 = () => {
-  const hud = useSelector(selectHud);
+  const hud = useSelector(selectHud) as Record<string, HudStatus>;
   return (
     <>
       <Flex
@@ -85,7 +93,7 @@ const StatusV9 = () => {
                     </defs>
                     </svg>
                   </Box>
-                  <Box as={hud[status].icon} size={'1.4vh'} color={hud[status].color} zIndex={1} />
+                  <Box as={Icons[hud[status].icon]} size={'1.4vh'} color={hud[status].color} zIndex={1} />
                 </Flex>
                 {/* {generalSettings.showPercentageInStatus && ( */}
                   <Box

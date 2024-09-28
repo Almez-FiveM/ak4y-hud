@@ -3,11 +3,19 @@ import { useSelector } from 'react-redux';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { colord } from "colord";
 import MicrophoneStatus from './MicrophoneStatus';
+import Icons from '../../Constants/Icons';
 
 const hudList = ["stress", "health", "armor", "microphone", "hunger", "thirst", "stamina",];
 
+interface HudStatus {
+  visible: boolean;
+  icon: keyof typeof Icons;
+  color: string;
+  value: number;
+}
+
 const StatusV2 = () => {
-  const hud = useSelector(selectHud);
+  const hud = useSelector(selectHud) as Record<string, HudStatus>;
   const generalSettings = useSelector(selectGeneralSettings);
   return (
     <>
@@ -44,7 +52,7 @@ const StatusV2 = () => {
                   // is first child then add padding left
                   boxSizing={'border-box'}
                 >
-                  <Box as={hud[status].icon}
+                  <Box as={Icons[hud[status].icon]}
                     size={'1.4vh'} color={hud[status].color} />
                   <Box
                     pos={'absolute'}

@@ -47,7 +47,7 @@ const SpeedoV1 = () => {
             alignItems={'center'}
           >
             <Box
-              as={speedo.nitrousIcon}
+              as={Icons.Flash}
               size={'1.4vh'}
               color={speedo.nitrousColor}
               className='status-icon-gradient'
@@ -114,7 +114,7 @@ const SpeedoV1 = () => {
       >
         <Flex>
           <Box
-            as={speedo.fuelIcon}
+            as={Icons.GasPump}
             size={'1.8vh'}
             color={speedo.fuelColor}
           ></Box>

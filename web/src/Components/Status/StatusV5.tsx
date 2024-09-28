@@ -2,11 +2,17 @@ import { selectHud, selectGeneralSettings } from '../../Store/store';
 import { useSelector } from 'react-redux';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { colord } from "colord";
+import Icons from '../../Constants/Icons';
 
-// const hudList = ["stress", "health", "armor", "microphone", "hunger", "thirst", "stamina",];
+interface HudStatus {
+  visible: boolean;
+  icon: keyof typeof Icons;
+  color: string;
+  value: number;
+}
 
 const StatusV5 = () => {
-  const hud = useSelector(selectHud);
+  const hud = useSelector(selectHud) as Record<string, HudStatus>;
   const generalSettings = useSelector(selectGeneralSettings);
   return (
     <Flex
@@ -31,7 +37,7 @@ const StatusV5 = () => {
           justifyContent={'center'}
           alignItems={'center'}
         >
-          <Box as={hud["health"].icon} size={'2vh'} color={hud["health"].color} />
+          <Box as={Icons[hud["health"].icon]} size={'2vh'} color={hud["health"].color} />
           <Flex
             width={'100%'}
             height={'.65vh'}
@@ -69,7 +75,7 @@ const StatusV5 = () => {
               borderRadius={'2px'}
             />
           </Flex>
-          <Box as={hud["armor"].icon} size={'2vh'} color={hud["armor"].color} />
+          <Box as={Icons[hud["armor"].icon]} size={'2vh'} color={hud["armor"].color} />
         </Flex>
       </Flex>
       <Flex
@@ -98,7 +104,7 @@ const StatusV5 = () => {
             position={'relative'}
             boxSizing={'border-box'}
           >
-            <Box as={hud["stress"].icon}
+            <Box as={Icons[hud["stress"].icon]}
               size={'1.4vh'} color={hud["stress"].color} />
             <Box
               pos={'absolute'}
@@ -167,7 +173,7 @@ const StatusV5 = () => {
             position={'relative'}
             boxSizing={'border-box'}
           >
-            <Box as={hud["hunger"].icon}
+            <Box as={Icons[hud["hunger"].icon]}
               size={'1.4vh'} color={hud["hunger"].color} />
             <Box
               pos={'absolute'}
@@ -285,7 +291,7 @@ const StatusV5 = () => {
             position={'relative'}
             boxSizing={'border-box'}
           >
-            <Box as={hud["stamina"].icon}
+            <Box as={Icons[hud["stamina"].icon]}
               size={'1.4vh'} color={hud["stamina"].color} />
             <Box
               pos={'absolute'}
@@ -354,7 +360,7 @@ const StatusV5 = () => {
             position={'relative'}
             boxSizing={'border-box'}
           >
-            <Box as={hud["thirst"].icon}
+            <Box as={Icons[hud["thirst"].icon]}
               size={'1.4vh'} color={hud["thirst"].color} />
             <Box
               pos={'absolute'}

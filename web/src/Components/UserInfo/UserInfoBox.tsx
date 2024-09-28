@@ -3,8 +3,17 @@ import { selectUserInfoSettings } from '../../Store/store';
 import { useSelector } from 'react-redux';
 import { Box, Flex } from '@chakra-ui/react';
 import InfoList from '../../Constants/InfoList';
+import { useNuiEvent } from '../../Hooks/useNuiEvent';
+import { updateUserInfo } from '../../Store/store';
+import { useDispatch } from 'react-redux';
 const UserInfoBox = () => {
   const userInfo = useSelector(selectUserInfoSettings);
+  const dispatch = useDispatch();
+  // updateInfo
+  useNuiEvent('updateInfo', (data: any) => {
+    dispatch(updateUserInfo(data));
+  });
+  
   return (
     <>
       <Flex
@@ -27,3 +36,4 @@ const UserInfoBox = () => {
 };
 
 export default UserInfoBox;
+

@@ -1,14 +1,14 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import Icons from '../Constants/Icons';
 const initialHudState = {
-  selectedStatus: 0,
+  selectedStatus: 8,
   microphone: {
     value: 100,
     color: '#FFF',
     visible: true,
     hideBelow: 80,
     useHideBelow: false,
-    icon: Icons.Microphone,
+    icon: "Microphone",
   },
   health: {
     value: 100,
@@ -16,7 +16,7 @@ const initialHudState = {
     visible: true,
     hideBelow: 80,
     useHideBelow: true,
-    icon: Icons.Heart,
+    icon: "Heart",
   },
   armor: {
     value: 100,
@@ -24,7 +24,7 @@ const initialHudState = {
     visible: true,
     hideBelow: 80,
     useHideBelow: true,
-    icon: Icons.Shield,
+    icon: "Shield",
   },
   hunger: {
     value: 100,
@@ -32,7 +32,7 @@ const initialHudState = {
     visible: true,
     hideBelow: 80,
     useHideBelow: true,
-    icon: Icons.Hamburger,
+    icon: "Hamburger",
   },
   thirst: {
     value: 100,
@@ -40,7 +40,7 @@ const initialHudState = {
     visible: true,
     hideBelow: 80,
     useHideBelow: true,
-    icon: Icons.Droplet,
+    icon: "Droplet",
   },
   stamina: {
     value: 100,
@@ -48,7 +48,7 @@ const initialHudState = {
     visible: true,
     hideBelow: 80,
     useHideBelow: true,
-    icon: Icons.Flash,
+    icon: "Flash",
   },
   stress: {
     value: 100,
@@ -56,22 +56,22 @@ const initialHudState = {
     visible: true,
     hideBelow: 80,
     useHideBelow: true,
-    icon: Icons.Stress,
+    icon: "Stress",
   },
 };
 
 const initialSpeedometerState = {
-  selectedSpeedometer: 0,
-  speedometerVisible: true,
+  selectedSpeedometer: 4,
+  speedometerVisible: false,
   speed: 0,
   speedometerType: 'KMH',
   speedometerColor: '#5ACBE3',
   fuel: 0,
   fuelColor: '#FFD850',
-  fuelIcon: Icons.GasPump,
+  fuelIcon: "GasPump",
   nitrous: 0,
   nitrousColor: '#E35ABD',
-  nitrousIcon: Icons.Flash,
+  nitrousIcon: "Flash",
   seatbelt: false,
   doors: false,
   lights: 0, // 0: off, 1: low beam, 2: high beam
@@ -109,7 +109,7 @@ const initialUserInfoSettingsState = {
 
 const initialConfigState = {
   serverLogo: 'https://files.catbox.moe/406f5v.png',
-  inventoryImagePath: 'https://cfx-nui-ox_inventory/images/',
+  inventoryImagePath: 'nui://ox_inventory/web/images/',
 }
 
 // Define the reducer functions

@@ -7,6 +7,7 @@ import StatusBox from './Status/StatusBox';
 import SpeedoBox from './Speedometer/SpeedoBox';
 import { toggleSettingsMenu } from '../Store/store';
 import UserInfoBox from './UserInfo/UserInfoBox';
+import { useNuiEvent } from '../Hooks/useNuiEvent';
 
 const Home = () => {
   const generalSettings = useSelector(selectGeneralSettings);
@@ -16,6 +17,11 @@ const Home = () => {
   const handleSettingsMenu = () => {
     dispatch(toggleSettingsMenu(!generalSettings.showSettingsMenu));
   };
+
+  useNuiEvent('toggleSettings', (data: boolean) => {
+    dispatch(toggleSettingsMenu(data));
+  });
+
   return (
     <>
       <Flex
@@ -54,10 +60,6 @@ const Home = () => {
         direction={'row'}
         w={'100vw'}
         h={'100vh'}
-        // bgImage={'url(' + Background + ')'}
-        // bgSize={'cover'}
-        // bgPosition={'center'}
-        // bgRepeat={'no-repeat'}
         padding={'3.5vw'}
         zIndex={1}
         gap={8}

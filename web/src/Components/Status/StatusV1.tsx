@@ -1,11 +1,19 @@
 import { selectHud, selectGeneralSettings } from '../../Store/store';
 import { useSelector } from 'react-redux';
 import { Box, Flex, Text } from '@chakra-ui/react';
+import Icons from '../../Constants/Icons';
 
 const hudList = ["microphone", "health", "armor", "hunger", "thirst", "stamina", "stress"];
 
+interface HudStatus {
+  visible: boolean;
+  icon: keyof typeof Icons;
+  color: string;
+  value: number;
+}
+
 const StatusV1 = () => {
-  const hud = useSelector(selectHud);
+  const hud = useSelector(selectHud) as Record<string, HudStatus>;
   const generalSettings = useSelector(selectGeneralSettings);
   return (
     <Flex
@@ -39,7 +47,7 @@ const StatusV1 = () => {
                 alignItems={'center'}
                 position={'relative'}
               >
-                <Box as={hud[status].icon}
+                <Box as={Icons[hud[status].icon]}
                   size={'1.4vh'} color={hud[status].color} />
                 <Box
                   pos={'absolute'}

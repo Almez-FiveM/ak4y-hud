@@ -2,7 +2,6 @@ import { selectUserInfoSettings, selectConfig } from '../../Store/store';
 import { useSelector } from 'react-redux';
 import { Flex, Text, Image, Grid } from '@chakra-ui/react';
 import Icons from '../../Constants/Icons';
-
 const InfoV1 = () => {
   const userInfo = useSelector(selectUserInfoSettings);
   const config = useSelector(selectConfig);
@@ -44,8 +43,8 @@ const InfoV1 = () => {
                         <path d="M29.7113 15.5541L24.0646 25.3344C23.6463 26.0589 22.8733 26.5052 22.0368 26.5052L10.7434 26.5052C9.90689 26.5052 9.13391 26.0589 8.71564 25.3344L3.06895 15.5541C2.65069 14.8296 2.65069 13.937 3.06895 13.2126L8.71564 3.43223C9.13391 2.70778 9.90689 2.2615 10.7434 2.2615L22.0368 2.2615C22.8733 2.2615 23.6463 2.70778 24.0646 3.43223L29.7113 13.2126C30.1295 13.937 30.1295 14.8296 29.7113 15.5541Z" stroke="#E02BFD" strokeWidth="1" />
                         <defs>
                           <radialGradient id="paint0_radial_252_980" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(7.76603 14.3842) rotate(137.872) scale(16.4557 18.0742)">
-                            <stop stop-color="#E02BFD" stop-opacity="0.83" />
-                            <stop offset="1" stop-color="#B91FD1" />
+                            <stop stopColor="#E02BFD" stopOpacity="0.83" />
+                            <stop offset="1" stopColor="#B91FD1" />
                           </radialGradient>
                         </defs>
                       </svg>
@@ -70,8 +69,8 @@ const InfoV1 = () => {
                         <path d="M29.7113 15.5541L24.0646 25.3344C23.6463 26.0589 22.8733 26.5052 22.0368 26.5052L10.7434 26.5052C9.90689 26.5052 9.13391 26.0589 8.71564 25.3344L3.06895 15.5541C2.65069 14.8296 2.65069 13.937 3.06895 13.2126L8.71564 3.43223C9.13391 2.70778 9.90689 2.2615 10.7434 2.2615L22.0368 2.2615C22.8733 2.2615 23.6463 2.70778 24.0646 3.43223L29.7113 13.2126C30.1295 13.937 30.1295 14.8296 29.7113 15.5541Z" stroke="#619DF8" strokeWidth="1" />
                         <defs>
                           <radialGradient id="blue_cash" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(7.76603 14.3842) rotate(137.872) scale(16.4557 18.0742)">
-                            <stop stop-color="#2B7FFD" stop-opacity="0.83" />
-                            <stop offset="1" stop-color="#2066CD" />
+                            <stop stopColor="#2B7FFD" stopOpacity="0.83" />
+                            <stop offset="1" stopColor="#2066CD" />
                           </radialGradient>
                         </defs>
                       </svg>
@@ -96,8 +95,8 @@ const InfoV1 = () => {
                         <path d="M29.7113 15.5541L24.0646 25.3344C23.6463 26.0589 22.8733 26.5052 22.0368 26.5052L10.7434 26.5052C9.90689 26.5052 9.13391 26.0589 8.71564 25.3344L3.06895 15.5541C2.65069 14.8296 2.65069 13.937 3.06895 13.2126L8.71564 3.43223C9.13391 2.70778 9.90689 2.2615 10.7434 2.2615L22.0368 2.2615C22.8733 2.2615 23.6463 2.70778 24.0646 3.43223L29.7113 13.2126C30.1295 13.937 30.1295 14.8296 29.7113 15.5541Z" stroke="#F95E5E" strokeWidth="1" />
                         <defs>
                           <radialGradient id="red_id" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(7.76603 14.3842) rotate(137.872) scale(16.4557 18.0742)">
-                            <stop stop-color="#FD2B2B" stop-opacity="0.83" />
-                            <stop offset="1" stop-color="#D12121" />
+                            <stop stopColor="#FD2B2B" stopOpacity="0.83" />
+                            <stop offset="1" stopColor="#D12121" />
                           </radialGradient>
                         </defs>
                       </svg>
@@ -122,8 +121,8 @@ const InfoV1 = () => {
                         <path d="M29.7113 15.5541L24.0646 25.3344C23.6463 26.0589 22.8733 26.5052 22.0368 26.5052L10.7434 26.5052C9.90689 26.5052 9.13391 26.0589 8.71564 25.3344L3.06895 15.5541C2.65069 14.8296 2.65069 13.937 3.06895 13.2126L8.71564 3.43223C9.13391 2.70778 9.90689 2.2615 10.7434 2.2615L22.0368 2.2615C22.8733 2.2615 23.6463 2.70778 24.0646 3.43223L29.7113 13.2126C30.1295 13.937 30.1295 14.8296 29.7113 15.5541Z" stroke="#5DF3AB" strokeWidth="1" />
                         <defs>
                           <radialGradient id="green_bank" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(7.76603 14.3842) rotate(137.872) scale(16.4557 18.0742)">
-                            <stop stop-color="#2BFD98" stop-opacity="0.83" />
-                            <stop offset="1" stop-color="#1ECE79" />
+                            <stop stopColor="#2BFD98" stopOpacity="0.83" />
+                            <stop offset="1" stopColor="#1ECE79" />
                           </radialGradient>
                         </defs>
                       </svg>
@@ -159,21 +158,21 @@ const InfoV1 = () => {
                     <path d="M29.7113 15.5541L24.0646 25.3344C23.6463 26.0589 22.8733 26.5052 22.0368 26.5052L10.7434 26.5052C9.90689 26.5052 9.13391 26.0589 8.71564 25.3344L3.06895 15.5541C2.65069 14.8296 2.65069 13.937 3.06895 13.2126L8.71564 3.43223C9.13391 2.70778 9.90689 2.2615 10.7434 2.2615L22.0368 2.2615C22.8733 2.2615 23.6463 2.70778 24.0646 3.43223L29.7113 13.2126C30.1295 13.937 30.1295 14.8296 29.7113 15.5541Z" stroke="#F6DE5E" strokeWidth="1" />
                     <defs>
                       <radialGradient id="yellow_job" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(7.76603 14.3842) rotate(137.872) scale(16.4557 18.0742)">
-                        <stop stop-color="#FDDB2B" stop-opacity="0.83" />
-                        <stop offset="1" stop-color="#CEB220" />
+                        <stop stopColor="#FDDB2B" stopOpacity="0.83" />
+                        <stop offset="1" stopColor="#CEB220" />
                       </radialGradient>
                     </defs>
                   </svg>
                 </Flex>
               </Flex>
             </Flex>
-            <Flex flexDir={'column'} align={'flex-end'}>
+            {userInfo.weaponLabel !== '' && (<Flex flexDir={'column'} align={'flex-end'}>
               <Flex
                 width={'70%'}
                 height={'5vh'}
               >
                 <Image
-                  src='https://files.catbox.moe/j0cv3z.png'
+                  src={`${config.inventoryImagePath}${userInfo.weapon}.png`}
                   width={'100%'}
                   height={'100%'}
                   objectFit={'contain'}
@@ -198,15 +197,15 @@ const InfoV1 = () => {
                       <path d="M29.7113 15.5541L24.0646 25.3344C23.6463 26.0589 22.8733 26.5052 22.0368 26.5052L10.7434 26.5052C9.90689 26.5052 9.13391 26.0589 8.71564 25.3344L3.06895 15.5541C2.65069 14.8296 2.65069 13.937 3.06895 13.2126L8.71564 3.43223C9.13391 2.70778 9.90689 2.2615 10.7434 2.2615L22.0368 2.2615C22.8733 2.2615 23.6463 2.70778 24.0646 3.43223L29.7113 13.2126C30.1295 13.937 30.1295 14.8296 29.7113 15.5541Z" stroke="#619DF8" strokeWidth="1" />
                       <defs>
                         <radialGradient id="blue_weapon" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(7.76603 14.3842) rotate(137.872) scale(16.4557 18.0742)">
-                          <stop stop-color="#2B7FFD" stop-opacity="0.83" />
-                          <stop offset="1" stop-color="#2066CD" />
+                          <stop stopColor="#2B7FFD" stopOpacity="0.83" />
+                          <stop offset="1" stopColor="#2066CD" />
                         </radialGradient>
                       </defs>
                     </svg>
                   </Flex>
                 </Flex>
               </Flex>
-            </Flex>
+            </Flex>)}
           </Flex>
         </Flex>
       </Flex>

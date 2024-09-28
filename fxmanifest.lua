@@ -5,7 +5,11 @@ author 'almez#0 & ak4y'
 description 'Ak4y Hud | discord.gg/ak4y'
 
 client_scripts {
-  'client/*.lua',
+  'client/**',
+}
+
+shared_scripts {
+  'Config.lua',
 }
 
 -- server_scripts {

@@ -28,7 +28,8 @@ const SpeedoV5 = () => {
       <Flex width={'99%'} align={"center"} justify={"center"} pos={'absolute'} height={'100%'} zIndex={999}>
         <svg width="100%" height="100%" strokeDasharray={`${speedToDash} 1700`} style={
           {
-            filter: `drop-shadow(0px 0px 10px ${colord("#F18141").alpha(0.5).toHex()})`
+            filter: `drop-shadow(0px 0px 10px ${colord("#F18141").alpha(0.5).toHex()})`,
+            transition: 'all 0.5s ease'
           }
         }
           viewBox="0 0 272 272" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -39,8 +40,8 @@ const SpeedoV5 = () => {
             stroke="url(#paint0_linear_12_5611)" strokeWidth="6" mask="url(#path-1-inside-1_232_1007)" />
           <defs>
             <linearGradient id="paint0_linear_12_5611" x1="152.183" y1="-22.8355" x2="32.139" y2="213.789" gradientUnits="userSpaceOnUse">
-              <stop stop-color={colord('#F18141').lighten(0.2).toHex()} />
-              <stop offset="1" stop-color="#F18141" stop-opacity="0.84" />
+              <stop stopColor={colord('#F18141').lighten(0.2).toHex()} />
+              <stop offset="1" stopColor="#F18141" stopOpacity="0.84" />
             </linearGradient>
           </defs>
         </svg>
@@ -60,8 +61,8 @@ const SpeedoV5 = () => {
           />
           <defs>
             <linearGradient id="paint0_linear_12_5604" x1="32.7695" y1="3.93414" x2="2.72835" y2="53.2016" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#F18141" />
-              <stop offset="1" stop-color="#543320" />
+              <stop stopColor="#F18141" />
+              <stop offset="1" stopColor="#543320" />
             </linearGradient>
           </defs>
         </svg>
@@ -94,8 +95,8 @@ const SpeedoV5 = () => {
           />
           <defs>
             <linearGradient id="paint0_linear_12_5605" x1="32.7695" y1="3.93414" x2="2.72835" y2="53.2016" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#CF79E4" />
-              <stop offset="1" stop-color="#4A2054" />
+              <stop stopColor="#CF79E4" />
+              <stop offset="1" stopColor="#4A2054" />
             </linearGradient>
           </defs>
         </svg>
@@ -136,8 +137,8 @@ const SpeedoV5 = () => {
               <feBlend mode="normal" in2="shape" result="effect1_innerShadow_12_5358" />
             </filter>
             <linearGradient id="paint0_linear_12_5358" x1="145.965" y1="-0.000427246" x2="145.965" y2="291.93" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#1A1A1A" />
-              <stop offset="1" stop-color="#161616" />
+              <stop stopColor="#1A1A1A" />
+              <stop offset="1" stopColor="#161616" />
             </linearGradient>
           </defs>
         </svg>
@@ -271,7 +272,7 @@ const SpeedoV5 = () => {
           />
           <Icons.Headlights
             size={'.7vw'}
-            color={(speedo.lights === 2) ? '#5CF99D' : ((speedo.lights === 1) ? '#58D2EE' : '#DFDFDF')}
+            color={(speedo.lights === 2) ? '#5CF99D' : ((speedo.lights === 1) ? '#E35ABD' : '#DFDFDF')}
           />
         </Flex>
       </Flex>

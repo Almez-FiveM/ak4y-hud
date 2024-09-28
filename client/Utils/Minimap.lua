@@ -1,7 +1,7 @@
 function loadMap()
   DisplayRadar(false)
   if not firstLoad then
-    Notify("Loading...", "Please wait while the map is loading.", "success", 5e3, "fa-solid fa-map", "green")
+    Config.Notify("Loading...", "Please wait while the map is loading.", "success", 5e3, "fa-solid fa-map", "green")
   end
   local defaultAspectRatio = 1.92e3 / 1.08e3
   local resolutionX, resolutionY = GetActiveScreenResolution()
@@ -27,7 +27,7 @@ function loadMap()
   if not firstLoad then
     firstLoad = true
     Citizen.SetTimeout(1e3, function()
-      Notify("Loaded", "The map has been loaded.", "success", 5e3, "fa-solid fa-map", "green")
+      Config.Notify("Loaded", "The map has been loaded.", "success", 5e3, "fa-solid fa-map", "green")
     end)
   end
 end

@@ -2,11 +2,19 @@ import { selectHud, selectGeneralSettings } from '../../Store/store';
 import { useSelector } from 'react-redux';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { colord } from "colord";
+import Icons from '../../Constants/Icons';
 
 const hudList = ["health", "thirst", "hunger", "stamina", "armor", "stress"];
 
+interface HudStatus {
+  visible: boolean;
+  icon: keyof typeof Icons;
+  color: string;
+  value: number;
+}
+
 const StatusV3 = () => {
-  const hud = useSelector(selectHud);
+  const hud = useSelector(selectHud) as Record<string, HudStatus>;
   const generalSettings = useSelector(selectGeneralSettings);
   return (
     <Flex
@@ -20,7 +28,6 @@ const StatusV3 = () => {
     >
       {hudList.map((status, index) => {
         if (hud[status].visible) {
-          const gradientColor = hud[status].gradientColor;
           return (
             <Flex
               display={'flex'}
@@ -49,7 +56,7 @@ const StatusV3 = () => {
                   }
                 }
               >
-                <Box as={hud[status].icon}
+                <Box as={Icons[hud[status].icon]}
                   size={'1.4vh'} color={'#FFF'}
                   className='status-icon-gradient'
                   zIndex={1} />

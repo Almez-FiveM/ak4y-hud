@@ -113,14 +113,14 @@ const SpeedoV6 = () => {
           <path d="M89.4409 3.29774C103.024 7.79749 114.742 16.6534 122.779 28.492C130.815 40.3305 134.721 54.4901 133.89 68.7747C133.059 83.0593 127.538 96.6705 118.183 107.497C108.828 118.324 96.1617 125.762 82.1488 128.656L81.7709 126.827C95.381 124.015 107.683 116.792 116.769 106.276C125.856 95.7603 131.218 82.5402 132.025 68.6662C132.832 54.7922 129.039 41.0395 121.233 29.5412C113.427 18.0429 102.046 9.44155 88.8534 5.07113L89.4409 3.29774Z" fill="url(#paint1_linear_1_3178)" />
           <defs>
             <linearGradient id="paint0_linear_1_3178" x1="65" y1="0" x2="65" y2="130" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#101319" stop-opacity="0" />
-              <stop offset="0.5" stop-color="#58D2EE" />
-              <stop offset="1" stop-color="#101319" stop-opacity="0" />
+              <stop stopColor="#101319" stopOpacity="0" />
+              <stop offset="0.5" stopColor="#58D2EE" />
+              <stop offset="1" stopColor="#101319" stopOpacity="0" />
             </linearGradient>
             <linearGradient id="paint1_linear_1_3178" x1="69" y1="0" x2="69" y2="130" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#101319" stop-opacity="0" />
-              <stop offset="0.5" stop-color="#58D2EE" />
-              <stop offset="1" stop-color="#101319" stop-opacity="0" />
+              <stop stopColor="#101319" stopOpacity="0" />
+              <stop offset="0.5" stopColor="#58D2EE" />
+              <stop offset="1" stopColor="#101319" stopOpacity="0" />
             </linearGradient>
           </defs>
         </svg>

@@ -98,6 +98,13 @@ const theme = extendTheme({
       "900": "#003318"
     },
   },
+  styles: {
+    global: {
+      body: {
+        bg: '',
+      }
+    }
+  },
   breakpoints,
 })
 

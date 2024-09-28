@@ -5,9 +5,9 @@ RegisterCommand("toggleseatbelt", function(src, args, raw)
   if vehicle ~= 0 then
     SeatBelt = not SeatBelt
     if SeatBelt then
-      Notify('Seatbelt', 'You have put on your seat belt.', "success", 5e3, "fas fa-car-crash", "green")
+      Config.Notify('Seatbelt', 'You have put on your seat belt.', "success", 5e3, "fas fa-car-crash", "green")
     else
-      Notify('Seatbelt', 'You removed your seatbelt.', "error", 5e3, "fas fa-car-crash", "red")
+      Config.Notify('Seatbelt', 'You removed your seatbelt.', "error", 5e3, "fas fa-car-crash", "red")
     end
   end
 end)

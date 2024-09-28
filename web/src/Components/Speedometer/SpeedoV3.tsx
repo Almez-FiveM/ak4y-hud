@@ -40,8 +40,8 @@ const SpeedoV3 = () => {
               <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1_3766" />
             </filter>
             <linearGradient id="paint0_linear_1_3766" x1="134" y1="5" x2="133.621" y2="235.294" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#296F54" />
-              <stop offset="1" stop-color="#000101" />
+              <stop stopColor="#296F54" />
+              <stop offset="1" stopColor="#000101" />
             </linearGradient>
           </defs>
         </svg>
@@ -69,8 +69,8 @@ const SpeedoV3 = () => {
           />
           <defs>
             <linearGradient id="paint0_linear_224_955" x1="127.833" y1="5.86184" x2="31.1523" y2="201.517" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#6CDAAF" />
-              <stop offset="1" stop-color="#1D4E3B" />
+              <stop stopColor="#6CDAAF" />
+              <stop offset="1" stopColor="#1D4E3B" />
             </linearGradient>
           </defs>
         </svg>
@@ -80,7 +80,7 @@ const SpeedoV3 = () => {
           <path d="M117.85 126.606C129.207 117.161 137.363 104.433 141.199 90.1685C145.034 75.9038 144.361 60.8016 139.272 46.9347C134.183 33.0677 124.926 21.1157 112.774 12.7188C100.621 4.322 86.1676 -0.108066 71.3969 0.0366366C56.6262 0.181339 42.2623 4.89372 30.2765 13.527C18.2907 22.1603 9.2704 34.2914 4.45367 48.2554C-0.36306 62.2194 -0.740183 77.3319 3.37406 91.5187C7.4883 105.706 15.8923 118.271 27.4325 127.492L29.6235 124.75C18.6493 115.982 10.6576 104.032 6.74515 90.5411C2.83272 77.0501 3.19135 62.679 7.7718 49.4C12.3523 36.121 20.93 24.5849 32.3279 16.3751C43.7258 8.16528 57.3851 3.68406 71.4313 3.54646C85.4774 3.40885 99.2219 7.62161 110.778 15.6066C122.335 23.5915 131.137 34.9573 135.977 48.144C140.817 61.3307 141.457 75.6921 137.809 89.2571C134.162 102.822 126.406 114.926 115.606 123.907L117.85 126.606Z" fill="url(#paint0_linear_1_3802)" />
           <defs>
             <linearGradient id="paint0_linear_1_3802" x1="72.0978" y1="0.0332031" x2="72.0978" y2="143.144" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#6CD8AE" />
+              <stop stopColor="#6CD8AE" />
               <stop offset="1" />
             </linearGradient>
           </defs>

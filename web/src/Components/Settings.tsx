@@ -3,17 +3,12 @@ import { Box, Flex, Text } from '@chakra-ui/react';
 import SettingsCfg from '../Constants/Settings';
 import settings_bg from '../Assets/settings_bg.png';
 import SettingsHeader from './Settings/SettingsHeader';
-import { useNuiEvent } from '../Hooks/useNuiEvent';
-import { toggleSettingsMenu, selectGeneralSettings } from '../Store/store';
 import { useDispatch } from 'react-redux';
 
 const Settings = () => {
   const [selected, setSelected] = React.useState<number>(0);
   const dispatch = useDispatch();
 
-  useNuiEvent('toggleSettings', (data: boolean) => {
-    dispatch(toggleSettingsMenu(data));
-  });
   
   return (
     <>

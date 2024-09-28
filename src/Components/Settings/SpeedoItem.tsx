@@ -13,10 +13,9 @@ interface SettingsItemProps {
 const SpeedoItem: React.FC<SettingsItemProps> = ({ children, style, index, click}) => {
   const speedo = useSelector(selectSpeedometer);
   const isSelected = speedo.selectedSpeedometer === index;
-  console.log(isSelected);
   const axis = style?.flexDirection === 'column' ? 'row' : 'column';
   const StatusData = StatusList[index as number];
-  console.log(axis);
+
   return (
     <Flex
       width={'100%'}

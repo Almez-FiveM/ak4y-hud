@@ -11,7 +11,6 @@ interface BigSettingsProps {
 }
 
 const BigSettings: React.FC<BigSettingsProps> = ({ toggle, title, desc, boolean, icon, gridArea}) => {
-  console.log('MiniSettings', boolean, title);
   return (
     <Flex
       width={'100%'}

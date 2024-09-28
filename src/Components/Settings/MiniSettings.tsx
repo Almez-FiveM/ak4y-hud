@@ -10,7 +10,6 @@ interface MiniSettingsProps {
 }
 
 const MiniSettings: React.FC<MiniSettingsProps> = ({ toggle, title, desc, boolean, icon }) => {
-  console.log('MiniSettings', boolean, title);
   return (
     <Flex
       width={'100%'}

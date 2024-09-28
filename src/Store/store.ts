@@ -63,7 +63,7 @@ const initialHudState = {
 const initialSpeedometerState = {
   selectedSpeedometer: 4,
   speedometerVisible: true,
-  speed: 200,
+  speed: 150,
   speedometerType: 'KMH',
   speedometerColor: '#5ACBE3',
   fuel: 50,
@@ -76,7 +76,11 @@ const initialSpeedometerState = {
   doors: false,
   lights: 0, // 0: off, 1: low beam, 2: high beam
   engine: false,
+  vehType: "plane" as VehicleType,
 };
+
+// CarTypes
+type VehicleType = "car" | "bike" | "plane" | "boat";
 
 const initialGeneralSettingsState = {
   showSettingsMenu: false,

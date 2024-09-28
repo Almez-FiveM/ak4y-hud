@@ -21,7 +21,6 @@ const StatusV3 = () => {
       {hudList.map((status, index) => {
         if (hud[status].visible) {
           const gradientColor = hud[status].gradientColor;
-          console.log(hud[status].color, gradientColor, hud[status].bgColor);
           return (
             <Flex
               display={'flex'}

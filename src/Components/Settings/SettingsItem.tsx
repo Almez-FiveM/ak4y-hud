@@ -13,10 +13,9 @@ interface SettingsItemProps {
 const SettingsItem: React.FC<SettingsItemProps> = ({ children, style, index, click}) => {
   const hud = useSelector(selectHud);
   const isSelected = hud.selectedStatus === index;
-  console.log(isSelected);
   const axis = style?.flexDirection === 'column' ? 'row' : 'column';
   const StatusData = StatusList[index as number];
-  console.log(axis);
+
   return (
     <Flex
       {...axis === 'row' ? {

@@ -4,12 +4,14 @@ import SpeedoItem from '../Settings/SpeedoItem';
 import SpeedoList from '../../Constants/SpeedoList';
 import { selectSpeedometer, updateSpeedometerData } from '../../Store/store';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNuiEvent } from '../../Hooks/useNuiEvent';
 const Speedometer = () => {
   const dispatch = useDispatch();
-  const speedo = useSelector(selectSpeedometer);
+
   const handleUpdate = (index: number): void => {
     dispatch(updateSpeedometerData("selectedSpeedometer", index));
   };
+
   return (
     <Grid
       w={'100%'}

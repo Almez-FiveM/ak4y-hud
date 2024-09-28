@@ -1,9 +1,9 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import Icons from '../Constants/Icons';
 const initialHudState = {
-  selectedStatus: 8,
+  selectedStatus: 0,
   microphone: {
-    value: 66,
+    value: 100,
     color: '#FFF',
     visible: true,
     hideBelow: 80,
@@ -11,7 +11,7 @@ const initialHudState = {
     icon: Icons.Microphone,
   },
   health: {
-    value: 0,
+    value: 100,
     color: '#FF3333',
     visible: true,
     hideBelow: 80,
@@ -19,7 +19,7 @@ const initialHudState = {
     icon: Icons.Heart,
   },
   armor: {
-    value: 15,
+    value: 100,
     color: '#339DFF',
     visible: true,
     hideBelow: 80,
@@ -27,7 +27,7 @@ const initialHudState = {
     icon: Icons.Shield,
   },
   hunger: {
-    value: 30,
+    value: 100,
     color: '#FF7C33',
     visible: true,
     hideBelow: 80,
@@ -35,7 +35,7 @@ const initialHudState = {
     icon: Icons.Hamburger,
   },
   thirst: {
-    value: 45,
+    value: 100,
     color: '#50CAFF',
     visible: true,
     hideBelow: 80,
@@ -43,7 +43,7 @@ const initialHudState = {
     icon: Icons.Droplet,
   },
   stamina: {
-    value: 60,
+    value: 100,
     color: '#8133FF',
     visible: true,
     hideBelow: 80,
@@ -61,22 +61,22 @@ const initialHudState = {
 };
 
 const initialSpeedometerState = {
-  selectedSpeedometer: 4,
+  selectedSpeedometer: 0,
   speedometerVisible: true,
-  speed: 180,
+  speed: 0,
   speedometerType: 'KMH',
   speedometerColor: '#5ACBE3',
-  fuel: 50,
+  fuel: 0,
   fuelColor: '#FFD850',
   fuelIcon: Icons.GasPump,
-  nitrous: 50,
+  nitrous: 0,
   nitrousColor: '#E35ABD',
   nitrousIcon: Icons.Flash,
-  seatbelt: true,
+  seatbelt: false,
   doors: false,
   lights: 0, // 0: off, 1: low beam, 2: high beam
   engine: false,
-  vehType: "boat" as VehicleType,
+  vehType: "car" as VehicleType,
 };
 
 // CarTypes
@@ -95,7 +95,7 @@ const initialGeneralSettingsState = {
 };
 
 const initialUserInfoSettingsState = {
-  selectedUserInfo: 1,
+  selectedUserInfo: 0,
   onlineCount: 34,
   id: 940,
   cash: 100000,

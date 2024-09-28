@@ -54,10 +54,10 @@ const Home = () => {
         direction={'row'}
         w={'100vw'}
         h={'100vh'}
-        bgImage={'url(' + Background + ')'}
-        bgSize={'cover'}
-        bgPosition={'center'}
-        bgRepeat={'no-repeat'}
+        // bgImage={'url(' + Background + ')'}
+        // bgSize={'cover'}
+        // bgPosition={'center'}
+        // bgRepeat={'no-repeat'}
         padding={'3.5vw'}
         zIndex={1}
         gap={8}

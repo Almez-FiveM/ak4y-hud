@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Divider, Flex, Text } from '@chakra-ui/react';
 import { selectSpeedometer } from '../../Store/store';
 import { useSelector } from 'react-redux';
-import StatusList from '../../Constants/StatusList';
+import SpeedoList from '../../Constants/SpeedoList';
 interface SettingsItemProps {
   children: React.ReactNode;
   style?: React.CSSProperties;
@@ -14,7 +14,7 @@ const SpeedoItem: React.FC<SettingsItemProps> = ({ children, style, index, click
   const speedo = useSelector(selectSpeedometer);
   const isSelected = speedo.selectedSpeedometer === index;
   const axis = style?.flexDirection === 'column' ? 'row' : 'column';
-  const StatusData = StatusList[index as number];
+  const StatusData = SpeedoList[index as number];
 
   return (
     <Flex

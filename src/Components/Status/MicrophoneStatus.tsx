@@ -6,7 +6,9 @@ import { colord } from "colord";
 const MicrophoneStatus = () => {
   const hud = useSelector(selectHud);
   const generalSettings = useSelector(selectGeneralSettings);
-
+  if (!hud.microphone.visible){
+    return null;
+  }
   return (
     <Flex
       width={'5vh'}

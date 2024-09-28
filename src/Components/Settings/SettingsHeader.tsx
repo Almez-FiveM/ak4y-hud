@@ -1,16 +1,18 @@
 import React from 'react';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import SettingsConst from '../../Constants/Settings';
+import { toggleSettingsMenu } from '../../Store/store';
+import { useDispatch } from 'react-redux';
+
 const selected_button = 'https://files.catbox.moe/wzq95s.png';
 const header_button = 'https://files.catbox.moe/s1jwkn.png';
-
 interface SettingsHeaderProps {
   onClick?: (index: number) => void;
   selected?: number;
 }
 
 const SettignsHeader: React.FC<SettingsHeaderProps> = ({ onClick, selected }) => {
-
+  const dispatch = useDispatch();
   return (
     <Flex
     className="settings-header"
@@ -78,6 +80,8 @@ const SettignsHeader: React.FC<SettingsHeaderProps> = ({ onClick, selected }) =>
       alignItems={'center'}
       w={'4vw'}
       h={'100%'}
+      cursor={'pointer'}
+      onClick={() => dispatch(toggleSettingsMenu())}
     >
       <Flex
         justifyContent={'center'}

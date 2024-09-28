@@ -1,7 +1,7 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import Icons from '../Constants/Icons';
 const initialHudState = {
-  selectedStatus: 7,
+  selectedStatus: 8,
   microphone: {
     value: 66,
     color: '#FFF',
@@ -19,7 +19,7 @@ const initialHudState = {
     icon: Icons.Heart,
   },
   armor: {
-    value: 10,
+    value: 15,
     color: '#339DFF',
     visible: true,
     hideBelow: 80,
@@ -27,7 +27,7 @@ const initialHudState = {
     icon: Icons.Shield,
   },
   hunger: {
-    value: 25,
+    value: 30,
     color: '#FF7C33',
     visible: true,
     hideBelow: 80,
@@ -35,7 +35,7 @@ const initialHudState = {
     icon: Icons.Hamburger,
   },
   thirst: {
-    value: 50,
+    value: 45,
     color: '#50CAFF',
     visible: true,
     hideBelow: 80,
@@ -43,7 +43,7 @@ const initialHudState = {
     icon: Icons.Droplet,
   },
   stamina: {
-    value: 75,
+    value: 60,
     color: '#8133FF',
     visible: true,
     hideBelow: 80,
@@ -61,9 +61,9 @@ const initialHudState = {
 };
 
 const initialSpeedometerState = {
-  selectedSpeedometer: 0,
+  selectedSpeedometer: 4,
   speedometerVisible: true,
-  speed: 99,
+  speed: 200,
   speedometerType: 'KMH',
   speedometerColor: '#5ACBE3',
   fuel: 50,
@@ -75,26 +75,38 @@ const initialSpeedometerState = {
   seatbelt: true,
   doors: false,
   lights: 0, // 0: off, 1: low beam, 2: high beam
-  engine: true,
+  engine: false,
 };
 
 const initialGeneralSettingsState = {
   showSettingsMenu: false,
   showLocation: true,
-  cinematicMode: false,
   showMinimap: true,
-  editMode: false,
   hideEverything: false,
+  editMode: false,
+  cinematicMode: false,
   showMicrophone: true,
   showPercentageInStatus: true,
   mapLocationEditMode: false,
 };
 
-
 const initialUserInfoSettingsState = {
   selectedUserInfo: 1,
+  onlineCount: 34,
+  id: 940,
+  cash: 100000,
+  bank: 500000,
+  job: 'Unemployed',
+  weapon: 'weapon_shotgun',
+  weaponLabel: 'Shotgun UR1',
+  ammoCount: 10,
+  ammoMax: 400,
 };
 
+const initialConfigState = {
+  serverLogo: 'https://files.catbox.moe/406f5v.png',
+  inventoryImagePath: 'https://cfx-nui-ox_inventory/images/',
+}
 
 // Define the reducer functions
 const hudReducer = (state = initialHudState, action: { type: any; payload: any; }) => {
@@ -112,7 +124,14 @@ const hudReducer = (state = initialHudState, action: { type: any; payload: any; 
           value: action.payload,
         },
       };
-
+    case 'TOGGLE_HEALTH':
+      return {
+        ...state,
+        health: {
+          ...state.health,
+          visible: !state.health.visible,
+        },
+      };
     case 'UPDATE_ARMOR':
       return {
         ...state,
@@ -121,7 +140,14 @@ const hudReducer = (state = initialHudState, action: { type: any; payload: any; 
           value: action.payload,
         },
       };
-
+    case 'TOGGLE_ARMOR':
+      return {
+        ...state,
+        armor: {
+          ...state.armor,
+          visible: !state.armor.visible,
+        },
+      };
     case 'UPDATE_HUNGER':
       return {
         ...state,
@@ -130,7 +156,14 @@ const hudReducer = (state = initialHudState, action: { type: any; payload: any; 
           value: action.payload,
         },
       };
-
+    case 'TOGGLE_HUNGER':
+      return {
+        ...state,
+        hunger: {
+          ...state.hunger,
+          visible: !state.hunger.visible,
+        },
+      };
     case 'UPDATE_THIRST':
       return {
         ...state,
@@ -139,7 +172,22 @@ const hudReducer = (state = initialHudState, action: { type: any; payload: any; 
           value: action.payload,
         },
       };
-
+    case 'TOGGLE_THIRST':
+      return {
+        ...state,
+        thirst: {
+          ...state.thirst,
+          visible: !state.thirst.visible,
+        },
+      };
+    case 'TOGGLE_MICROPHONE':
+      return {
+        ...state,
+        microphone: {
+          ...state.microphone,
+          visible: !state.microphone.visible,
+        },
+      };
     case 'UPDATE_STAMINA':
       return {
         ...state,
@@ -148,13 +196,28 @@ const hudReducer = (state = initialHudState, action: { type: any; payload: any; 
           value: action.payload,
         },
       };
-
+    case 'TOGGLE_STAMINA':
+      return {
+        ...state,
+        stamina: {
+          ...state.stamina,
+          visible: !state.stamina.visible,
+        },
+      };
     case 'UPDATE_STRESS':
       return {
         ...state,
         stress: {
           ...state.stress,
           value: action.payload,
+        },
+      };
+    case 'TOGGLE_STRESS':
+      return {
+        ...state,
+        stress: {
+          ...state.stress,
+          visible: !state.stress.visible,
         },
       };
     default:
@@ -226,12 +289,17 @@ const generalSettingsReducer = (state = initialGeneralSettingsState, action: { t
 // Define the reducer functions
 const userInfoSettingsReducer = (state = initialUserInfoSettingsState, action: { type: any; payload: any; }) => {
   switch (action.type) {
-    case 'UPDATE_USER_INFO':
+    case 'UPDATE_SELECTED_USER_INFO':
       return {
         ...state,
         selectedUserInfo: action.payload,
       };
-
+    
+    case 'UPDATE_USER_INFO':
+      return {
+        ...state,
+        ...action.payload,
+      };
     default:
       return state;
   }
@@ -242,9 +310,22 @@ const speedometerReducer = (state = initialSpeedometerState, action: { type: any
   switch (action.type) {
     case 'UPDATE_SPEEDOMETER_DATA':
       return {
-        state: action.payload,
+        ...state,
+        [action.payload.dataToUpdate]: action.payload.value,
       };
 
+    default:
+      return state;
+  }
+};
+
+const configReducer = (state = initialConfigState, action: { type: any; payload: any; }) => {
+  switch (action.type) {
+    case 'UPDATE_CONFIG_DATA':
+      return {
+        ...state,
+        [action.payload.dataToUpdate]: action.payload.value,
+      };
     default:
       return state;
   }
@@ -256,6 +337,7 @@ const rootReducer = combineReducers({
   speedometer: speedometerReducer,
   generalSettings: generalSettingsReducer,
   userInfoSettings: userInfoSettingsReducer,
+  config: configReducer,
 });
 
 // Create the store
@@ -269,7 +351,7 @@ export const selectHud = (state: { hud: any; }) => state.hud;
 export const selectSpeedometer = (state: { speedometer: any; }) => state.speedometer;
 export const selectGeneralSettings = (state: { generalSettings: any; }) => state.generalSettings;
 export const selectUserInfoSettings = (state: { userInfoSettings: any; }) => state.userInfoSettings;
-
+export const selectConfig = (state: { config: any; }) => state.config;
 
 // Define the action creators
 export const updateSelectedStatus = (status: number) => {
@@ -318,6 +400,42 @@ export const updateStress = (stress: number) => {
   return {
     type: 'UPDATE_STRESS',
     payload: stress,
+  };
+};
+
+export const toggleHealth = () => {
+  return {
+    type: 'TOGGLE_HEALTH',
+  };
+};
+
+export const toggleArmor = () => {
+  return {
+    type: 'TOGGLE_ARMOR',
+  };
+};
+
+export const toggleHunger = () => {
+  return {
+    type: 'TOGGLE_HUNGER',
+  };
+};
+
+export const toggleThirst = () => {
+  return {
+    type: 'TOGGLE_THIRST',
+  };
+};
+
+export const toggleStamina = () => {
+  return {
+    type: 'TOGGLE_STAMINA',
+  };
+};
+
+export const toggleStress = () => {
+  return {
+    type: 'TOGGLE_STRESS',
   };
 };
 
@@ -375,10 +493,13 @@ export const toggleMapLocationEditMode = () => {
   };
 };
 
-export const updateSpeedometer = (speedometer: number) => {
+export const updateSpeedometerData = (dataToUpdate: any, value: any) => {
   return {
-    type: 'UPDATE_SPEEDOMETER',
-    payload: speedometer,
+    type: 'UPDATE_SPEEDOMETER_DATA',
+    payload: {
+      dataToUpdate,
+      value,
+    },
   };
 };
 
@@ -388,3 +509,20 @@ export const updateUserInfo = (userInfo: number) => {
     payload: userInfo,
   };
 };
+
+export const updateSelectedUserInfo = (userInfo: number) => {
+  return {
+    type: 'UPDATE_SELECTED_USER_INFO',
+    payload: userInfo,
+  };
+};
+
+export const updateConfigData = (dataToUpdate: any, value: any) => {
+  return {
+    type: 'UPDATE_CONFIG_DATA',
+    payload: {
+      dataToUpdate,
+      value,
+    },
+  };
+}

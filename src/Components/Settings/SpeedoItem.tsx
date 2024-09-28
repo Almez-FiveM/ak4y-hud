@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Divider, Flex, Text } from '@chakra-ui/react';
-import { selectHud } from '../../Store/store';
+import { selectSpeedometer } from '../../Store/store';
 import { useSelector } from 'react-redux';
 import StatusList from '../../Constants/StatusList';
 interface SettingsItemProps {
@@ -10,28 +10,17 @@ interface SettingsItemProps {
   click?: (index: number) => void;
 }
 
-const SettingsItem: React.FC<SettingsItemProps> = ({ children, style, index, click}) => {
-  const hud = useSelector(selectHud);
-  const isSelected = hud.selectedStatus === index;
+const SpeedoItem: React.FC<SettingsItemProps> = ({ children, style, index, click}) => {
+  const speedo = useSelector(selectSpeedometer);
+  const isSelected = speedo.selectedSpeedometer === index;
   console.log(isSelected);
   const axis = style?.flexDirection === 'column' ? 'row' : 'column';
   const StatusData = StatusList[index as number];
   console.log(axis);
   return (
     <Flex
-      {...axis === 'row' ? {
-        style: {
-          ...style,
-          width: '100%',
-          height: '8.8vh',
-        }
-      } : {
-        style: {
-          ...style,
-          width: '100%',
-          height: '20vh',
-        }
-      }}
+      width={'100%'}
+      height={'auto'}
       className="settings-item"
       bg={'#272223'}
       border={'1px solid  rgba(255, 255, 255, 0.15)'}
@@ -45,39 +34,32 @@ const SettingsItem: React.FC<SettingsItemProps> = ({ children, style, index, cli
         justifyContent={'center'}
         alignItems={'center'}
         flexDir={'column'}
-        style={
-          {
-            zoom: '0.56',
-          }
-        }
         className='settings-item-content'
       >
         <Flex
           justifyContent={'center'}
-          alignItems={'flex-end'}
+          alignItems={'center'}
           width={'100%'}
           height={'100%'}
+          style={
+            {
+              zoom: '0.56',
+            }
+          }
         >
-          <Flex
-            width={'100%'}
-            height={'60%'}
-            justify={'center'}
-          >
-            {children}
-
-          </Flex>
+          {children}
         </Flex>
         <Divider w={'100%'}></Divider>
         <Flex
           width={'100%'}
-          height={'70%'}
+          height={'40%'}
           flexDir={'column'}
           justifyContent={'center'}
           alignItems={'flex-start'}
           paddingLeft={'1.5vw'}
         >
           <Text
-            fontSize={'2vw'}
+            fontSize={'1vw'}
             color={'#FFF'}
             width={'100%'}
             fontWeight={'semibold'}
@@ -86,7 +68,7 @@ const SettingsItem: React.FC<SettingsItemProps> = ({ children, style, index, cli
             {StatusData.label}
           </Text>
           <Text
-            fontSize={'1.2vw'}
+            fontSize={'.6vw'}
             lineHeight={'1'}
           >
             {StatusData.desc}
@@ -138,25 +120,6 @@ const SettingsItem: React.FC<SettingsItemProps> = ({ children, style, index, cli
             />
           </svg>
         </Flex>
-        <Flex
-          justifyContent={'center'}
-          alignItems={'center'}
-          {...isSelected ? {
-            style: {
-              filter: 'drop-shadow(0px 0px 8px rgba(232, 17, 49, 0.87))',
-            }
-          } : {}}
-        >
-          <svg width="17" height="19" viewBox="0 0 17 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.36327 0C7.32826 0 6.38563 0.558203 4.50046 1.67462L3.86285 2.05222C1.97765 3.16864 1.03505 3.72684 0.51753 4.64628C-1.66164e-07 5.56571 0 6.68212 0 8.91499V9.67011C0 11.903 -1.66164e-07 13.0194 0.51753 13.9388C1.03505 14.8582 1.97765 15.4164 3.86285 16.5328L4.50046 16.9105C6.38563 18.0269 7.32826 18.5851 8.36327 18.5851C9.39836 18.5851 10.3409 18.0269 12.2262 16.9105L12.8637 16.5328C14.7489 15.4164 15.6916 14.8582 16.2091 13.9388C16.7266 13.0194 16.7266 11.903 16.7266 9.67011V8.91499C16.7266 6.68212 16.7266 5.56571 16.2091 4.64628C15.6916 3.72684 14.7489 3.16864 12.8637 2.05222L12.2262 1.67462C10.3409 0.558203 9.39836 0 8.36327 0ZM4.87859 9.29255C4.87859 7.368 6.43878 5.80784 8.36327 5.80784C10.2878 5.80784 11.848 7.368 11.848 9.29255C11.848 11.2171 10.2878 12.7773 8.36327 12.7773C6.43878 12.7773 4.87859 11.2171 4.87859 9.29255Z"
-              {...isSelected ? {
-                fill: '#E33952',
-              } : {
-                fill: '#6D6D6D',
-              }}
-            />
-          </svg>
-        </Flex>
       </Flex>
       <Box
         pos={'absolute'}
@@ -186,4 +149,4 @@ const SettingsItem: React.FC<SettingsItemProps> = ({ children, style, index, cli
   );
 };
 
-export default SettingsItem;
+export default SpeedoItem;

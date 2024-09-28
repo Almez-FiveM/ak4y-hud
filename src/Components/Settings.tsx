@@ -17,7 +17,7 @@ const Settings = () => {
         bgSize={'cover'}
         bgPosition={'center'}
         bgRepeat={'no-repeat'}
-        zIndex={1}
+        zIndex={9999}
         borderRadius={'10px'}
         overflow={'hidden'}
       >
@@ -26,7 +26,7 @@ const Settings = () => {
         <Flex className="settingsBody"
           w={'full'}
           h={'90%'}
-          padding={'4vh 1vw'}
+          padding={'1vh 1vw'}
           overflow={'hidden'}
         >
           <Flex

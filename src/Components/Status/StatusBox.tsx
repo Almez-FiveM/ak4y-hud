@@ -5,7 +5,7 @@ import { Box, Flex } from '@chakra-ui/react';
 import StatusList from '../../Constants/StatusList';
 import MicrophoneStatus from './MicrophoneStatus';
 
-const hudsWithoutMicrophone = [2, 3, 5, 7]
+const hudsWithoutMicrophone = [2, 3, 5, 6, 7, 8, 9]
 
 const StatusBox = () => {
   const hud = useSelector(selectHud);

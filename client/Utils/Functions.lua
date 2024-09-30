@@ -30,7 +30,7 @@ if GetResourceState("es_extended") == "started" then
     if minute < 10 then
       minute = "0" .. minute
     end
-
+    local ped = PlayerPedId()
     SendReactMessage("updateInfo", {
       onlineCount = '233',
       id = GetPlayerServerId(PlayerId()),
@@ -57,7 +57,7 @@ end
 local firstLoad = false
 
 function triggerServerCallback(...)
-    if Config.Framework == "esx" then
+    if GetResourceState("es_extended") == "started" then
         Framework.TriggerServerCallback(...)
     else
         Framework.Functions.TriggerCallback(...)

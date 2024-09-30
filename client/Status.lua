@@ -26,13 +26,16 @@ CreateThread(function()
     local bank = 0
     health = (health - 100) * 100 / (maxHealth - 100)
     local armor = GetPedArmour(ped)
+    local stamina = 100 - GetPlayerSprintStaminaRemaining(PlayerId())
+    -- make it int for the frontend
+    stamina = math.floor(stamina)
     SendReactMessage("updateStatus", {
       health = health,
       armor = armor,
       food = hunger,
       water = thirst,
-      stress = stress,
-      stamina = 100 - GetPlayerSprintStaminaRemaining(PlayerId()),
+      stress = exports["ak4y-hud"]:GetStress(),
+      stamina = stamina
     })
 
     Config.FetchUserInfo()

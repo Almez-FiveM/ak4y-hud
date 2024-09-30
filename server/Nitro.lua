@@ -1,6 +1,6 @@
 local nitros = {}
 
-if Config.Framework == "esx" then
+if GetResourceState("es_extended") == "started" then
   Framework.RegisterUsableItem(Config.NitroItem, function(src)
     TriggerClientEvent('ak4y-hud:setupNitro', src)
   end)
@@ -25,7 +25,7 @@ end)
 RegisterServerEvent('ak4y-hud:removeNitroItem', function()
   local src = source
 
-  if Config.Framework == "esx" then
+  if GetResourceState("es_extended") == "started" then
     Player = Framework.GetPlayerFromId(src)
     Player.removeInventoryItem(Config.NitroItem, 1)
   else

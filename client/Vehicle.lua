@@ -16,7 +16,7 @@ CreateThread(function()
       end
       vehicleRunning = GetIsVehicleEngineRunning(vehicle)
       carSpeed = GetEntitySpeed(vehicle)
-      realSpeed = ("%.1d"):format(math.ceil(carSpeed * 2.236936))
+      realSpeed = ("%.1d"):format(math.ceil(carSpeed * Config.SpeedMultiplier))
       gear = GetVehicleCurrentGear(vehicle)
       vehicleFuel = GetVehicleFuelLevel(vehicle) or 0
       vehReversing = false

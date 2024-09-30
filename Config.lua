@@ -4,6 +4,8 @@ Config.SpeedType = "KMH" -- KMH or MPH
 Config.NitroKey = "X"
 Config.SeatBeltKey = "B"
 
+Config.SpeedMultiplier = 2.236936
+
 Config.UseCustomFuel = false -- If you want to use custom fuel script, set this to true and set the export name below
 Config.CustomFuel = function(vehicle)
     return exports['LegacyFuel']:GetFuel(vehicle)

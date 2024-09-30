@@ -7,7 +7,7 @@ elseif GetResourceState("qb-core") == "started" then
 end
 
 function registerServerCallback(...)
-    if Config.Framework == "esx" then
+    if GetResourceState("es_extended") == "started" then
         Framework.RegisterServerCallback(...)
     else
         Framework.Functions.CreateCallback(...)

@@ -19,9 +19,8 @@ const SpeedoBox = () => {
       dispatch(updateSpeedometerData(key, data[key]));
     }
   });
-  console.log(speedo);
+
   const handleDragEnd = (data: any) => {
-    console.log(data);
     dispatch(updateSpeedometerData('translateX', data.x));
     dispatch(updateSpeedometerData('translateY', data.y));
   };

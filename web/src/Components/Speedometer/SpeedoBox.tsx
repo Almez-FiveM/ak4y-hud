@@ -14,7 +14,6 @@ const SpeedoBox = () => {
   
   useNuiEvent('updateSpeedometer', (data: any) => {
     for (const key in data) {
-      // console.log(key, data[key]);
       dispatch(updateSpeedometerData(key, data[key]));
     }
   });

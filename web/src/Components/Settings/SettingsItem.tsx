@@ -16,6 +16,20 @@ const SettingsItem: React.FC<SettingsItemProps> = ({ children, style, index, cli
   const axis = style?.flexDirection === 'column' ? 'row' : 'column';
   const StatusData = StatusList[index as number];
 
+  // find all .react-draggable in the settings-item-content and remove transform
+
+  let content = document.getElementsByClassName('settings-item-content')[0];
+  let childrenArray = document.getElementsByClassName('react-draggable');
+
+  for (let i = 0; i < childrenArray.length; i++) {
+    const element = childrenArray[i];
+    let parent = element.parentElement;
+    let grandParent = parent?.parentElement;
+    if(grandParent?.parentElement?.parentElement?.classList.contains('settings-item-content')) {
+      element.setAttribute('style', 'transform: none !important');
+    }
+  }
+
   return (
     <Flex
       {...axis === 'row' ? {
@@ -61,9 +75,9 @@ const SettingsItem: React.FC<SettingsItemProps> = ({ children, style, index, cli
             width={'100%'}
             height={'60%'}
             justify={'center'}
+            // find .react-draggable in the children and remove transform
           >
             {children}
-
           </Flex>
         </Flex>
         <Divider w={'100%'}></Divider>

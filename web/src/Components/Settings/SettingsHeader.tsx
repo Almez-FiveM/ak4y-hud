@@ -1,8 +1,9 @@
 import React from 'react';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import SettingsConst from '../../Constants/Settings';
-import { toggleSettingsMenu } from '../../Store/store';
+import { purgeStore, toggleSettingsMenu } from '../../Store/store';
 import { useDispatch } from 'react-redux';
+import { fetchNui } from '../../Helpers/fetchNui';
 
 const selected_button = 'https://files.catbox.moe/wzq95s.png';
 const header_button = 'https://files.catbox.moe/s1jwkn.png';
@@ -13,6 +14,16 @@ interface SettingsHeaderProps {
 
 const SettignsHeader: React.FC<SettingsHeaderProps> = ({ onClick, selected }) => {
   const dispatch = useDispatch();
+  
+  const handleClose = () => {
+    dispatch(toggleSettingsMenu(false));
+    fetchNui('disableFocus');
+  };
+  
+  const handleReset = () => {
+    purgeStore();
+  };
+
   return (
     <Flex
     className="settings-header"
@@ -28,6 +39,8 @@ const SettignsHeader: React.FC<SettingsHeaderProps> = ({ onClick, selected }) =>
       alignItems={'center'}
       w={'4vw'}
       h={'100%'}
+      cursor={'pointer'}
+      onClick={() => handleReset()}
     >
       <Flex
         justifyContent={'center'}
@@ -81,7 +94,7 @@ const SettignsHeader: React.FC<SettingsHeaderProps> = ({ onClick, selected }) =>
       w={'4vw'}
       h={'100%'}
       cursor={'pointer'}
-      onClick={() => dispatch(toggleSettingsMenu(false))}
+      onClick={() => handleClose()}
     >
       <Flex
         justifyContent={'center'}

@@ -1,4 +1,4 @@
-RegisterKeyMapping("toggleseatbelt", "Toggle Seat Belt", "keyboard", 'B')
+RegisterKeyMapping("toggleseatbelt", "Toggle Seat Belt", "keyboard", Config.SeatBeltKey)
 RegisterCommand("toggleseatbelt", function(src, args, raw)
   if vehicleType == "bike" or vehicleType == "boat" then return end
   local vehicle = GetVehiclePedIsIn(PlayerPedId(), false)

@@ -1,7 +1,10 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import Icons from '../Constants/Icons';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+import { fetchNui } from '../Helpers/fetchNui';
+
 const initialHudState = {
-  selectedStatus: 8,
+  selectedStatus: 9,
   microphone: {
     value: 100,
     color: '#FFF',
@@ -9,6 +12,8 @@ const initialHudState = {
     hideBelow: 80,
     useHideBelow: false,
     icon: "Microphone",
+    translateX: 0,
+    translateY: 0,
   },
   health: {
     value: 100,
@@ -17,6 +22,8 @@ const initialHudState = {
     hideBelow: 80,
     useHideBelow: true,
     icon: "Heart",
+    translateX: 0,
+    translateY: 0,
   },
   armor: {
     value: 100,
@@ -25,6 +32,8 @@ const initialHudState = {
     hideBelow: 80,
     useHideBelow: true,
     icon: "Shield",
+    translateX: 0,
+    translateY: 0,
   },
   hunger: {
     value: 100,
@@ -33,6 +42,8 @@ const initialHudState = {
     hideBelow: 80,
     useHideBelow: true,
     icon: "Hamburger",
+    translateX: 0,
+    translateY: 0,
   },
   thirst: {
     value: 100,
@@ -41,6 +52,8 @@ const initialHudState = {
     hideBelow: 80,
     useHideBelow: true,
     icon: "Droplet",
+    translateX: 0,
+    translateY: 0,
   },
   stamina: {
     value: 100,
@@ -49,6 +62,8 @@ const initialHudState = {
     hideBelow: 80,
     useHideBelow: true,
     icon: "Flash",
+    translateX: 0,
+    translateY: 0,
   },
   stress: {
     value: 100,
@@ -57,6 +72,8 @@ const initialHudState = {
     hideBelow: 80,
     useHideBelow: true,
     icon: "Stress",
+    translateX: 0,
+    translateY: 0,
   },
 };
 
@@ -77,6 +94,8 @@ const initialSpeedometerState = {
   lights: 0, // 0: off, 1: low beam, 2: high beam
   engine: false,
   vehType: "car" as VehicleType,
+  translateX: 0,
+  translateY: 0,
 };
 
 // CarTypes
@@ -105,6 +124,9 @@ const initialUserInfoSettingsState = {
   weaponLabel: 'Shotgun UR1',
   ammoCount: 10,
   ammoMax: 400,
+  time: '12:00',
+  translateX: 0,
+  translateY: 0,
 };
 
 const initialConfigState = {
@@ -224,6 +246,116 @@ const hudReducer = (state = initialHudState, action: { type: any; payload: any; 
           visible: !state.stress.visible,
         },
       };
+    case 'UPDATE_HEALTH_DATA':
+      return {
+        ...state,
+        health: {
+          ...state.health,
+          ...action.payload,
+        },
+      };
+    case 'UPDATE_ARMOR_DATA':
+      return {
+        ...state,
+        armor: {
+          ...state.armor,
+          ...action.payload,
+        },
+      };
+    case 'UPDATE_HUNGER_DATA':
+      return {
+        ...state,
+        hunger: {
+          ...state.hunger,
+          ...action.payload,
+        },
+      };
+    case 'UPDATE_THIRST_DATA':
+      return {
+        ...state,
+        thirst: {
+          ...state.thirst,
+          ...action.payload,
+        },
+      };
+    case 'UPDATE_STAMINA_DATA':
+      return {
+        ...state,
+        stamina: {
+
+          ...action.payload,
+        },
+      };
+    case 'UPDATE_STRESS_DATA':
+      return {
+        ...state,
+        stress: {
+          ...state.stress,
+          ...action.payload,
+        },
+      };
+    case 'UPDATE_MICROPHONE_DATA':
+      return {
+        ...state,
+        microphone: {
+          ...state.microphone,
+          ...action.payload,
+        },
+      };
+    case 'UPDATE_HEALTH_COORDINATES':
+      return {
+        ...state,
+        health: {
+          ...state.health,
+          translateX: action.payload.translateX,
+          translateY: action.payload.translateY,
+        },
+      };
+    case 'UPDATE_ARMOR_COORDINATES':
+      return {
+        ...state,
+        armor: {
+          ...state.armor,
+          translateX: action.payload.translateX,
+          translateY: action.payload.translateY,
+        },
+      };
+    case 'UPDATE_HUNGER_COORDINATES':
+      return {
+        ...state,
+        hunger: {
+          ...state.hunger,
+          translateX: action.payload.translateX,
+          translateY: action.payload.translateY,
+        },
+      };
+    case 'UPDATE_THIRST_COORDINATES':
+      return {
+        ...state,
+        thirst: {
+          ...state.thirst,
+          translateX: action.payload.translateX,
+          translateY: action.payload.translateY,
+        },
+      };
+    case 'UPDATE_STAMINA_COORDINATES':
+      return {
+        ...state,
+        stamina: {
+          ...state.stamina,
+          translateX: action.payload.translateX,
+          translateY: action.payload.translateY,
+        },
+      };
+    case 'UPDATE_STRESS_COORDINATES':
+      return {
+        ...state,
+        stress: {
+          ...state.stress,
+          translateX: action.payload.translateX,
+          translateY: action.payload.translateY,
+        },
+      };
     default:
       return state;
   }
@@ -250,6 +382,9 @@ const generalSettingsReducer = (state = initialGeneralSettingsState, action: { t
       };
 
     case 'TOGGLE_MINIMAP':
+      fetchNui('toggleMinimap', {
+        showMinimap: !state.showMinimap,
+      });
       return {
         ...state,
         showMinimap: !state.showMinimap,
@@ -298,7 +433,7 @@ const userInfoSettingsReducer = (state = initialUserInfoSettingsState, action: {
         ...state,
         selectedUserInfo: action.payload,
       };
-    
+
     case 'UPDATE_USER_INFO':
       return {
         ...state,
@@ -344,12 +479,38 @@ const rootReducer = combineReducers({
   config: configReducer,
 });
 
+// Define RootState type
+export type RootState = ReturnType<typeof rootReducer>;
+
+// Persist configuration
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer as any);
+
 // Create the store
 const store = configureStore({
-  reducer: rootReducer
+  reducer: persistedReducer,
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
-export default store;
+
+const persistor = persistStore(store);
+
+export const purgeStore = () => {
+  console.log('Purging store');
+  persistor.purge();
+};
+
+// Define AppDispatch type
+export type AppDispatch = typeof store.dispatch;
+
+export { store, persistor };
 
 export const selectHud = (state: { hud: any; }) => state.hud;
 export const selectSpeedometer = (state: { speedometer: any; }) => state.speedometer;
@@ -383,6 +544,16 @@ export const updateHunger = (hunger: number) => {
   return {
     type: 'UPDATE_HUNGER',
     payload: hunger,
+  };
+};
+
+export const updateHudData = (dataToUpdate: any, value: any) => {
+  return {
+    type: 'UPDATE_HUD_DATA',
+    payload: {
+      dataToUpdate,
+      value,
+    },
   };
 };
 

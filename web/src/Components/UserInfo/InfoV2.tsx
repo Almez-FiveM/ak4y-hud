@@ -49,7 +49,7 @@ const InfoV2 = () => {
                     <Icons.CarDoor size={'1.2vw'} />
                   </Flex>
                   <Flex flexDir={'column'}>
-                    <Text fontWeight={600} lineHeight={1}>12.54PM</Text>
+                    <Text fontWeight={600} lineHeight={1}>{userInfo.time}</Text>
                   </Flex>
                 </Flex>
               </Grid>

@@ -27,21 +27,31 @@ CreateThread(function()
       end
       local rpm = GetVehicleCurrentRpm(vehicle)
       if gear == 0 then
-        vites = "N"
+        gearText = "N"
       elseif gear > 0 then
-        vites = "D" .. gear
+        gearText = "D" .. gear
       end
-      if vehReversing then vites = "R" end
+      if vehReversing then gearText = "R" end
+
+      local vehType = "car"
+      
+      if IsThisModelABike(GetEntityModel(vehicle)) then vehType = "bike" elseif IsThisModelABoat(GetEntityModel(vehicle)) then vehType = "boat" elseif IsThisModelAHeli(GetEntityModel(vehicle)) then vehType = "plane" elseif IsThisModelAPlane(GetEntityModel(vehicle)) then vehType = "plane" end
+      
+      if Config.UseCustomFuel then 
+        fuel = Config.CustomFuel(vehicle)
+      end
+
       SendReactMessage("updateSpeedometer", {
         speed = realSpeed,
         fuel = vehicleFuel,
         rpm = rpm,
-        gear = vites,
+        gear = gearText,
         nitrous = 0,
         seatbelt = SeatBelt,
         engine = vehicleRunning,
         lights = lights,
         speedometerVisible = true,
+        vehType = vehType
       })
     else
       SendReactMessage("updateSpeedometer", {

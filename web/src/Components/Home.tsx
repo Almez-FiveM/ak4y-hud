@@ -1,5 +1,5 @@
 import { Flex } from '@chakra-ui/react';
-import { selectGeneralSettings } from '../Store/store';
+import { selectGeneralSettings, selectHud } from '../Store/store';
 import Background from '../Assets/bg.svg';
 import Settings from './Settings';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,10 +8,11 @@ import SpeedoBox from './Speedometer/SpeedoBox';
 import { toggleSettingsMenu } from '../Store/store';
 import UserInfoBox from './UserInfo/UserInfoBox';
 import { useNuiEvent } from '../Hooks/useNuiEvent';
+import EditMode from './Pages/EditMode';
 
 const Home = () => {
   const generalSettings = useSelector(selectGeneralSettings);
-
+  const hud = useSelector(selectHud);
   const dispatch = useDispatch();
 
   const handleSettingsMenu = () => {
@@ -64,28 +65,40 @@ const Home = () => {
         zIndex={1}
         gap={8}
       >
-        {generalSettings.showSettingsMenu && (
-          <Settings />
+
+        {generalSettings.editMode && (
+          <EditMode />
         )}
-        {generalSettings.cinematicMode && (
-          <Flex pos={'absolute'} justify={'space-between'} flexDir={'column'} width={'100%'} height={'100%'}>
-            <Flex width={'100%'} zIndex={999} height={'15vh'} bg={'#000'}/>
-            <Flex width={'100%'} zIndex={999} height={'15vh'} bg={'#000'}/>
-          </Flex>
-        )}
-        {!generalSettings.cinematicMode && (
-          <>
-            {!generalSettings.showSettingsMenu && (
-              <SpeedoBox />
-            )}
-            {!generalSettings.hideEverything && (
-              <>
-                <StatusBox />
-                <UserInfoBox />
-              </>
-            )}
-          </>
-        )}
+        <Flex
+          {...(generalSettings.editMode ? { opacity: 0.5 } : {})}
+          width={'100%'}
+          height={'100%'}
+          justify={'center'}
+          align={'center'}
+        >
+          {generalSettings.showSettingsMenu && (
+            <Settings />
+          )}
+          {generalSettings.cinematicMode && (
+            <Flex pos={'absolute'} justify={'space-between'} flexDir={'column'} width={'100%'} height={'100%'}>
+              <Flex width={'100%'} zIndex={999} height={'15vh'} bg={'#000'} />
+              <Flex width={'100%'} zIndex={999} height={'15vh'} bg={'#000'} />
+            </Flex>
+          )}
+          {!generalSettings.cinematicMode && (
+            <>
+              {!generalSettings.showSettingsMenu && (
+                <SpeedoBox />
+              )}
+              {!generalSettings.hideEverything && (
+                <>
+                  <StatusBox />
+                  <UserInfoBox />
+                </>
+              )}
+            </>
+          )}
+        </Flex>
       </Flex>
     </>
   );

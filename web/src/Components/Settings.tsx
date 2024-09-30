@@ -9,7 +9,6 @@ const Settings = () => {
   const [selected, setSelected] = React.useState<number>(0);
   const dispatch = useDispatch();
 
-  
   return (
     <>
       <Flex

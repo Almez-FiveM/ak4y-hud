@@ -3,8 +3,9 @@ import { VisibilityProvider } from "./Contexts/VisibilityContext";
 
 import theme from "./theme/theme";
 import "./theme/global.css";
-import store from './Store/store'
 import { Provider } from 'react-redux'
+import { store, persistor } from './Store/store'
+import { PersistGate } from 'redux-persist/integration/react';
 import { ChakraProvider } from '@chakra-ui/react';
 import Home from './Components/Home';
 function App() {
@@ -12,10 +13,12 @@ function App() {
     <VisibilityProvider>
       <ChakraProvider theme={theme}>
         <Provider store={store}>
-          <Home />
+          <PersistGate loading={null} persistor={persistor}>
+            <Home />
+          </PersistGate>
         </Provider>
       </ChakraProvider>
-    </VisibilityProvider>
+    </VisibilityProvider >
   );
 }
 

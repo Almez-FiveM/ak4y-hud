@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Box, Divider, Flex, Text } from '@chakra-ui/react';
 import { selectHud } from '../../Store/store';
 import { useSelector } from 'react-redux';
@@ -10,25 +10,26 @@ interface SettingsItemProps {
   click?: (index: number) => void;
 }
 
-const SettingsItem: React.FC<SettingsItemProps> = ({ children, style, index, click}) => {
+const SettingsItem: React.FC<SettingsItemProps> = ({ children, style, index, click }) => {
   const hud = useSelector(selectHud);
   const isSelected = hud.selectedStatus === index;
   const axis = style?.flexDirection === 'column' ? 'row' : 'column';
   const StatusData = StatusList[index as number];
 
   // find all .react-draggable in the settings-item-content and remove transform
+  useEffect(() => {
+    let content = document.getElementsByClassName('settings-item-content')[0];
+    let childrenArray = document.getElementsByClassName('react-draggable');
 
-  let content = document.getElementsByClassName('settings-item-content')[0];
-  let childrenArray = document.getElementsByClassName('react-draggable');
-
-  for (let i = 0; i < childrenArray.length; i++) {
-    const element = childrenArray[i];
-    let parent = element.parentElement;
-    let grandParent = parent?.parentElement;
-    if(grandParent?.parentElement?.parentElement?.classList.contains('settings-item-content')) {
-      element.setAttribute('style', 'transform: none !important');
+    for (let i = 0; i < childrenArray.length; i++) {
+      const element = childrenArray[i];
+      let parent = element.parentElement;
+      let grandParent = parent?.parentElement;
+      if (grandParent?.parentElement?.parentElement?.classList.contains('settings-item-content')) {
+        element.setAttribute('style', 'transform: none !important');
+      }
     }
-  }
+  }, []);
 
   return (
     <Flex
@@ -75,7 +76,7 @@ const SettingsItem: React.FC<SettingsItemProps> = ({ children, style, index, cli
             width={'100%'}
             height={'60%'}
             justify={'center'}
-            // find .react-draggable in the children and remove transform
+          // find .react-draggable in the children and remove transform
           >
             {children}
           </Flex>

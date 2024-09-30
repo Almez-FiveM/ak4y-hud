@@ -4,7 +4,7 @@ import storage from 'redux-persist/lib/storage'; // defaults to localStorage for
 import { fetchNui } from '../Helpers/fetchNui';
 
 const initialHudState = {
-  selectedStatus: 9,
+  selectedStatus: 0,
   microphone: {
     value: 100,
     color: '#FFF',
@@ -78,8 +78,8 @@ const initialHudState = {
 };
 
 const initialSpeedometerState = {
-  selectedSpeedometer: 4,
-  speedometerVisible: false,
+  selectedSpeedometer: 0,
+  speedometerVisible: true,
   speed: 0,
   speedometerType: 'KMH',
   speedometerColor: '#5ACBE3',

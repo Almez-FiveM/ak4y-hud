@@ -1,9 +1,10 @@
 import { selectHud, selectGeneralSettings } from '../../Store/store';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { colord } from "colord";
 import MicrophoneStatus from './MicrophoneStatus';
 import Icons from '../../Constants/Icons';
+import Draggable from 'react-draggable';
 
 const hudList = ["stress", "health", "armor", "microphone", "hunger", "thirst", "stamina",];
 
@@ -12,11 +13,14 @@ interface HudStatus {
   icon: keyof typeof Icons;
   color: string;
   value: number;
+  translateX: number;
+  translateY: number;
 }
 
 const StatusV2 = () => {
   const hud = useSelector(selectHud) as Record<string, HudStatus>;
   const generalSettings = useSelector(selectGeneralSettings);
+  const dispatch = useDispatch();
   return (
     <>
       <Flex
@@ -30,79 +34,96 @@ const StatusV2 = () => {
       >
         {hudList.map((status, index) => {
           if (hud[status].visible) {
+            let dragging = false;
+            const handleDrag = (e: any) => {
+              dragging = true;
+            };
+
+            const handleDragEnd = (statusName: string, e: any) => {
+              if (dragging) {
+                dragging = false;
+                dispatch({ type: 'UPDATE_' + statusName.toUpperCase() + '_COORDINATES', payload: { translateX: e.lastX, translateY: e.lastY } });
+              }
+            };
             return (
-              <Flex
-                key={index}
-                display={'flex'}
-                justifyContent={'center'}
-                alignItems={'center'}
-                gap={'.25vw'}
-                flexDirection={'column'}
-                pl={index === 0 ? '.2vw' : '0'}
+              <Draggable {...(!generalSettings.editMode && { disabled: true })} key={index}
+                onStop={(e, data) => handleDragEnd(status, data)}
+                onDrag={(e, data) => handleDrag(e)}
+                defaultPosition={{ x: hud[status].translateX, y: hud[status].translateY }}
               >
                 <Flex
-                  width={'4.5vh'}
-                  height={'4.5vh'}
-                  background={colord(hud[status].color).darken(0.45).toHex()}
-                  borderRadius={'50%'}
+                  key={index}
                   display={'flex'}
                   justifyContent={'center'}
                   alignItems={'center'}
-                  position={'relative'}
-                  // is first child then add padding left
-                  boxSizing={'border-box'}
+                  gap={'.25vw'}
+                  flexDirection={'column'}
+                  pl={index === 0 ? '.2vw' : '0'}
                 >
-                  <Box as={Icons[hud[status].icon]}
-                    size={'1.4vh'} color={hud[status].color} />
-                  <Box
-                    pos={'absolute'}
-                    top={0}
-                    right={0}
-                    width={'100%'}
-                    height={'100%'}
+                  <Flex
+                    width={'4.5vh'}
+                    height={'4.5vh'}
+                    background={colord(hud[status].color).darken(0.45).toHex()}
+                    borderRadius={'50%'}
+                    display={'flex'}
+                    justifyContent={'center'}
+                    alignItems={'center'}
+                    position={'relative'}
+                    // is first child then add padding left
+                    boxSizing={'border-box'}
                   >
-                    <svg>
-                      <circle
-                        cx={'1.22vw'}
-                        cy={'1.3vw'}
-                        r={'1.2vw'}
-                        fill={'transparent'}
-                        stroke={hud[status].color}
-                        opacity={.4}
-                        strokeWidth={'2px'}
-                        strokeLinecap={'round'}
-                        strokeDasharray={`150`}
-                        strokeDashoffset={`0`}
-                      />
-                      <circle
-                        cx={'1.25vw'}
-                        cy={'1.30vw'}
-                        r={'1.2vw'}
-                        fill={'transparent'}
-                        stroke={hud[status].color}
-                        strokeWidth={'2px'}
-                        strokeDasharray={`${(hud[status].value / 100) * 113.097} 113.097`}
-                        strokeLinecap={'round'}
-                        strokeDashoffset={0}
-                      />
-                      <circle
-                        cx={'1.25vw'}
-                        cy={'1.30vw'}
-                        r={'.9vw'}
-                        fill={'transparent'}
-                        stroke={hud[status].color}
-                        strokeWidth={'1px'}
-                        strokeDasharray={`113.097`}
-                        strokeLinecap={'round'}
-                        strokeDashoffset={0}
-                      />
-                    </svg>
-                  </Box>
+                    <Box as={Icons[hud[status].icon]}
+                      size={'1.4vh'} color={hud[status].color} />
+                    <Box
+                      pos={'absolute'}
+                      top={0}
+                      right={0}
+                      width={'100%'}
+                      height={'100%'}
+                    >
+                      <svg>
+                        <circle
+                          cx={'1.22vw'}
+                          cy={'1.3vw'}
+                          r={'1.2vw'}
+                          fill={'transparent'}
+                          stroke={hud[status].color}
+                          opacity={.4}
+                          strokeWidth={'2px'}
+                          strokeLinecap={'round'}
+                          strokeDasharray={`150`}
+                          strokeDashoffset={`0`}
+                        />
+                        <circle
+                          cx={'1.25vw'}
+                          cy={'1.30vw'}
+                          r={'1.2vw'}
+                          fill={'transparent'}
+                          stroke={hud[status].color}
+                          strokeWidth={'2px'}
+                          strokeDasharray={`${(hud[status].value / 100) * 113.097} 113.097`}
+                          strokeLinecap={'round'}
+                          strokeDashoffset={0}
+                        />
+                        <circle
+                          cx={'1.25vw'}
+                          cy={'1.30vw'}
+                          r={'.9vw'}
+                          fill={'transparent'}
+                          stroke={hud[status].color}
+                          strokeWidth={'1px'}
+                          strokeDasharray={`113.097`}
+                          strokeLinecap={'round'}
+                          strokeDashoffset={0}
+                        />
+                      </svg>
+                    </Box>
+                  </Flex>
+                  <Text fontSize={'1.2vh'} color={hud[status].color}>
+                    {generalSettings.showPercentageInStatus && hud[status].value + '%'}
+                  </Text>
                 </Flex>
-                <Text fontSize={'1.2vh'} color={hud[status].color}>
-                  {generalSettings.showPercentageInStatus && hud[status].value + '%'}
-                </Text>
-              </Flex>
+              </Draggable>
             )
           }
         })}

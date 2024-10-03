@@ -1,5 +1,5 @@
 import { Flex } from '@chakra-ui/react';
-import { selectGeneralSettings, selectHud } from '../Store/store';
+import { selectGeneralSettings, selectHud, updateMenuData } from '../Store/store';
 import Background from '../Assets/bg.svg';
 import Settings from './Settings';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,6 +9,8 @@ import { toggleSettingsMenu } from '../Store/store';
 import UserInfoBox from './UserInfo/UserInfoBox';
 import { useNuiEvent } from '../Hooks/useNuiEvent';
 import EditMode from './Pages/EditMode';
+import MenuBox from './Menu/MenuBox';
+import Youtube from './Menu/Youtube';
 
 const Home = () => {
   const generalSettings = useSelector(selectGeneralSettings);
@@ -22,6 +24,11 @@ const Home = () => {
   useNuiEvent('toggleSettings', (data: boolean) => {
     dispatch(toggleSettingsMenu(data));
   });
+
+  useNuiEvent('updateMenuData', (data: any) => {
+    dispatch(updateMenuData(data.key, data.value));
+  });
+
 
   return (
     <>
@@ -98,8 +105,10 @@ const Home = () => {
               )}
             </>
           )}
+          <MenuBox/>
         </Flex>
       </Flex>
+      <Youtube/>
     </>
   );
 };

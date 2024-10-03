@@ -33,6 +33,7 @@ const StatusV6 = () => {
           if (hud[status].visible) {
             return (
               <Flex
+                key={index}
                 display={'flex'}
                 justifyContent={'center'}
                 alignItems={'center'}
@@ -108,7 +109,7 @@ const StatusV6 = () => {
                     </Box>
                   </Box>
                 </Flex>
-                {generalSettings.showPercentageInStatus &&(
+                {generalSettings.showPercentageInStatus && (
                   <Box
                     position={'absolute'}
                     bottom={'-2.5vh'}

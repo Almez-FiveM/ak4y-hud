@@ -39,6 +39,7 @@ CreateThread(function()
     })
 
     Config.FetchUserInfo()
+    UpdateMenuInfo()
     Wait(300)
   end
 end)
@@ -61,3 +62,43 @@ RegisterNuiCallback('toggleMinimap', function(data, cb)
   DisplayRadar(data.showMinimap)
   cb('ok')
 end)
+
+
+local controlsOn = false
+Citizen.CreateThread(function ()
+  while true do 
+    -- is left ctrl and mouse 1 pressed
+    DisableControlAction(0, 36, true)
+    if IsDisabledControlPressed(0, 36) then
+      print('pressed ctrl key')
+      DisableControlAction(0, 24, true)
+      if IsDisabledControlPressed(0, 24) then
+        print('pressed mouse 1')
+        SetNuiFocus(true, true)
+        controlsOn = true
+      end
+    end
+    Wait(1)
+  end
+end)
+
+RegisterNuiCallback('escapePressed', function (data, cb)
+  SetNuiFocus(false, false)
+  controlsOn = false
+  SendReactMessage("toggleSettings", false)
+  cb('ok')
+end)
+
+
+function UpdateMenuInfo()
+  local hour = GetClockHours()
+  local minute = GetClockMinutes()
+  if hour < 10 then
+    hour = "0" .. hour
+  end
+  if minute < 10 then
+    minute = "0" .. minute
+  end
+
+  
+end

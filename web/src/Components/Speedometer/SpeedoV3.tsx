@@ -29,8 +29,8 @@ const SpeedoV3 = () => {
             <path d="M225.217 226C243.258 207.895 255.544 184.828 260.521 159.715C265.499 134.602 262.944 108.573 253.18 84.9171C243.417 61.2616 226.882 41.0429 205.669 26.8177C184.455 12.5926 159.514 5 134 5C108.486 5 83.5454 12.5926 62.3315 26.8177C41.1176 41.0429 24.5833 61.2616 14.8196 84.9171C5.0559 108.573 2.50126 134.602 7.47875 159.715C12.4562 184.827 24.7423 207.895 42.7833 226" stroke="url(#paint0_linear_1_3766)" strokeWidth="10" />
           </g>
           <defs>
-            <filter id="filter0_i_1_3766" x="0.673584" y="0.673584" width="266.653" height="228.813" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <filter id="filter0_i_1_3766" x="0.673584" y="0.673584" width="266.653" height="228.813" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
               <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
               <feOffset dy="0.43264" />

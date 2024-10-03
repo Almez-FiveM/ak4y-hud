@@ -11,6 +11,9 @@ Config.CustomFuel = function(vehicle)
     return exports['LegacyFuel']:GetFuel(vehicle)
 end
 
+Config.ServerLogo = 'https://files.catbox.moe/406f5v.png'
+Config.InventoryImagePath = 'nui://ox_inventory/web/images/' 
+
 ---@class NotifyType: string | "info" | "success" | "error" | "warning"
 ---@param title string The title of the notification
 ---@param message string The message of the notification

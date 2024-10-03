@@ -14,9 +14,12 @@ import {
 import { 
   FaShield,
   FaDroplet,
+  FaPlus,
 } from "react-icons/fa6";
 
-import { PiBrainDuotone, PiEngineFill, PiHeadlightsFill } from "react-icons/pi";
+import { PiBrainDuotone, PiEngineFill, PiHeadlightsFill, PiMusicNotesPlusDuotone } from "react-icons/pi";
+import { IoCloseCircle } from "react-icons/io5";
+
 const Icons = {
   Microphone: FaMicrophone,
   Heart: FaHeart,
@@ -29,6 +32,9 @@ const Icons = {
   Engine: PiEngineFill,
   CarDoor: GiCarDoor,
   Headlights: PiHeadlightsFill,
+  AddMusic: PiMusicNotesPlusDuotone,
+  Close: IoCloseCircle,
+  Plus: FaPlus,
 };
 
 export default Icons;

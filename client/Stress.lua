@@ -43,7 +43,6 @@ CreateThread(function()
         if weapon ~= `WEAPON_UNARMED` then
           sleep = 0
           if IsPedShooting(ped) then
-            print("player shooting")
             if math.random() < (Config.AddStress["on_shoot"].chance / 100) and not IsWhitelistedWeaponStress(weapon) then
               stress = stress + math.random(Config.AddStress["on_shoot"].min, Config.AddStress["on_shoot"].max)
               if stress > 100 then
@@ -231,6 +230,5 @@ RegisterNetEvent("ak4y-hud:stress:decrease", function(val)
 end)
 
 exports('GetStress', function()
-  print("stress get", stress)
   return stress
 end)

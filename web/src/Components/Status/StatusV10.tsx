@@ -103,10 +103,10 @@ const StatusV10 = () => {
                                 })}
                               />
                             </g>
-                            <path d="M25.5001 7.19326C25.6976 7.51438 25.5935 7.93604 25.263 8.1176C21.6307 10.1134 17.5081 11.1087 13.3352 10.9906C9.16272 10.8726 5.10628 9.64617 1.59821 7.44888C1.27845 7.2486 1.19876 6.82124 1.41486 6.51196L4.79205 1.6785C5.00198 1.37804 5.41295 1.30203 5.72594 1.49278C8.07479 2.92427 10.7735 3.72291 13.5477 3.80139C16.3218 3.87987 19.0633 3.23513 21.4928 1.9388C21.8164 1.76612 22.2226 1.86585 22.4148 2.17827L25.5001 7.19326Z" stroke="white" stroke-opacity="0.18" stroke-width="1.3468" mask="url(#path-1-outside-1_216_1039)" />
+                            <path d="M25.5001 7.19326C25.6976 7.51438 25.5935 7.93604 25.263 8.1176C21.6307 10.1134 17.5081 11.1087 13.3352 10.9906C9.16272 10.8726 5.10628 9.64617 1.59821 7.44888C1.27845 7.2486 1.19876 6.82124 1.41486 6.51196L4.79205 1.6785C5.00198 1.37804 5.41295 1.30203 5.72594 1.49278C8.07479 2.92427 10.7735 3.72291 13.5477 3.80139C16.3218 3.87987 19.0633 3.23513 21.4928 1.9388C21.8164 1.76612 22.2226 1.86585 22.4148 2.17827L25.5001 7.19326Z" stroke="white" strokeOpacity="0.18" strokeWidth="1.3468" mask="url(#path-1-outside-1_216_1039)" />
                             <defs>
-                              <filter id="filter0_i_216_1021" x="0.946655" y="0.871094" width="33.6664" height="16.3057" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                              <filter id="filter0_i_216_1021" x="0.946655" y="0.871094" width="33.6664" height="16.3057" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                                <feFlood floodOpacity="0" result="BackgroundImageFix" />
                                 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
                                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
                                 <feOffset dy="3" />

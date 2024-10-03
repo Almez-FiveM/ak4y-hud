@@ -24,6 +24,22 @@ export const VisibilityProvider: React.FC<{
   const [visible, setVisible] = useState(isDev());
 
   useNuiEvent<boolean>("setVisible", setVisible);
+  
+  // Handle pressing escape/backspace
+  useEffect(() => {
+    // Only attach listener when we are visible
+    if (!visible) return;
+
+    const keyHandler = (e: KeyboardEvent) => {
+      if (["Escape"].includes(e.code)) {
+        fetchNui("escapePressed");
+      }
+    };
+
+    window.addEventListener("keydown", keyHandler);
+
+    return () => window.removeEventListener("keydown", keyHandler);
+  }, [visible]);
 
   return (
     <VisibilityCtx.Provider

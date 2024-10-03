@@ -104,7 +104,7 @@ type VehicleType = "car" | "bike" | "plane" | "boat";
 const initialGeneralSettingsState = {
   showSettingsMenu: false,
   showLocation: true,
-  showMinimap: true,
+  showMinimap: 0,
   hideEverything: false,
   editMode: false,
   cinematicMode: false,
@@ -128,6 +128,26 @@ const initialUserInfoSettingsState = {
   translateX: 0,
   translateY: 0,
 };
+
+const initialMenuState = {
+  selectedMenu: 1,
+  streetName: 'Innocence Blvd',
+  nightMode: false,
+  time: '12:00',
+  gameURL: '',
+  media: {
+    queuedSongs: [],
+    currentSong: {
+      songName: 'NO MEDIA',
+      artist: 'Artist',
+      duration: 0,
+      currentTime: 0,
+    },
+    thumbnail: 'https://files.catbox.moe/i5bfz3.png',
+    currentURL: '',
+    volume: 100,
+  },
+}
 
 const initialConfigState = {
   serverLogo: 'https://files.catbox.moe/406f5v.png',
@@ -383,11 +403,11 @@ const generalSettingsReducer = (state = initialGeneralSettingsState, action: { t
 
     case 'TOGGLE_MINIMAP':
       fetchNui('toggleMinimap', {
-        showMinimap: !state.showMinimap,
+        showMinimap: action.payload,
       });
       return {
         ...state,
-        showMinimap: !state.showMinimap,
+        showMinimap: action.payload,
       };
 
     case 'TOGGLE_EDIT_MODE':
@@ -470,6 +490,48 @@ const configReducer = (state = initialConfigState, action: { type: any; payload:
   }
 };
 
+const menuReducer = (state = initialMenuState, action: { type: any; payload: any; }) => {
+  switch (action.type) {
+    case 'UPDATE_MENU_DATA':
+      return {
+        ...state,
+        [action.payload.dataToUpdate]: action.payload.value,
+      };
+    case 'ADD_SONG':
+      return {
+        ...state,
+        media: {
+          ...state.media,
+          queuedSongs: [
+            ...state.media.queuedSongs,
+            action.payload,
+          ],
+        },
+      };
+    case 'REMOVE_SONG_FROM_QUEUE': 
+      // payload is index  
+      const newQueue = [...state.media.queuedSongs];
+      newQueue.splice(action.payload, 1);
+      return {
+        ...state,
+        media: {
+          ...state.media,
+          queuedSongs: newQueue,
+        },
+      };
+    case 'REORDER_SONGS':
+      return {
+        ...state,
+        media: {
+          ...state.media,
+          queuedSongs: action.payload,
+        },
+      };
+    default:
+      return state;
+  }
+};
+
 // Combine the reducers
 const rootReducer = combineReducers({
   hud: hudReducer,
@@ -477,6 +539,7 @@ const rootReducer = combineReducers({
   generalSettings: generalSettingsReducer,
   userInfoSettings: userInfoSettingsReducer,
   config: configReducer,
+  menu: menuReducer,
 });
 
 // Define RootState type
@@ -517,6 +580,7 @@ export const selectSpeedometer = (state: { speedometer: any; }) => state.speedom
 export const selectGeneralSettings = (state: { generalSettings: any; }) => state.generalSettings;
 export const selectUserInfoSettings = (state: { userInfoSettings: any; }) => state.userInfoSettings;
 export const selectConfig = (state: { config: any; }) => state.config;
+export const selectMenu = (state: { menu: any; }) => state.menu;
 
 // Define the action creators
 export const updateSelectedStatus = (status: number) => {
@@ -633,9 +697,10 @@ export const toggleCinematicMode = () => {
   };
 };
 
-export const toggleMinimap = () => {
+export const toggleMinimap = (num: number) => {
   return {
     type: 'TOGGLE_MINIMAP',
+    payload: num,
   };
 };
 
@@ -696,6 +761,16 @@ export const updateSelectedUserInfo = (userInfo: number) => {
 export const updateConfigData = (dataToUpdate: any, value: any) => {
   return {
     type: 'UPDATE_CONFIG_DATA',
+    payload: {
+      dataToUpdate,
+      value,
+    },
+  };
+}
+
+export const updateMenuData = (dataToUpdate: any, value: any) => {
+  return {
+    type: 'UPDATE_MENU_DATA',
     payload: {
       dataToUpdate,
       value,

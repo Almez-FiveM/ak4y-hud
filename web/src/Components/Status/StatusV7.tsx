@@ -52,6 +52,7 @@ const StatusV7 = () => {
                 defaultPosition={{ x: hud[status].translateX, y: hud[status].translateY }}
               >
                 <Flex
+                  key={index}
                   display={'flex'}
                   justifyContent={'center'}
                   alignItems={'center'}

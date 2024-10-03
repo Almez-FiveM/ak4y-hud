@@ -1,15 +1,22 @@
 import React from 'react';
 import { Box, Divider, Flex, Text } from '@chakra-ui/react';
+import { toggleMinimap } from '../../Store/store';
+import { useDispatch } from 'react-redux';
 
 interface MiniSettingsProps {
   toggle: () => void;
   title: string;
   desc: string;
-  boolean: boolean;
+  boolean: any;
   icon: React.ReactNode;
 }
 
 const MiniSettings: React.FC<MiniSettingsProps> = ({ toggle, title, desc, boolean, icon }) => {
+  const dispatch = useDispatch();
+  const handleMinimapClick = (num: number) => {
+    dispatch(toggleMinimap(num));
+  }
+
   return (
     <Flex
       width={'100%'}
@@ -70,7 +77,7 @@ const MiniSettings: React.FC<MiniSettingsProps> = ({ toggle, title, desc, boolea
           alignItems={'flex-start'}
         >
           <Flex
-            width={'50%'} height={'70%'}
+            height={'70%'}
             bg={'rgba(255,255,255,0.02)'} borderRadius={'8px'}
             border={'1px solid rgba(255, 255, 255, 0.08)'}
             backdropBlur={'6px'}
@@ -78,33 +85,80 @@ const MiniSettings: React.FC<MiniSettingsProps> = ({ toggle, title, desc, boolea
             justifyContent={'center'}
             alignItems={'center'}
             gap={'.5vw'}
+            {...title === 'SHOW MINIMAP' ? { width: '90%' } : { width: '50%' }}
           >
-            <Flex
-              width={'40%'} height={'100%'}
-              borderRadius={'6px'}
-              justify={'center'}
-              align={'center'}
-              textAlign={'center'}
-              lineHeight={'100%'}
-              {...boolean ? { bg: '#E81131', filter: 'drop-shadow(0px 0px 12px rgba(232, 17, 49, 0.55))' } : {}}
-              onClick={() => { if (!boolean) { toggle() } }}
-              cursor={'pointer'}
-            >
-              <Text fontSize={'.6vw'} fontFamily={'Roboto'} fontWeight={600}>ON</Text>
-            </Flex>
-            <Flex
-              width={'40%'} height={'100%'}
-              borderRadius={'6px'}
-              justify={'center'}
-              align={'center'}
-              textAlign={'center'}
-              lineHeight={'100%'}
-              {...!boolean ? { bg: '#E81131', filter: 'drop-shadow(0px 0px 12px rgba(232, 17, 49, 0.55))' } : {}}
-              onClick={() => { if (boolean) { toggle() } }}
-              cursor={'pointer'}
-            >
-              <Text fontSize={'.6vw'} fontFamily={'Roboto'} fontWeight={600}>OFF</Text>
-            </Flex>
+            {(title === 'SHOW MINIMAP') ? (
+              <>
+                <Flex
+                  width={'40%'} height={'100%'}
+                  borderRadius={'6px'}
+                  justify={'center'}
+                  align={'center'}
+                  textAlign={'center'}
+                  lineHeight={'100%'}
+                  {...boolean === 0 ? { bg: '#E81131', filter: 'drop-shadow(0px 0px 12px rgba(232, 17, 49, 0.55))' } : {}}
+                  onClick={() => { handleMinimapClick(0) }}
+                  cursor={'pointer'}
+                >
+                  <Text fontSize={'.6vw'} fontFamily={'Roboto'} fontWeight={600}>OFF</Text>
+                </Flex>
+                <Flex
+                  width={'40%'} height={'100%'}
+                  borderRadius={'6px'}
+                  justify={'center'}
+                  align={'center'}
+                  textAlign={'center'}
+                  lineHeight={'100%'}
+                  {...boolean === 1 ? { bg: '#E81131', filter: 'drop-shadow(0px 0px 12px rgba(232, 17, 49, 0.55))' } : {}}
+                  onClick={() => { handleMinimapClick(1) }}
+                  cursor={'pointer'}
+                >
+                  <Text fontSize={'.6vw'} fontFamily={'Roboto'} fontWeight={600}>CIRCLE</Text>
+                </Flex>
+                <Flex
+                  width={'40%'} height={'100%'}
+                  borderRadius={'6px'}
+                  justify={'center'}
+                  align={'center'}
+                  textAlign={'center'}
+                  lineHeight={'100%'}
+                  {...boolean === 2 ? { bg: '#E81131', filter: 'drop-shadow(0px 0px 12px rgba(232, 17, 49, 0.55))' } : {}}
+                  onClick={() => { handleMinimapClick(2) }}
+                  cursor={'pointer'}
+                >
+                  <Text fontSize={'.6vw'} fontFamily={'Roboto'} fontWeight={600}>SQUARE</Text>
+                </Flex>
+              </>
+            ) : (
+              <>
+                <Flex
+                  width={'40%'} height={'100%'}
+                  borderRadius={'6px'}
+                  justify={'center'}
+                  align={'center'}
+                  textAlign={'center'}
+                  lineHeight={'100%'}
+                  {...boolean ? { bg: '#E81131', filter: 'drop-shadow(0px 0px 12px rgba(232, 17, 49, 0.55))' } : {}}
+                  onClick={() => { if (!boolean) { toggle() } }}
+                  cursor={'pointer'}
+                >
+                  <Text fontSize={'.6vw'} fontFamily={'Roboto'} fontWeight={600}>ON</Text>
+                </Flex>
+                <Flex
+                  width={'40%'} height={'100%'}
+                  borderRadius={'6px'}
+                  justify={'center'}
+                  align={'center'}
+                  textAlign={'center'}
+                  lineHeight={'100%'}
+                  {...!boolean ? { bg: '#E81131', filter: 'drop-shadow(0px 0px 12px rgba(232, 17, 49, 0.55))' } : {}}
+                  onClick={() => { if (boolean) { toggle() } }}
+                  cursor={'pointer'}
+                >
+                  <Text fontSize={'.6vw'} fontFamily={'Roboto'} fontWeight={600}>OFF</Text>
+                </Flex>
+              </>
+            )}
           </Flex>
         </Flex>
       </Box>

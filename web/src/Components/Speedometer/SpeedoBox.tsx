@@ -40,7 +40,6 @@ const SpeedoBox = () => {
           direction={'row'}
         >
           <Box bg={'#fff'} width={'30px'} height={'30px'}
-            // make it a rectangle
             borderRadius={'0'}
             clipPath={'polygon(0 0, 100% 0, 0% 100%, 0 100%)'}
             pos={'absolute'} top={0} left={0} className='speedohandle'

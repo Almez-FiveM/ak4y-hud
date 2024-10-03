@@ -1,5 +1,5 @@
 import { Flex } from '@chakra-ui/react';
-import { selectGeneralSettings, selectHud, updateMenuData } from '../Store/store';
+import { selectGeneralSettings, selectHud, updateConfigData, updateMenuData } from '../Store/store';
 import Background from '../Assets/bg.svg';
 import Settings from './Settings';
 import { useDispatch, useSelector } from 'react-redux';
@@ -26,7 +26,13 @@ const Home = () => {
   });
 
   useNuiEvent('updateMenuData', (data: any) => {
-    dispatch(updateMenuData(data.key, data.value));
+    for (let key in data) {
+      dispatch(updateMenuData(key, data[key]));
+    }
+  });
+
+  useNuiEvent('updateConfigData', (data: any) => {
+    dispatch(updateConfigData(data.key, data.value));
   });
 
 

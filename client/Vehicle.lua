@@ -66,3 +66,31 @@ RegisterCommand('hud', function ()
   SendReactMessage("toggleSettings", true)
   SetNuiFocus(true, true)
 end)
+
+RegisterNuiCallback('toggleVehicleDoor', function(data, cb)
+  print('toggleVehicleDoor', data)
+  cb('ok')
+  local ped = PlayerPedId()
+  local vehicle = GetVehiclePedIsIn(ped, false)
+  local door = data
+  local doorState = GetVehicleDoorAngleRatio(vehicle, door) > 0.1
+  if doorState then
+    SetVehicleDoorShut(vehicle, door, false)
+  else
+    SetVehicleDoorOpen(vehicle, door, false, false)
+  end
+end)
+
+RegisterNuiCallback('toggleVehicleNeon', function(data, cb)
+  print('toggleVehicleNeon', data)
+  cb('ok')
+  local ped = PlayerPedId()
+  local vehicle = GetVehiclePedIsIn(ped, false)
+  local neon = data
+  local neonState = IsVehicleNeonLightEnabled(vehicle, neon)
+  if neonState then
+    SetVehicleNeonLightEnabled(vehicle, neon, false)
+  else
+    SetVehicleNeonLightEnabled(vehicle, neon, true)
+  end
+end)

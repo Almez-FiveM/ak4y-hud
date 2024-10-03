@@ -112,7 +112,7 @@ const InfoV2 = () => {
               height={'5vh'}
             >
               <Image
-                src='https://files.catbox.moe/j0cv3z.png'
+                src={`${config.inventoryImagePath}${userInfo.weapon}.png`}
                 width={'100%'}
                 height={'100%'}
                 objectFit={'contain'}

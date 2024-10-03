@@ -4,11 +4,20 @@ import { Box, Divider, Flex, Text } from '@chakra-ui/react';
 import { updateMenuData, selectMenu } from '../../Store/store';
 import { useDispatch } from 'react-redux';
 import Icons from '../../Constants/Icons';
+import { fetchNui } from '../../Helpers/fetchNui';
 
 const Vehicle = () => {
   const menu = useSelector(selectMenu);
   const dispatch = useDispatch();
   const [selectedMenu, setSelectedMenu] = React.useState('doors');
+
+  const handleClickDoor = (number: number) => {
+    fetchNui('toggleVehicleDoor', number);
+  };
+
+  const handleClickNeon = (number: number) => {
+    fetchNui('toggleVehicleNeon', number);
+  };
 
   return (
     <>
@@ -100,67 +109,51 @@ const Vehicle = () => {
         {selectedMenu === 'doors' && (
           <Flex overflow={'scroll'} fontFamily={'Rajdhani'} width={'92%'} height={'14vh'} gap={'.3vh'} flexDir={'column'}>
             <Flex minH={'3.1vh'} height={'3.1vh'} gap={'.3vw'} width={'100%'}>
-              <Flex align={'center'} justify={'center'} bg={'#252525'} width={'2.5vw'}>
-                <Icons.CarDoor color={'#858585'} size={'.7vw'}/>
+              <Flex align={'center'} justify={'center'} bg={menu.vehicleDoors[0] ? '#58C2FD' : '#252525'} width={'2.5vw'} cursor={'pointer'} onClick={() => handleClickDoor(0)}>
+                <Icons.CarDoor color={menu.vehicleDoors[0] ? '#133040' : '#858585'} size={'.7vw'} />
               </Flex>
               <Flex align={'center'} px={'.5vw'} bg={'rgba(217, 217, 217, 0.04)'} border={'1px solid rgba(255, 255, 255, 0.27)'} width={'100%'} height={'100%'}>
-                <Text fontWeight={'600'} fontSize={'.7vw'} color={'#8C8C8C'}>Door Name</Text>
+                <Text fontWeight={'600'} fontSize={'.7vw'} color={'#8C8C8C'}>Front Driver Side</Text>
               </Flex>
             </Flex>
             <Flex minH={'3.1vh'} height={'3.1vh'} gap={'.3vw'} width={'100%'}>
-              <Flex align={'center'} justify={'center'} bg={'#252525'} width={'2.5vw'}>
-                <Icons.CarDoor color={'#858585'} size={'.7vw'}/>
+              <Flex align={'center'} justify={'center'} bg={menu.vehicleDoors[1] ? '#58C2FD' : '#252525'} width={'2.5vw'} cursor={'pointer'} onClick={() => handleClickDoor(1)}>
+                <Icons.CarDoor color={menu.vehicleDoors[1] ? '#133040' : '#858585'} size={'.7vw'} />
               </Flex>
               <Flex align={'center'} px={'.5vw'} bg={'rgba(217, 217, 217, 0.04)'} border={'1px solid rgba(255, 255, 255, 0.27)'} width={'100%'} height={'100%'}>
-                <Text fontWeight={'600'} fontSize={'.7vw'} color={'#8C8C8C'}>Door Name</Text>
+                <Text fontWeight={'600'} fontSize={'.7vw'} color={'#8C8C8C'}>Front Passenger Side</Text>
               </Flex>
             </Flex>
             <Flex minH={'3.1vh'} height={'3.1vh'} gap={'.3vw'} width={'100%'}>
-              <Flex align={'center'} justify={'center'} bg={'#252525'} width={'2.5vw'}>
-                <Icons.CarDoor color={'#858585'} size={'.7vw'}/>
+              <Flex align={'center'} justify={'center'} bg={menu.vehicleDoors[2] ? '#58C2FD' : '#252525'} width={'2.5vw'} cursor={'pointer'} onClick={() => handleClickDoor(2)}>
+                <Icons.CarDoor color={menu.vehicleDoors[2] ? '#133040' : '#858585'} size={'.7vw'} />
               </Flex>
               <Flex align={'center'} px={'.5vw'} bg={'rgba(217, 217, 217, 0.04)'} border={'1px solid rgba(255, 255, 255, 0.27)'} width={'100%'} height={'100%'}>
-                <Text fontWeight={'600'} fontSize={'.7vw'} color={'#8C8C8C'}>Door Name</Text>
+                <Text fontWeight={'600'} fontSize={'.7vw'} color={'#8C8C8C'}>Rear Driver Side</Text>
               </Flex>
             </Flex>
             <Flex minH={'3.1vh'} height={'3.1vh'} gap={'.3vw'} width={'100%'}>
-              <Flex align={'center'} justify={'center'} bg={'#252525'} width={'2.5vw'}>
-                <Icons.CarDoor color={'#858585'} size={'.7vw'}/>
+              <Flex align={'center'} justify={'center'} bg={menu.vehicleDoors[3] ? '#58C2FD' : '#252525'} width={'2.5vw'} cursor={'pointer'} onClick={() => handleClickDoor(3)}>
+                <Icons.CarDoor color={menu.vehicleDoors[3] ? '#133040' : '#858585'} size={'.7vw'} />
               </Flex>
               <Flex align={'center'} px={'.5vw'} bg={'rgba(217, 217, 217, 0.04)'} border={'1px solid rgba(255, 255, 255, 0.27)'} width={'100%'} height={'100%'}>
-                <Text fontWeight={'600'} fontSize={'.7vw'} color={'#8C8C8C'}>Door Name</Text>
+                <Text fontWeight={'600'} fontSize={'.7vw'} color={'#8C8C8C'}>Rear Passenger Side</Text>
               </Flex>
             </Flex>
             <Flex minH={'3.1vh'} height={'3.1vh'} gap={'.3vw'} width={'100%'}>
-              <Flex align={'center'} justify={'center'} bg={'#252525'} width={'2.5vw'}>
-                <Icons.CarDoor color={'#858585'} size={'.7vw'}/>
+              <Flex align={'center'} justify={'center'} bg={menu.vehicleDoors[4] ? '#58C2FD' : '#252525'} width={'2.5vw'} cursor={'pointer'} onClick={() => handleClickDoor(4)}>
+                <Icons.CarDoor color={menu.vehicleDoors[4] ? '#133040' : '#858585'} size={'.7vw'} />
               </Flex>
               <Flex align={'center'} px={'.5vw'} bg={'rgba(217, 217, 217, 0.04)'} border={'1px solid rgba(255, 255, 255, 0.27)'} width={'100%'} height={'100%'}>
-                <Text fontWeight={'600'} fontSize={'.7vw'} color={'#8C8C8C'}>Door Name</Text>
+                <Text fontWeight={'600'} fontSize={'.7vw'} color={'#8C8C8C'}>Hood</Text>
               </Flex>
             </Flex>
             <Flex minH={'3.1vh'} height={'3.1vh'} gap={'.3vw'} width={'100%'}>
-              <Flex align={'center'} justify={'center'} bg={'#252525'} width={'2.5vw'}>
-                <Icons.CarDoor color={'#858585'} size={'.7vw'}/>
+              <Flex align={'center'} justify={'center'} bg={menu.vehicleDoors[5] ? '#58C2FD' : '#252525'} width={'2.5vw'} cursor={'pointer'} onClick={() => handleClickDoor(5)}>
+                <Icons.CarDoor color={menu.vehicleDoors[5] ? '#133040' : '#858585'} size={'.7vw'} />
               </Flex>
               <Flex align={'center'} px={'.5vw'} bg={'rgba(217, 217, 217, 0.04)'} border={'1px solid rgba(255, 255, 255, 0.27)'} width={'100%'} height={'100%'}>
-                <Text fontWeight={'600'} fontSize={'.7vw'} color={'#8C8C8C'}>Door Name</Text>
-              </Flex>
-            </Flex>
-            <Flex minH={'3.1vh'} height={'3.1vh'} gap={'.3vw'} width={'100%'}>
-              <Flex align={'center'} justify={'center'} bg={'#252525'} width={'2.5vw'}>
-                <Icons.CarDoor color={'#858585'} size={'.7vw'}/>
-              </Flex>
-              <Flex align={'center'} px={'.5vw'} bg={'rgba(217, 217, 217, 0.04)'} border={'1px solid rgba(255, 255, 255, 0.27)'} width={'100%'} height={'100%'}>
-                <Text fontWeight={'600'} fontSize={'.7vw'} color={'#8C8C8C'}>Door Name</Text>
-              </Flex>
-            </Flex>
-            <Flex minH={'3.1vh'} height={'3.1vh'} gap={'.3vw'} width={'100%'}>
-              <Flex align={'center'} justify={'center'} bg={'#252525'} width={'2.5vw'}>
-                <Icons.CarDoor color={'#858585'} size={'.7vw'}/>
-              </Flex>
-              <Flex align={'center'} px={'.5vw'} bg={'rgba(217, 217, 217, 0.04)'} border={'1px solid rgba(255, 255, 255, 0.27)'} width={'100%'} height={'100%'}>
-                <Text fontWeight={'600'} fontSize={'.7vw'} color={'#8C8C8C'}>Door Name</Text>
+                <Text fontWeight={'600'} fontSize={'.7vw'} color={'#8C8C8C'}>Trunk</Text>
               </Flex>
             </Flex>
           </Flex>
@@ -168,32 +161,32 @@ const Vehicle = () => {
         {selectedMenu === 'neons' && (
           <Flex overflow={'scroll'} fontFamily={'Rajdhani'} width={'92%'} height={'14vh'} gap={'.3vh'} flexDir={'column'}>
             <Flex minH={'3.1vh'} height={'3.1vh'} gap={'.3vw'} width={'100%'}>
-              <Flex align={'center'} justify={'center'} bg={'#252525'} width={'2.5vw'}>
-                <Icons.Flash color={'#858585'} size={'.7vw'}/>
+              <Flex align={'center'} justify={'center'} bg={menu.neons[0] ? '#58C2FD' : '#252525'} width={'2.5vw'} cursor={'pointer'} onClick={() => handleClickNeon(0)}>
+                <Icons.Flash color={menu.neons[0] ? '#133040' : '#858585'} size={'.7vw'} />
               </Flex>
               <Flex align={'center'} px={'.5vw'} bg={'rgba(217, 217, 217, 0.04)'} border={'1px solid rgba(255, 255, 255, 0.27)'} width={'100%'} height={'100%'}>
                 <Text fontWeight={'600'} fontSize={'.7vw'} color={'#8C8C8C'}>Left Side</Text>
               </Flex>
             </Flex>
             <Flex minH={'3.1vh'} height={'3.1vh'} gap={'.3vw'} width={'100%'}>
-              <Flex align={'center'} justify={'center'} bg={'#252525'} width={'2.5vw'}>
-                <Icons.Flash color={'#858585'} size={'.7vw'}/>
+              <Flex align={'center'} justify={'center'} bg={menu.neons[1] ? '#58C2FD' : '#252525'} width={'2.5vw'} cursor={'pointer'} onClick={() => handleClickNeon(1)}>
+                <Icons.Flash color={menu.neons[1] ? '#133040' : '#858585'} size={'.7vw'} />
               </Flex>
               <Flex align={'center'} px={'.5vw'} bg={'rgba(217, 217, 217, 0.04)'} border={'1px solid rgba(255, 255, 255, 0.27)'} width={'100%'} height={'100%'}>
                 <Text fontWeight={'600'} fontSize={'.7vw'} color={'#8C8C8C'}>Right Side</Text>
               </Flex>
             </Flex>
             <Flex minH={'3.1vh'} height={'3.1vh'} gap={'.3vw'} width={'100%'}>
-              <Flex align={'center'} justify={'center'} bg={'#252525'} width={'2.5vw'}>
-                <Icons.Flash color={'#858585'} size={'.7vw'}/>
+              <Flex align={'center'} justify={'center'} bg={menu.neons[2] ? '#58C2FD' : '#252525'} width={'2.5vw'} cursor={'pointer'} onClick={() => handleClickNeon(2)}>
+                <Icons.Flash color={menu.neons[2] ? '#133040' : '#858585'} size={'.7vw'} />
               </Flex>
               <Flex align={'center'} px={'.5vw'} bg={'rgba(217, 217, 217, 0.04)'} border={'1px solid rgba(255, 255, 255, 0.27)'} width={'100%'} height={'100%'}>
                 <Text fontWeight={'600'} fontSize={'.7vw'} color={'#8C8C8C'}>Front Side</Text>
               </Flex>
             </Flex>
             <Flex minH={'3.1vh'} height={'3.1vh'} gap={'.3vw'} width={'100%'}>
-              <Flex align={'center'} justify={'center'} bg={'#252525'} width={'2.5vw'}>
-                <Icons.Flash color={'#858585'} size={'.7vw'}/>
+              <Flex align={'center'} justify={'center'} bg={menu.neons[3] ? '#58C2FD' : '#252525'} width={'2.5vw'} cursor={'pointer'} onClick={() => handleClickNeon(3)}>
+                <Icons.Flash color={menu.neons[3] ? '#133040' : '#858585'} size={'.7vw'} />
               </Flex>
               <Flex align={'center'} px={'.5vw'} bg={'rgba(217, 217, 217, 0.04)'} border={'1px solid rgba(255, 255, 255, 0.27)'} width={'100%'} height={'100%'}>
                 <Text fontWeight={'600'} fontSize={'.7vw'} color={'#8C8C8C'}>Back Side</Text>

@@ -89,6 +89,21 @@ RegisterNuiCallback('escapePressed', function (data, cb)
   cb('ok')
 end)
 
+local vehicleDoors = {
+  [0] = false,
+  [1] = false,
+  [2] = false,
+  [3] = false,
+  [4] = false,
+  [5] = false,
+}
+
+local neons = {
+  [0] = false,
+  [1] = false,
+  [2] = false,
+  [3] = false,
+}
 
 function UpdateMenuInfo()
   local hour = GetClockHours()
@@ -98,7 +113,37 @@ function UpdateMenuInfo()
   end
   if minute < 10 then
     minute = "0" .. minute
+  end 
+
+  local IsNight = false
+  if tonumber(hour) >= 20 or tonumber(hour) < 6 then
+    IsNight = true
   end
 
+  local ped = PlayerPedId()
+  local vehicle = GetVehiclePedIsIn(ped, false)
+  if vehicle ~= 0 then
+    for i = 0, 5 do
+      vehicleDoors[i] = GetVehicleDoorAngleRatio(vehicle, i) > 0.1
+    end
+
+    for i = 0, 3 do
+      neons[i] = IsVehicleNeonLightEnabled(vehicle, i)
+    end
+  else
+    for i = 0, 5 do
+      vehicleDoors[i] = false
+    end
+
+    for i = 0, 3 do
+      neons[i] = false
+    end
+  end
   
+  SendReactMessage("updateMenuData", {
+    time = hour .. ":" .. minute,
+    nightMode = IsNight,
+    vehicleDoors = vehicleDoors,
+    neons = neons
+  })
 end

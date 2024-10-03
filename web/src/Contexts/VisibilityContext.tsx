@@ -21,7 +21,7 @@ interface VisibilityProviderValue {
 export const VisibilityProvider: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
-  const [visible, setVisible] = useState(isDev());
+  const [visible, setVisible] = useState(true);
 
   useNuiEvent<boolean>("setVisible", setVisible);
   

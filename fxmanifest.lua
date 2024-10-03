@@ -12,9 +12,10 @@ shared_scripts {
   'Config.lua',
 }
 
--- server_scripts {
---   'server/*.lua',
--- }
+server_scripts {
+  'server/Utils.lua',
+  'server/Nitro.lua',
+}
 
 -- ui_page {
 --   'web/debug/index.html',

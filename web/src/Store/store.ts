@@ -449,6 +449,7 @@ const generalSettingsReducer = (state = initialGeneralSettingsState, action: { t
       };
 
     case 'TOGGLE_MAP_LOCATION_EDIT_MODE':
+      fetchNui('setMinimapEditMode', !state.mapLocationEditMode);
       return {
         ...state,
         mapLocationEditMode: !state.mapLocationEditMode,

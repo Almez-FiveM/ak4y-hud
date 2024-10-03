@@ -24,11 +24,6 @@ CreateThread(function()
       if not lastVehicle then
         lastVehicle = vehicle
       end
-
-      SendNUIMessage({
-        action = "nitro",
-        nitro = vehicleNitro
-      })
     else
       if lastVehicle then
         if DoesEntityExist(lastVehicle) then
@@ -220,4 +215,8 @@ RegisterNetEvent('ak4y-hud:setupNitro', function()
         "fas fa-car", "red")
     end
   end
+end)
+
+exports('GetNitro', function()
+  return vehicleNitro
 end)

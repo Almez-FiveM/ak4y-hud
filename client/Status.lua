@@ -3,21 +3,36 @@ local ped = PlayerPedId()
 local SeatBelt = false
 
 CreateThread(function()
-  local PlayerData = ESX.GetPlayerData()
-  while PlayerData.accounts == nil do
-    Wait(100)
-    PlayerData = ESX.GetPlayerData()
+  hunger = 0
+  thirst = 0
+   
+  if GetResourceState("es_extended") == "started" then
+    local PlayerData = ESX.GetPlayerData()
+    while PlayerData.accounts == nil do
+      Wait(100)
+      PlayerData = ESX.GetPlayerData()
+    end
+    AddEventHandler("esx_status:onTick", function(data)
+      for i = 1, #data do
+        if data[i].name == "hunger" then hunger = math.floor(data[i].percent) end
+        if data[i].name == "thirst" then thirst = math.floor(data[i].percent) end
+      end
+    end)
+  elseif GetResourceState("qb-core") == "started" then
+    CreateThread(function()
+      while true do
+        hunger = PlayerData.metadata["hunger"]
+        thirst = PlayerData.metadata["thirst"]
+  
+        Wait(2000)
+      end
+    end)
   end
 
   Wait(500)
   loadMap()
   Wait(500)
-  AddEventHandler("esx_status:onTick", function(data)
-    for i = 1, #data do
-      if data[i].name == "hunger" then hunger = math.floor(data[i].percent) end
-      if data[i].name == "thirst" then thirst = math.floor(data[i].percent) end
-    end
-  end)
+
   while true do
     local PlayerData = ESX.GetPlayerData()
     local health = GetEntityHealth(ped)

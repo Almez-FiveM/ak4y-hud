@@ -13,7 +13,7 @@ else
     TriggerClientEvent('ak4y-hud:setupNitro', src)
   end)
 
-  Framework.Functions.CreateCallback("codev-modernhud:getVehicleNitro", function(src, cb, plate)
+  Framework.Functions.CreateCallback("ak4y-hud:getVehicleNitro", function(src, cb, plate)
     cb(nitros[plate])
   end)
 end

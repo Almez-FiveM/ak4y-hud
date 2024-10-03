@@ -46,12 +46,12 @@ CreateThread(function()
         fuel = vehicleFuel,
         rpm = rpm,
         gear = gearText,
-        nitrous = 0,
+        nitrous = exports[GetCurrentResourceName()]:GetNitro(vehicle),
         seatbelt = SeatBelt,
         engine = vehicleRunning,
         lights = lights,
         speedometerVisible = true,
-        vehType = vehType
+        vehType = vehType,
       })
     else
       SendReactMessage("updateSpeedometer", {

@@ -32,6 +32,55 @@ function loadMap()
   end
 end
 
+Citizen.CreateThread(function()
+    local minimapXOffset = 0.0
+    local minimapYOffset = 0.0
+    -- İlk olarak mevcut ekran çözünürlüğünü al ve referans çözünürlük olarak kullan
+    local initialScreenW, initialScreenH = GetActiveScreenResolution()
+
+    -- Minimap bileşenlerini yeniden ayarlama işlevi
+    local function updateMinimapPosition()
+        -- Mevcut ekran çözünürlüğünü al
+        local screenW, screenH = GetActiveScreenResolution()
+
+        -- Ölçek faktörlerini hesapla
+        local scaleX = screenW / initialScreenW
+        local scaleY = screenH / initialScreenH
+
+        -- Boyutları biraz büyütmek için çarpan kullanın (örneğin 1.2 ile %20 büyütülecek)
+        local sizeMultiplier = 1.265
+
+        -- Haritanın, maskenin ve bulanıklığın yeni konumları (ölçeklendirilmiş ve boyutu büyütülmüş)
+        SetMinimapComponentPosition("minimap", "L", "B", (-0.0045 * scaleX) + minimapXOffset, (-0.022 * scaleY) + minimapYOffset, 0.150 * scaleX * sizeMultiplier, 0.188 * scaleY * sizeMultiplier)
+        SetMinimapComponentPosition("minimap_mask", "L", "B", (-0.0045 * scaleX) + minimapXOffset, (0.000 * scaleY) + minimapYOffset, 0.111 * scaleX * sizeMultiplier, 0.159 * scaleY * sizeMultiplier)
+        SetMinimapComponentPosition("minimap_blur", "L", "B", (-0.045 * scaleX) + minimapXOffset, (0.020 * scaleY) + minimapYOffset, 0.266 * scaleX * sizeMultiplier, 0.237 * scaleY * sizeMultiplier)
+    end
+
+    while true do
+        if MinimapEditMode then
+            -- Minimap'i düzenleme modu
+            if IsControlPressed(0, 174) then -- Sol ok
+                minimapXOffset = minimapXOffset - 0.001
+            elseif IsControlPressed(0, 175) then -- Sağ ok
+                minimapXOffset = minimapXOffset + 0.001
+            end
+            if IsControlPressed(0, 172) then -- Yukarı ok
+                minimapYOffset = minimapYOffset - 0.001
+            elseif IsControlPressed(0, 173) then -- Aşağı ok
+                minimapYOffset = minimapYOffset + 0.001
+            end
+
+            -- Minimap konumunu güncelle
+            updateMinimapPosition()
+
+            -- Kısa bir gecikme
+            Wait(10)
+        else
+            Wait(500) -- Düzenleme modunda değilse daha uzun süre bekle
+        end
+    end
+end)
+
 CreateThread(function()
   while true do
     HideHudComponentThisFrame(2)
@@ -55,5 +104,10 @@ RegisterNuiCallback('setMinimapEditMode', function(data, cb)
     Config.Notify("Minimap Edit Mode", "Use enter to exit the minimap edit mode.", "info", 5e3, "fa-solid fa-map", "blue")
   else
     Config.Notify("Minimap Edit Mode", "You have exited the minimap edit mode.", "info", 5e3, "fa-solid fa-map", "blue")
+    DisplayRadar(false)
+    SetBigmapActive(true, false)
+    Wait(100)
+    SetBigmapActive(false, false)
+    DisplayRadar(true)
   end
 end)

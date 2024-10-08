@@ -37,6 +37,8 @@ const SpeedoV1 = () => {
           justify={'center'}
           align={'center'}
           pos={'relative'}
+          width={'100%'}
+          height={'100%'}
         >
           <Box
             pos={'absolute'}
@@ -54,8 +56,8 @@ const SpeedoV1 = () => {
               zIndex={1}
             />
           </Box>
-          <Box>
-            <svg width={'67'} height={'75'}>
+          <Box width={'100%'} height={'100%'} ml={'.6vw'}>
+            <svg width={'100%'} height={'100%'}>
               <circle
                 cx={'1.7vw'}
                 cy={'2vw'}
@@ -117,7 +119,7 @@ const SpeedoV1 = () => {
             as={Icons.GasPump}
             size={'1.8vh'}
             color={speedo.fuelColor}
-          ></Box>
+          />
         </Flex>
         <Flex
           width={'100%'}

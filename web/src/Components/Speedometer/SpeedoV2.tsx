@@ -30,15 +30,16 @@ const SpeedoV2 = () => {
         height={'100%'}
         pos={'absolute'}
         transform={'rotate(90deg)'}
+        zIndex={2}
       >
         <svg>
           <circle
-            cx={'50.54%'}
-            cy={'50%'}
-            r={'45%'}
+            cx={'14vh'}
+            cy={'7.85vw'}
+            r={'7.4vw'}
             fill={'transparent'}
-            stroke='#B88436'
-            strokeWidth={'20px'}
+            stroke='#B88436' //#B88436
+            strokeWidth={'10px'}
             strokeDasharray={`${speedToDash} 900`}
           />
         </svg>
@@ -52,9 +53,9 @@ const SpeedoV2 = () => {
       >
         <svg>
           <circle
-            cx={'51%'}
-            cy={'50%'}
-            r={'40%'}
+            cx={'14vh'}
+            cy={'7.85vw'}
+            r={'6.5vw'}
             fill={'transparent'}
             stroke='rgba(255, 255, 255, 0.3)'
             strokeWidth={'6px'}
@@ -73,9 +74,9 @@ const SpeedoV2 = () => {
       >
         <svg>
           <circle
-            cx={'51%'}
-            cy={'51%'}
-            r={'20%'}
+            cx={'14vh'}
+            cy={'7.85vw'}
+            r={'6.5vw'}
             fill='transparent'
             stroke={speedo.fuelColor}
             strokeWidth={'4px'}
@@ -92,9 +93,9 @@ const SpeedoV2 = () => {
       >
         <svg>
           <circle
-            cx={'51%'}
-            cy={'51%'}
-            r={'20%'}
+            cx={'14vh'}
+            cy={'7.85vw'}
+            r={'6.5vw'}
             fill='transparent'
             stroke='rgba(255, 255, 255, 0.09)'
             strokeWidth={'4px'}
@@ -143,9 +144,9 @@ const SpeedoV2 = () => {
       >
         <svg>
           <circle
-            cx={'50%'}
-            cy={'50%'}
-            r={'22.5%'}
+            cx={'14vh'}
+            cy={'7.85vw'}
+            r={'3.5vw'}
             fill={'transparent'}
             stroke='rgba(255, 255, 255, 0.3)'
             strokeWidth={'1px'}

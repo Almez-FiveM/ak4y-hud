@@ -79,13 +79,13 @@ const StatusV1 = () => {
                     >
                       <svg>
                         <circle
-                          cx={'22.5px'}
-                          cy={'22px'}
-                          r={'18px'}
+                          cx={'1.2vw'}
+                          cy={'2.1vh'}
+                          r={'.9vw'}
                           fill={'transparent'}
                           stroke={hud[status].color}
                           strokeWidth={'2px'}
-                          strokeDasharray={`${(hud[status].value / 100) * 113.097} 113.097`}
+                          strokeDasharray={`${(hud[status].value / 100) * 144.097} 144.097`}
                         />
                       </svg>
                     </Box>

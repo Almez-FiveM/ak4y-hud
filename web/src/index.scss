@@ -230,7 +230,7 @@ table {
   }
 }
 
-$hexagonSize: 38px;
+$hexagonSize: 2vw;
 
 .hexagon:before,
 .hexagon:after {
@@ -257,7 +257,7 @@ $hexagonSize: 38px;
   background: transparent;
 }
 
-$hexagonSecondSize: 38px;
+$hexagonSecondSize: 2vw;
 
 .hexagon-2th:before,
 .hexagon-2th:after {
@@ -271,14 +271,14 @@ $hexagonSecondSize: 38px;
 }
 
 .hexagon-2th:before {
-  top: -9px;
+  top: -.8vh;
   border-top: solid 7px #333333;
   border-right: solid 7px #333333;
   background: transparent;
 }
 
 .hexagon-2th:after {
-  bottom: -9px;
+  bottom: -.8vh;
   border-bottom: solid 7px #333333;
   border-left: solid 7px #333333;
   background: transparent;

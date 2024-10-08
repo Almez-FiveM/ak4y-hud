@@ -78,15 +78,15 @@ const initialHudState = {
 };
 
 const initialSpeedometerState = {
-  selectedSpeedometer: 0,
+  selectedSpeedometer: 4,
   speedometerVisible: true,
-  speed: 0,
+  speed: 75,
   speedometerType: 'KMH',
   speedometerColor: '#5ACBE3',
-  fuel: 0,
+  fuel: 75,
   fuelColor: '#FFD850',
   fuelIcon: "GasPump",
-  nitrous: 0,
+  nitrous: 75,
   nitrousColor: '#E35ABD',
   nitrousIcon: "Flash",
   seatbelt: false,

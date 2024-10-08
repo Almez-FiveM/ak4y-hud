@@ -9,6 +9,17 @@ const SpeedoV6 = () => {
   let speedToDash = speedo.speed * 5.35;
   let fuelToDash = speedo.fuel * 3.10;
   let nitrousToDash = speedo.nitrous * 3.10;
+
+  let firstDeg = "130deg";
+  let secondDeg = "275deg";
+  // fetch resolution
+  const resolution = window.screen.width;
+  if (resolution > 1920) {
+    firstDeg = "150deg";
+    secondDeg = "305deg";
+  } 
+
+
   return (
     <Flex
       display={'flex'}
@@ -24,7 +35,7 @@ const SpeedoV6 = () => {
       boxSizing='border-box'
     >
       <Flex w={'96%'} h={'98%'} pos={'absolute'} bg={'linear-gradient(180deg, rgba(214, 214, 214, 0.58) 0%, rgba(214, 214, 214, 0) 84.4%)'} borderRadius={'50%'} />
-      <Flex width={'100%'} align={"center"} justify={"center"} pos={'absolute'} height={'100%'} zIndex={999} transform='rotate(130deg)'>
+      <Flex width={'100%'} align={"center"} justify={"center"} pos={'absolute'} height={'100%'} zIndex={999} transform={`rotate(${firstDeg})`}>
         <svg width={'94%'} height={'94%'} >
           <circle
             cx={'50%'}
@@ -38,7 +49,7 @@ const SpeedoV6 = () => {
           />
         </svg>
       </Flex>
-      <Flex width={'100%'} align={"center"} justify={"center"} pos={'absolute'} height={'100%'} zIndex={999} transform='rotate(130deg)'>
+      <Flex width={'100%'} align={"center"} justify={"center"} pos={'absolute'} height={'100%'} zIndex={999} transform={`rotate(${firstDeg})`}>
         <svg width={'94%'} height={'94%'} >
           <circle
             cx={'50%'}
@@ -52,7 +63,7 @@ const SpeedoV6 = () => {
           />
         </svg>
       </Flex>
-      <Flex width={'100%'} align={"center"} justify={"center"} pos={'absolute'} height={'100%'} zIndex={999} transform='rotate(275deg)'>
+      <Flex width={'100%'} align={"center"} justify={"center"} pos={'absolute'} height={'100%'} zIndex={999} transform={`rotate(${secondDeg})`}>
         <svg width={'94%'} height={'94%'} >
           <circle
             cx={'50%'}
@@ -66,7 +77,7 @@ const SpeedoV6 = () => {
           />
         </svg>
       </Flex>
-      <Flex width={'100%'} align={"center"} justify={"center"} pos={'absolute'} height={'100%'} zIndex={999} transform='rotate(275deg)'>
+      <Flex width={'100%'} align={"center"} justify={"center"} pos={'absolute'} height={'100%'} zIndex={999} transform={`rotate(${secondDeg})`}>
         <svg width={'94%'} height={'94%'} >
           <circle
             cx={'50%'}

@@ -1,4 +1,3 @@
-ESX = exports["es_extended"]:getSharedObject()
 local ped = PlayerPedId()
 local SeatBelt = false
 
@@ -7,10 +6,10 @@ CreateThread(function()
   thirst = 0
    
   if GetResourceState("es_extended") == "started" then
-    local PlayerData = ESX.GetPlayerData()
+    local PlayerData = getPlayerData()
     while PlayerData.accounts == nil do
       Wait(100)
-      PlayerData = ESX.GetPlayerData()
+      PlayerData = getPlayerData()
     end
     AddEventHandler("esx_status:onTick", function(data)
       for i = 1, #data do
@@ -19,6 +18,7 @@ CreateThread(function()
       end
     end)
   elseif GetResourceState("qb-core") == "started" then
+    local PlayerData = getPlayerData()
     CreateThread(function()
       while true do
         hunger = PlayerData.metadata["hunger"]
@@ -34,7 +34,7 @@ CreateThread(function()
   Wait(500)
 
   while true do
-    local PlayerData = ESX.GetPlayerData()
+    local PlayerData = getPlayerData()
     local health = GetEntityHealth(ped)
     local maxHealth = GetPedMaxHealth(ped)
     local money = 0

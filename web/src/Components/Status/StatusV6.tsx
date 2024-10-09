@@ -82,7 +82,7 @@ const StatusV6 = () => {
                     zIndex={1} />
                   <Box
                     pos={'absolute'}
-                    width={'90%'}
+                    width={'95%'}
                     margin={0}
                     height={'5vh'}
                     clipPath={'polygon(50% 0, 50% 0, 100% 25%, 100% 75%, 50% 100%, 50% 100%, 0% 75%, 0% 25%)'}

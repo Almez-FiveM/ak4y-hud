@@ -32,7 +32,7 @@ if GetResourceState("es_extended") == "started" then
     end
     local ped = PlayerPedId()
     SendReactMessage("updateInfo", {
-      onlineCount = '233',
+      onlineCount = #GetActivePlayers(),
       id = GetPlayerServerId(PlayerId()),
       cash = money,
       bank = bank,
@@ -44,7 +44,7 @@ if GetResourceState("es_extended") == "started" then
       time = hour .. ":" .. minute,
     })
   end
-else
+elseif GetResourceState("qb-core") == "started" then
   Config.FetchUserInfo = function()
     local PlayerData = Framework.Functions.GetPlayerData()
     local accounts = PlayerData.accounts
@@ -78,7 +78,7 @@ else
     end
     local ped = PlayerPedId()
     SendReactMessage("updateInfo", {
-      onlineCount = '233',
+      onlineCount = #GetActivePlayers(),
       id = GetPlayerServerId(PlayerId()),
       cash = money,
       bank = bank,

@@ -16,6 +16,7 @@ import { useDispatch } from 'react-redux';
 import QueueItem from './QueueItem';
 import Icons from '../../Constants/Icons';
 import { usePlayer } from '../../Contexts/PlayerContext';
+import { fetchNui } from '../../Helpers/fetchNui';
 
 
 const Map = () => {
@@ -48,6 +49,7 @@ const Map = () => {
       }
 
       dispatch(updateMenuData('media', newMedia));
+      fetchNui('playSong', { url: menu.media.queuedSongs[0].url });
       dispatch({ type: 'REMOVE_SONG_FROM_QUEUE', payload: 0 });
     } else {
       dispatch(updateMenuData('media', {

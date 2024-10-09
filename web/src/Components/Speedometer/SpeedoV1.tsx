@@ -19,11 +19,11 @@ const SpeedoV1 = () => {
       filter={'drop-shadow(0 0 1vw #000)'}
     >
       <Flex
-        align={'center'}
         gap={'1vw'}
         height={'7vh'}
+        justify={'space-between'}
       >
-        <Flex height={'100%'} align={'center'}>
+        <Flex minW={'10.4vw'} height={'100%'} align={'center'}>
           {speedo.speed < 10 && (
             <Text fontFamily={'Orbitron'} fontWeight={600} fontSize={'4vw'} color={'#fff5'}>0</Text>
           )}
@@ -33,8 +33,6 @@ const SpeedoV1 = () => {
           <Text fontFamily={'Orbitron'} fontWeight={600} fontSize={'4vw'}>{speedo.speed}</Text>
         </Flex>
         <Flex
-          justify={'center'}
-          align={'center'}
           pos={'relative'}
           width={'100%'}
           height={'100%'}
@@ -42,8 +40,8 @@ const SpeedoV1 = () => {
           <Flex width={'3.6vw'} height={'100%'} align={'center'} justify={'center'}>
             <svg width={'100%'} height={'100%'} style={{position: 'absolute'}}>
               <circle
-                cx={'2.9vw'}
-                cy={'2vw'}
+                cx={'50%'}
+                cy={'50%'}
                 r={'1.5vw'}
                 fill={'transparent'}
                 stroke={'#bbb'}
@@ -53,20 +51,22 @@ const SpeedoV1 = () => {
                 strokeDasharray={`170`}
                 strokeDashoffset={`0`}
               />
+              {speedo.nitrous > 0 && (
+                <circle
+                  cx={'50%'}
+                  cy={'50%'}
+                  r={'1.5vw'}
+                  fill={'transparent'}
+                  stroke={speedo.nitrousColor}
+                  strokeWidth={'6px'}
+                  strokeDasharray={`${speedo.nitrous * 1.7} 185`}
+                  strokeLinecap={'round'}
+                  strokeDashoffset={0}
+                />
+              )}
               <circle
-                cx={'2.9vw'}
-                cy={'2vw'}
-                r={'1.5vw'}
-                fill={'transparent'}
-                stroke={speedo.nitrousColor}
-                strokeWidth={'6px'}
-                strokeDasharray={`${(speedo.nitrous * 1.75)} 175`}
-                strokeLinecap={'round'}
-                strokeDashoffset={0}
-              />
-              <circle
-                cx={'2.9vw'}
-                cy={'2vw'}
+                cx={'50%'}
+                cy={'50%'}
                 r={'1.05vw'}
                 fill={colord(speedo.nitrousColor).alpha(0.2).toHex()}
                 strokeDashoffset={0}

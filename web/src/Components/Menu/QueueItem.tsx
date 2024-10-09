@@ -5,6 +5,7 @@ import {
 } from '@chakra-ui/react';
 import { selectMenu, updateMenuData } from '../../Store/store';
 import { useDispatch } from 'react-redux';
+import { fetchNui } from '../../Helpers/fetchNui';
 
 interface QueueItemProps {
   id: number;
@@ -29,6 +30,7 @@ const QueueItem: React.FC<QueueItemProps> = ({ id, data, handleMoveUp, handleMov
       ...menu.media,
       currentURL: menu.media.queuedSongs[id].url,
     }
+    fetchNui('playSong', { url: menu.media.queuedSongs[id].url });
     dispatch(updateMenuData('media', newMedia));
     dispatch({ type: 'REMOVE_SONG_FROM_QUEUE', payload: id });
   }

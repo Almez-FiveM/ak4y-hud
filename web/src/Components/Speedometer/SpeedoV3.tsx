@@ -129,7 +129,7 @@ const SpeedoV3 = () => {
         fontFamily={"Orbitron"}
         flexDir={'column'}
       >
-        <Flex align={'center'} gap={0} textShadow={'0px 0px 30px rgba(0, 0, 0, 0.25)'} fontWeight={600} fontSize={'1.8vw'} lineHeight={'1'}>
+        <Flex align={'center'} gap={0} textShadow={'0px 0px 10px rgba(0, 0, 0, 0.8)'} fontWeight={600} fontSize={'1.8vw'} lineHeight={'1'}>
           {speedo.speed < 10 && (
             <Text color={'#fff5'}>0</Text>
           )}
@@ -197,7 +197,7 @@ const SpeedoV3 = () => {
         </svg>
         <Flex width={'100%'} justify={'center'} flexDir={'column'} align={'center'} pos={'absolute'} bottom={'2.8vh'} fontSize={'.6vw'} fontFamily={'Orbitron'}>
           <Icons.GasPump size={'1.2vw'} color={'#FFB13C'} />
-          <Text>%</Text>
+          <Text>${speedo.fuel}%</Text>
         </Flex>
         <Flex width={'100%'} px={'1.5vw'} justify={'space-between'} pos={'absolute'} bottom={'1.5vh'} fontSize={'.5vw'} fontFamily={'Orbitron'}>
           <Text>0</Text>
@@ -241,7 +241,7 @@ const SpeedoV3 = () => {
         </svg>
         <Flex width={'100%'} justify={'center'} flexDir={'column'} align={'center'} pos={'absolute'} bottom={'1.5vh'} fontSize={'.4vw'} fontFamily={'Orbitron'}>
           <Icons.Flash size={'1.2vw'} color={'#AB8DFF'} />
-          <Text>%</Text>
+          <Text>${speedo.nitrous}%</Text>
         </Flex>
         <Flex width={'100%'} px={'.8vw'} justify={'space-between'} pos={'absolute'} bottom={'.5vh'} fontSize={'.4vw'} fontFamily={'Orbitron'}>
           <Text>0</Text>

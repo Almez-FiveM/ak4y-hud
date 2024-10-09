@@ -4,72 +4,73 @@ import storage from 'redux-persist/lib/storage'; // defaults to localStorage for
 import { fetchNui } from '../Helpers/fetchNui';
 
 const initialHudState = {
-  selectedStatus: 7,
+  selectedStatus: 0,
   microphone: {
-    value: 10,
+    value: 33,
     color: '#FFF',
     visible: true,
-    hideBelow: 80,
+    hideBelow: 100,
     useHideBelow: false,
     icon: "Microphone",
     translateX: 0,
     translateY: 0,
+    talking: false,
   },
   health: {
-    value: 30,
+    value: 0,
     color: '#FF3333',
     visible: true,
-    hideBelow: 80,
+    hideBelow: 100,
     useHideBelow: true,
     icon: "Heart",
     translateX: 0,
     translateY: 0,
   },
   armor: {
-    value: 60,
+    value: 0,
     color: '#339DFF',
     visible: true,
-    hideBelow: 80,
+    hideBelow: 100,
     useHideBelow: true,
     icon: "Shield",
     translateX: 0,
     translateY: 0,
   },
   hunger: {
-    value: 60,
+    value: 0,
     color: '#FF7C33',
     visible: true,
-    hideBelow: 80,
+    hideBelow: 100,
     useHideBelow: true,
     icon: "Hamburger",
     translateX: 0,
     translateY: 0,
   },
   thirst: {
-    value: 80,
+    value: 0,
     color: '#50CAFF',
     visible: true,
-    hideBelow: 80,
+    hideBelow: 100,
     useHideBelow: true,
     icon: "Droplet",
     translateX: 0,
     translateY: 0,
   },
   stamina: {
-    value: 100,
+    value: 0,
     color: '#8133FF',
     visible: true,
-    hideBelow: 80,
+    hideBelow: 100,
     useHideBelow: true,
     icon: "Flash",
     translateX: 0,
     translateY: 0,
   },
   stress: {
-    value: 100,
+    value: 0,
     color: '#df9a67',
     visible: true,
-    hideBelow: 80,
+    hideBelow: 100,
     useHideBelow: true,
     icon: "Stress",
     translateX: 0,
@@ -78,15 +79,15 @@ const initialHudState = {
 };
 
 const initialSpeedometerState = {
-  selectedSpeedometer: 1,
+  selectedSpeedometer: 0,
   speedometerVisible: true,
-  speed: 30,
+  speed: 0,
   speedometerType: 'KMH',
   speedometerColor: '#5ACBE3',
-  fuel: 100,
+  fuel: 0,
   fuelColor: '#FFD850',
-  fuelIcon: "GasPump",
-  nitrous: 100,
+  fuelIcon:"GasPump",
+  nitrous: 0,
   nitrousColor: '#E35ABD',
   nitrousIcon: "Flash",
   seatbelt: false,
@@ -116,25 +117,25 @@ const initialGeneralSettingsState = {
 
 const initialUserInfoSettingsState = {
   selectedUserInfo: 0,
-  onlineCount: 34,
-  id: 940,
-  cash: 100000,
-  bank: 500000,
-  job: 'Unemployed',
-  weapon: 'weapon_shotgun',
-  weaponLabel: 'Shotgun UR1',
-  ammoCount: 10,
-  ammoMax: 400,
-  time: '12:00',
+  onlineCount: 0,
+  id: 0,
+  cash: 0,
+  bank: 0,
+  job: '',
+  weapon: '',
+  weaponLabel: '',
+  ammoCount: 0,
+  ammoMax: 0,
+  time: '',
   translateX: 0,
   translateY: 0,
 };
 
 const initialMenuState = {
-  selectedMenu: 1,
-  streetName: 'Innocence Blvd',
+  selectedMenu: 0,
+  streetName: '',
   nightMode: false,
-  time: '12:00',
+  time: '',
   gameURL: '',
   media: {
     queuedSongs: [],
@@ -183,6 +184,14 @@ const hudReducer = (state = initialHudState, action: { type: any; payload: any; 
         ...state,
         health: {
           ...state.health,
+          value: Math.floor(action.payload),
+        },
+      };
+    case 'UPDATE_MICROPHONE':
+      return {
+        ...state,
+        microphone: {
+          ...state.microphone,
           value: Math.floor(action.payload),
         },
       };
@@ -335,7 +344,7 @@ const hudReducer = (state = initialHudState, action: { type: any; payload: any; 
         ...state,
         microphone: {
           ...state.microphone,
-          ...action.payload,
+          [action.payload.dataToUpdate]: action.payload.value,
         },
       };
     case 'UPDATE_HEALTH_COORDINATES':
@@ -794,5 +803,3 @@ export const updateMenuData = (dataToUpdate: any, value: any) => {
     },
   };
 }
-
-purgeStore();

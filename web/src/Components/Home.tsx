@@ -11,6 +11,7 @@ import { useNuiEvent } from '../Hooks/useNuiEvent';
 import EditMode from './Pages/EditMode';
 import MenuBox from './Menu/MenuBox';
 import Youtube from './Menu/Youtube';
+import { useEffect } from 'react';
 
 const Home = () => {
   const generalSettings = useSelector(selectGeneralSettings);
@@ -35,6 +36,25 @@ const Home = () => {
     dispatch(updateConfigData(data.key, data.value));
   });
 
+  useNuiEvent('updateMicrophone', (data: any) => {
+    if (data.talkState !== null) {
+      dispatch({ type: 'UPDATE_MICROPHONE_DATA', payload: { dataToUpdate: 'value', value: (data.talkState * 33) } });
+    }
+    if (data.talking !== null) {
+      dispatch({ type: 'UPDATE_MICROPHONE_DATA', payload: { dataToUpdate: 'talking', value: data.talking } });
+      if (data.talking) {
+        dispatch({ type: 'UPDATE_MICROPHONE_DATA', payload: { dataToUpdate: 'color', value: '#F6C358' } });
+      } else {
+        dispatch({ type: 'UPDATE_MICROPHONE_DATA', payload: { dataToUpdate: 'color', value: '#fff' } });
+      }
+    }
+  });
+
+  useEffect(() => {
+    dispatch({ type: 'UPDATE_MICROPHONE_DATA', payload: { dataToUpdate: 'value', value: 33 } });
+    dispatch({ type: 'UPDATE_MICROPHONE_DATA', payload: { dataToUpdate: 'talking', value: true } });
+    
+  }, []);
 
   return (
     <>

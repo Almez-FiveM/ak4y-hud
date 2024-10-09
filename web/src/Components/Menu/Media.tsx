@@ -16,6 +16,7 @@ import { useDispatch } from 'react-redux';
 import QueueItem from './QueueItem';
 import Icons from '../../Constants/Icons';
 import { usePlayer } from '../../Contexts/PlayerContext';
+import { fetchNui } from '../../Helpers/fetchNui';
 
 
 const Media = () => {
@@ -34,6 +35,7 @@ const Media = () => {
           currentURL: input
         }
         dispatch(updateMenuData('media', newMedia));
+        fetchNui('playSong', { url: newMedia });
       } else {
         let newMedia = {
           ...menu.media,
@@ -110,7 +112,7 @@ const Media = () => {
         ...menu.media,
         currentURL: menu.media.queuedSongs[0].url,
       }
-
+      fetchNui('playSong', { url: menu.media.queuedSongs[0].url });
       dispatch(updateMenuData('media', newMedia));
       dispatch({ type: 'REMOVE_SONG_FROM_QUEUE', payload: 0 });
     } else {
@@ -137,12 +139,14 @@ const Media = () => {
           ...menu.media,
           playing: false
         }));
+        fetchNui('pauseSong');
       } else {
         dispatch(updateMenuData('media', {
           ...menu.media,
           playing: true
         }));
         player.playVideo();
+        fetchNui('resumeSong');
       }
     }
   }

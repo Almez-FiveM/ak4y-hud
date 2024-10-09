@@ -7,9 +7,9 @@ import { transform } from 'framer-motion';
 const speedArray = [60, 80, 100, 120, 140, 0, 20, 40];
 const SpeedoV2 = () => {
   const speedo = useSelector(selectSpeedometer);
-  let speedToDash = (speedo.speed > 160 ? 160 : speedo.speed) * 5.6;
-  let fuelToDash = speedo.fuel * 2;
-  let nitrousToDash = speedo.nitrous * 1.94;
+  let speedToDash = (speedo.speed > 160 ? 160 : speedo.speed) * 5.5;
+  let fuelToDash = speedo.fuel * 1.9;
+  let nitrousToDash = speedo.nitrous * 1.85;
   return (
     <Flex
       display={'flex'}
@@ -52,21 +52,23 @@ const SpeedoV2 = () => {
       </Flex>
 
 
-      <Flex width={'99%'} align={"center"} justify={"center"} pos={'absolute'} height={'100%'} zIndex={999} transform='rotate(88deg)'>
+      <Flex width={'99%'} align={"center"} justify={"center"} pos={'absolute'} height={'100%'} zIndex={999} transform='rotate(90deg)'>
         <svg width={'50%'} height={'50%'} >
-          <circle
-            cx={'50%'}
-            cy={'52%'}
-            r={'45%'}
-            fill={'transparent'}
-            stroke={'#DBA655'}
-            strokeWidth={'3px'}
-            strokeLinecap='round'
-            strokeDasharray={`${fuelToDash} 400`}
-          />
+          {speedo.fuel > 0 && (
+            <circle
+              cx={'50%'}
+              cy={'52%'}
+              r={'45%'}
+              fill={'transparent'}
+              stroke={'#DBA655'}
+              strokeWidth={'3px'}
+              strokeLinecap='round'
+              strokeDasharray={`${fuelToDash} 430`}
+            />  
+          )}
         </svg>
       </Flex>
-      <Flex width={'99%'} align={"center"} justify={"center"} pos={'absolute'} height={'100%'} zIndex={998} transform='rotate(88deg)'>
+      <Flex width={'99%'} align={"center"} justify={"center"} pos={'absolute'} height={'100%'} zIndex={998} transform='rotate(90deg)'>
         <svg width={'50%'} height={'50%'} >
           <circle
             cx={'50%'}
@@ -76,26 +78,28 @@ const SpeedoV2 = () => {
             stroke={'rgba(255, 255, 255, 0.1)'}
             strokeWidth={'3px'}
             strokeLinecap='round'
-            strokeDasharray={`185 400`}
+            strokeDasharray={`190 400`}
           />
         </svg>
       </Flex>
 
-      <Flex width={'99%'} align={"center"} justify={"center"} pos={'absolute'} height={'100%'} zIndex={999} transform='rotate(286deg)'>
+      <Flex width={'99%'} align={"center"} justify={"center"} pos={'absolute'} height={'100%'} zIndex={999} transform='rotate(294deg)'>
         <svg width={'50%'} height={'50%'} >
-          <circle
-            cx={'50%'}
-            cy={'50%'}
-            r={'45%'}
-            fill={'transparent'}
-            stroke={'#8E5AE3'}
-            strokeWidth={'3px'}
-            strokeLinecap='round'
-            strokeDasharray={`${nitrousToDash} 400`}
-          />
+          {speedo.nitrous > 0 && (
+            <circle
+              cx={'50%'}
+              cy={'50%'}
+              r={'45%'}
+              fill={'transparent'}
+              stroke={'#8E5AE3'}
+              strokeWidth={'3px'}
+              strokeLinecap='round'
+              strokeDasharray={`${nitrousToDash} 430`}
+            />
+          )}
         </svg>
       </Flex>
-      <Flex width={'99%'} align={"center"} justify={"center"} pos={'absolute'} height={'100%'} zIndex={998} transform='rotate(286deg)'>
+      <Flex width={'99%'} align={"center"} justify={"center"} pos={'absolute'} height={'100%'} zIndex={998} transform='rotate(294deg)'>
         <svg width={'50%'} height={'50%'} >
           <circle
             cx={'50%'}

@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { usePlayer } from '../../Contexts/PlayerContext';
+import { fetchNui } from '../../Helpers/fetchNui';
 
 const Youtube = () => {
   const menu = useSelector(selectMenu);
@@ -21,6 +22,7 @@ const Youtube = () => {
         currentURL: menu.media.queuedSongs[0].url,
       }
       dispatch(updateMenuData('media', newMedia));
+      fetchNui('playSong', { url: menu.media.queuedSongs[0].url });
       dispatch({ type: 'REMOVE_SONG_FROM_QUEUE', payload: 0 });
     } else {
       dispatch(updateMenuData('media', {

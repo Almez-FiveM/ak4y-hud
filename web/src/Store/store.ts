@@ -6,7 +6,7 @@ import { fetchNui } from '../Helpers/fetchNui';
 const initialHudState = {
   selectedStatus: 0,
   microphone: {
-    value: 100,
+    value: 10,
     color: '#FFF',
     visible: true,
     hideBelow: 80,
@@ -16,7 +16,7 @@ const initialHudState = {
     translateY: 0,
   },
   health: {
-    value: 100,
+    value: 20,
     color: '#FF3333',
     visible: true,
     hideBelow: 80,
@@ -26,7 +26,7 @@ const initialHudState = {
     translateY: 0,
   },
   armor: {
-    value: 100,
+    value: 40,
     color: '#339DFF',
     visible: true,
     hideBelow: 80,
@@ -36,7 +36,7 @@ const initialHudState = {
     translateY: 0,
   },
   hunger: {
-    value: 100,
+    value: 60,
     color: '#FF7C33',
     visible: true,
     hideBelow: 80,
@@ -46,7 +46,7 @@ const initialHudState = {
     translateY: 0,
   },
   thirst: {
-    value: 100,
+    value: 80,
     color: '#50CAFF',
     visible: true,
     hideBelow: 80,
@@ -56,7 +56,7 @@ const initialHudState = {
     translateY: 0,
   },
   stamina: {
-    value: 100,
+    value: 95,
     color: '#8133FF',
     visible: true,
     hideBelow: 80,
@@ -80,7 +80,7 @@ const initialHudState = {
 const initialSpeedometerState = {
   selectedSpeedometer: 4,
   speedometerVisible: true,
-  speed: 75,
+  speed: 160,
   speedometerType: 'KMH',
   speedometerColor: '#5ACBE3',
   fuel: 75,
@@ -96,6 +96,7 @@ const initialSpeedometerState = {
   vehType: "car" as VehicleType,
   translateX: 0,
   translateY: 0,
+  gear: 'N',
 };
 
 // CarTypes
@@ -145,6 +146,7 @@ const initialMenuState = {
     },
     thumbnail: 'https://files.catbox.moe/i5bfz3.png',
     currentURL: '',
+    playing: true,
     volume: 100,
   },
   vehicleDoors: {
@@ -181,7 +183,7 @@ const hudReducer = (state = initialHudState, action: { type: any; payload: any; 
         ...state,
         health: {
           ...state.health,
-          value: action.payload,
+          value: Math.floor(action.payload),
         },
       };
     case 'TOGGLE_HEALTH':
@@ -197,7 +199,7 @@ const hudReducer = (state = initialHudState, action: { type: any; payload: any; 
         ...state,
         armor: {
           ...state.armor,
-          value: action.payload,
+          value: Math.floor(action.payload),
         },
       };
     case 'TOGGLE_ARMOR':
@@ -213,7 +215,7 @@ const hudReducer = (state = initialHudState, action: { type: any; payload: any; 
         ...state,
         hunger: {
           ...state.hunger,
-          value: action.payload,
+          value: Math.floor(action.payload),
         },
       };
     case 'TOGGLE_HUNGER':
@@ -229,7 +231,7 @@ const hudReducer = (state = initialHudState, action: { type: any; payload: any; 
         ...state,
         thirst: {
           ...state.thirst,
-          value: action.payload,
+          value: Math.floor(action.payload),
         },
       };
     case 'TOGGLE_THIRST':
@@ -253,7 +255,7 @@ const hudReducer = (state = initialHudState, action: { type: any; payload: any; 
         ...state,
         stamina: {
           ...state.stamina,
-          value: action.payload,
+          value: Math.floor(action.payload),
         },
       };
     case 'TOGGLE_STAMINA':
@@ -269,7 +271,7 @@ const hudReducer = (state = initialHudState, action: { type: any; payload: any; 
         ...state,
         stress: {
           ...state.stress,
-          value: action.payload,
+          value: Math.floor(action.payload),
         },
       };
     case 'TOGGLE_STRESS':
@@ -792,3 +794,5 @@ export const updateMenuData = (dataToUpdate: any, value: any) => {
     },
   };
 }
+
+purgeStore();

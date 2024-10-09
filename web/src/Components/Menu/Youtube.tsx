@@ -90,21 +90,21 @@ const Youtube = () => {
   }, [menu]);
 
   // reset media on mount
-  // useEffect(() => {
-  //   dispatch(updateMenuData('media', {
-  //     ...menu.media,
-  //     thumbnail: 'https://files.catbox.moe/i5bfz3.png',
-  //     currentURL: '',
-  //     queuedSongs: [],
-  //     currentSong: {
-  //       ...menu.media.currentSong,
-  //       songName: 'NO MEDIA',
-  //       artist: 'Artist',
-  //       duration: 0,
-  //       currentTime: 0
-  //     }
-  //   }));
-  // }, []);
+  useEffect(() => {
+    dispatch(updateMenuData('media', {
+      ...menu.media,
+      thumbnail: 'https://files.catbox.moe/i5bfz3.png',
+      currentURL: '',
+      queuedSongs: [],
+      currentSong: {
+        ...menu.media.currentSong,
+        songName: 'NO MEDIA',
+        artist: 'Artist',
+        duration: 0,
+        currentTime: 0
+      }
+    }));
+  }, []);
 
   return (
     <>

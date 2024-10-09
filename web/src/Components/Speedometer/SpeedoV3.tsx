@@ -9,7 +9,7 @@ const SpeedoV3 = () => {
   const speedo = useSelector(selectSpeedometer);
   let speedToDash = speedo.speed * 3.42;
   let fuelToDash = speedo.fuel * 1.7;
-  let nitrousToDash = speedo.nitrous * 1.7;
+  let nitrousToDash = speedo.nitrous * 1.75;
   return (
     <Flex
       display={'flex'}
@@ -24,7 +24,7 @@ const SpeedoV3 = () => {
       boxSizing='border-box'
     >
       <Flex align={'center'} justify={'center'} pos={'absolute'}>
-        <svg width="100%" height="100%" viewBox="0 0 268 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="15.5vw" height="100%" viewBox="0 0 268 230" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_i_1_3766)">
             <path d="M225.217 226C243.258 207.895 255.544 184.828 260.521 159.715C265.499 134.602 262.944 108.573 253.18 84.9171C243.417 61.2616 226.882 41.0429 205.669 26.8177C184.455 12.5926 159.514 5 134 5C108.486 5 83.5454 12.5926 62.3315 26.8177C41.1176 41.0429 24.5833 61.2616 14.8196 84.9171C5.0559 108.573 2.50126 134.602 7.47875 159.715C12.4562 184.827 24.7423 207.895 42.7833 226" stroke="url(#paint0_linear_1_3766)" strokeWidth="10" />
           </g>
@@ -47,25 +47,25 @@ const SpeedoV3 = () => {
         </svg>
       </Flex>
       <Flex align={'center'} justify={'center'} pos={'absolute'}>
-        <svg width="100%" height="100%" viewBox="0 0 250 214" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="15.6vw" height="100%" viewBox="0 0 250 214" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M212.335 213.018C229.673 195.68 241.48 173.591 246.264 149.542C251.047 125.493 248.592 100.567 239.209 77.9133C229.826 55.2601 213.936 35.898 193.548 22.2756C173.161 8.65325 149.192 1.38233 124.672 1.38232C100.153 1.38232 76.1837 8.65325 55.7964 22.2756C35.409 35.898 19.519 55.2601 10.1357 77.9133C0.752448 100.566 -1.70264 125.493 3.0809 149.542C7.86445 173.59 19.6718 195.68 37.0098 213.018" stroke="#389B75" strokeWidth="0.86528" />
         </svg>
 
       </Flex>
       <Flex align={'center'} justify={'center'} pos={'absolute'}>
-        <svg width="92%" height="92%" viewBox="0 0 248 210" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="14.5vw" height="92%" viewBox="0 0 248 210" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M208.552 207.4C225.343 190.692 236.778 169.404 241.41 146.229C246.043 123.054 243.665 99.0328 234.578 77.2024C225.491 55.3721 210.102 36.7134 190.358 23.5858C170.614 10.4582 147.401 3.45142 123.655 3.45142C99.9085 3.45141 76.6956 10.4582 56.9513 23.5858C37.2071 36.7134 21.8184 55.3721 12.7311 77.2024C3.64382 99.0327 1.26617 123.054 5.89882 146.229C10.5315 169.404 21.9663 190.692 38.7574 207.4" stroke="#294439" strokeWidth="6.92224" />
         </svg>
 
       </Flex>
       <Flex align={'center'} justify={'center'} pos={'absolute'} w={'100%'} className='speedometer-bar'>
-        <svg width="88%" height="100%" viewBox="0 0 231 201" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="14.25vw" height="100%" viewBox="0 0 231 201" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transition: 'all 0.5s ease' }}>
           <mask id="path-1-inside-1_224_955" fill="white">
             <path d="M33.7658 198.142C33.3496 198.555 32.6754 198.548 32.2715 198.123C16.6881 181.717 6.16266 161.055 1.99774 138.667C-2.23259 115.927 0.288869 92.4263 9.24327 71.1378C18.1977 49.8493 33.1828 31.7286 52.3038 19.0672C71.4247 6.40586 93.8227 -0.227504 116.665 0.00595446C139.508 0.239413 161.769 7.32921 180.634 20.3788C199.499 33.4284 214.12 51.8516 222.649 73.3189C231.177 94.7861 233.23 118.333 228.548 140.982C223.938 163.281 213.003 183.723 197.096 199.807C196.684 200.224 196.009 200.217 195.602 199.796L193.945 198.083C193.544 197.669 193.552 197.011 193.956 196.601C209.244 181.14 219.753 161.49 224.184 140.056C228.686 118.282 226.712 95.6434 218.513 75.0048C210.314 54.3661 196.257 36.6539 178.12 24.108C159.983 11.5621 138.581 4.74596 116.62 4.52151C94.6593 4.29706 73.1259 10.6744 54.7429 22.8471C36.36 35.0198 21.9532 52.441 13.3444 72.9079C4.73561 93.3748 2.31147 115.968 6.37852 137.83C10.3818 159.35 20.4975 179.211 35.4742 194.982C35.8707 195.399 35.8647 196.058 35.456 196.464L33.7658 198.142Z" />
           </mask>
           <path d="M33.7658 198.142C33.3496 198.555 32.6754 198.548 32.2715 198.123C16.6881 181.717 6.16266 161.055 1.99774 138.667C-2.23259 115.927 0.288869 92.4263 9.24327 71.1378C18.1977 49.8493 33.1828 31.7286 52.3038 19.0672C71.4247 6.40586 93.8227 -0.227504 116.665 0.00595446C139.508 0.239413 161.769 7.32921 180.634 20.3788C199.499 33.4284 214.12 51.8516 222.649 73.3189C231.177 94.7861 233.23 118.333 228.548 140.982C223.938 163.281 213.003 183.723 197.096 199.807C196.684 200.224 196.009 200.217 195.602 199.796L193.945 198.083C193.544 197.669 193.552 197.011 193.956 196.601C209.244 181.14 219.753 161.49 224.184 140.056C228.686 118.282 226.712 95.6434 218.513 75.0048C210.314 54.3661 196.257 36.6539 178.12 24.108C159.983 11.5621 138.581 4.74596 116.62 4.52151C94.6593 4.29706 73.1259 10.6744 54.7429 22.8471C36.36 35.0198 21.9532 52.441 13.3444 72.9079C4.73561 93.3748 2.31147 115.968 6.37852 137.83C10.3818 159.35 20.4975 179.211 35.4742 194.982C35.8707 195.399 35.8647 196.058 35.456 196.464L33.7658 198.142Z"
             stroke="url(#paint0_linear_224_955)" strokeWidth="40" mask="url(#path-1-inside-1_224_955)"
-            strokeDasharray={`${speedToDash} 900`}
+            strokeDasharray={`${speedToDash} 1100`}
           />
           <defs>
             <linearGradient id="paint0_linear_224_955" x1="127.833" y1="5.86184" x2="31.1523" y2="201.517" gradientUnits="userSpaceOnUse">
@@ -76,7 +76,7 @@ const SpeedoV3 = () => {
         </svg>
       </Flex>
       <Flex align={'center'} justify={'center'} pos={'absolute'} w={'100%'} top={'3%'} h={'100%'} className="middle-circle">
-        <svg width="52%" height="100%" viewBox="0 0 144 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="8.5vw" height="100%" viewBox="0 0 144 128" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M117.85 126.606C129.207 117.161 137.363 104.433 141.199 90.1685C145.034 75.9038 144.361 60.8016 139.272 46.9347C134.183 33.0677 124.926 21.1157 112.774 12.7188C100.621 4.322 86.1676 -0.108066 71.3969 0.0366366C56.6262 0.181339 42.2623 4.89372 30.2765 13.527C18.2907 22.1603 9.2704 34.2914 4.45367 48.2554C-0.36306 62.2194 -0.740183 77.3319 3.37406 91.5187C7.4883 105.706 15.8923 118.271 27.4325 127.492L29.6235 124.75C18.6493 115.982 10.6576 104.032 6.74515 90.5411C2.83272 77.0501 3.19135 62.679 7.7718 49.4C12.3523 36.121 20.93 24.5849 32.3279 16.3751C43.7258 8.16528 57.3851 3.68406 71.4313 3.54646C85.4774 3.40885 99.2219 7.62161 110.778 15.6066C122.335 23.5915 131.137 34.9573 135.977 48.144C140.817 61.3307 141.457 75.6921 137.809 89.2571C134.162 102.822 126.406 114.926 115.606 123.907L117.85 126.606Z" fill="url(#paint0_linear_1_3802)" />
           <defs>
             <linearGradient id="paint0_linear_1_3802" x1="72.0978" y1="0.0332031" x2="72.0978" y2="143.144" gradientUnits="userSpaceOnUse">
@@ -88,7 +88,7 @@ const SpeedoV3 = () => {
 
       </Flex>
       <Flex align={'center'} justify={'center'} pos={'absolute'} w={'100%'}>
-        <svg width="94%" height="100%" viewBox="0 0 248 211" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="15.25vw" height="100%" viewBox="0 0 248 211" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="122.005" y="0.000244141" width="2.59584" height="5.19168" fill="white" />
           <rect x="188.856" y="18.6042" width="2.59584" height="5.19168" transform="rotate(32.9096 188.856 18.6042)" fill="white" />
           <rect width="2.59584" height="5.19168" transform="matrix(-0.839529 0.543316 0.543316 0.839529 58.7803 19.0364)" fill="white" />
@@ -129,7 +129,7 @@ const SpeedoV3 = () => {
         fontFamily={"Orbitron"}
         flexDir={'column'}
       >
-        <Flex align={'center'} gap={0} textShadow={'0px 0px 30px rgba(255, 255, 255, 0.25)'} fontWeight={600} fontSize={'1.8vw'} lineHeight={'1'}>
+        <Flex align={'center'} gap={0} textShadow={'0px 0px 30px rgba(0, 0, 0, 0.25)'} fontWeight={600} fontSize={'1.8vw'} lineHeight={'1'}>
           {speedo.speed < 10 && (
             <Text color={'#fff5'}>0</Text>
           )}
@@ -157,6 +157,95 @@ const SpeedoV3 = () => {
             size={'.8vw'}
             color={(speedo.lights === 2) ? '#5CF99D' : ((speedo.lights === 1) ? '#58D2EE' : '#DFDFDF')}
           />
+        </Flex>
+      </Flex>
+
+      <Flex pos={'absolute'}
+        left={'-5.3vw'}
+        bottom={'.5vh'}
+        width={'6vw'}
+        height={'6vw'}
+      >
+        <svg transform='rotate(140)'>
+          <circle
+            cx="3vw"
+            cy="3.05vw"
+            r="1.9vw"
+            fill="transparent"
+            stroke="#242627"
+            strokeWidth=".6vw"
+            strokeDasharray={`222 280`}
+          />
+          <circle
+            cx="3vw"
+            cy="3vw"
+            r="1.75vw"
+            fill="transparent"
+            stroke="#161616"
+            strokeWidth=".6vw"
+            strokeDasharray={`205 280`}
+          />
+          <circle
+            cx="3vw"
+            cy="3vw"
+            r="1.75vw"
+            fill="transparent"
+            stroke="#FFB13C"
+            strokeWidth=".6vw"
+            strokeDasharray={`${fuelToDash} 280`}
+          />
+        </svg>
+        <Flex width={'100%'} justify={'center'} flexDir={'column'} align={'center'} pos={'absolute'} bottom={'2.8vh'} fontSize={'.6vw'} fontFamily={'Orbitron'}>
+          <Icons.GasPump size={'1.2vw'} color={'#FFB13C'} />
+          <Text>%</Text>
+        </Flex>
+        <Flex width={'100%'} px={'1.5vw'} justify={'space-between'} pos={'absolute'} bottom={'1.5vh'} fontSize={'.5vw'} fontFamily={'Orbitron'}>
+          <Text>0</Text>
+          <Text>100</Text>
+        </Flex>
+      </Flex>
+      <Flex pos={'absolute'}
+        left={'-4.7vw'}
+        bottom={'9.5vh'}
+        width={'4vw'}
+        height={'4vw'}
+      >
+        <svg transform='rotate(140)'>
+          <circle
+            cx="2vw"
+            cy="1.95vw"
+            r="1.6vw"
+            fill="transparent"
+            stroke="#242627"
+            strokeWidth=".4vw"
+            strokeDasharray={`186 280`}
+          />
+          <circle
+            cx="2vw"
+            cy="2vw"
+            r="1.5vw"
+            fill="transparent"
+            stroke="#161616"
+            strokeWidth=".4vw"
+            strokeDasharray={`175 280`}
+          />
+          <circle
+            cx="2vw"
+            cy="2vw"
+            r="1.5vw"
+            fill="transparent"
+            stroke="#AB8DFF"
+            strokeWidth=".4vw"
+            strokeDasharray={`${nitrousToDash} 280`}
+          />
+        </svg>
+        <Flex width={'100%'} justify={'center'} flexDir={'column'} align={'center'} pos={'absolute'} bottom={'1.5vh'} fontSize={'.4vw'} fontFamily={'Orbitron'}>
+          <Icons.Flash size={'1.2vw'} color={'#AB8DFF'} />
+          <Text>%</Text>
+        </Flex>
+        <Flex width={'100%'} px={'.8vw'} justify={'space-between'} pos={'absolute'} bottom={'.5vh'} fontSize={'.4vw'} fontFamily={'Orbitron'}>
+          <Text>0</Text>
+          <Text>100</Text>
         </Flex>
       </Flex>
     </Flex>

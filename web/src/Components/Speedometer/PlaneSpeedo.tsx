@@ -48,7 +48,7 @@ export const PlaneSpeedo = () => {
           </svg>
         </Flex>
         <Flex pos={'absolute'} width={'100%'} height={'100%'} justify={'center'} transform={'rotate(90deg)'}>
-          <svg>
+          <svg style={{ transition: 'all 0.5s ease' }}>
             <circle
               cx={'50%'}
               cy={'50%'}

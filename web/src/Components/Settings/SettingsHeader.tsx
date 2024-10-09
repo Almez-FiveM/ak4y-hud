@@ -22,6 +22,7 @@ const SettignsHeader: React.FC<SettingsHeaderProps> = ({ onClick, selected }) =>
   
   const handleReset = () => {
     purgeStore();
+    window.location.reload();
   };
 
   return (

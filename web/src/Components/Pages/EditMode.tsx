@@ -104,7 +104,7 @@ const EditMode = () => {
                   />
                   <Input
                     type={'number'}
-                    width={'48px'}
+                    width={'64px'}
                     textAlign={'center'}
                     height={'24px'}
                     fontSize={'12px'}

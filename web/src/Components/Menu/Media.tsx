@@ -133,7 +133,15 @@ const Media = () => {
     if (player) {
       if (player.getPlayerState() === 1) {
         player.pauseVideo();
+        dispatch(updateMenuData('media', {
+          ...menu.media,
+          playing: false
+        }));
       } else {
+        dispatch(updateMenuData('media', {
+          ...menu.media,
+          playing: true
+        }));
         player.playVideo();
       }
     }
@@ -185,10 +193,16 @@ const Media = () => {
                 </Flex>
                 <Flex width={'30%'} height={'15px'} align={'center'} justify={'center'} gap={'.6vw'} cursor={'pointer'} onClick={handlePauseOrPlay}>
                   <Flex align={'center'} justify={'center'}>
-                    <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M5.23316 9.29185V1.18536C5.23316 0.415751 4.90821 0.10791 4.0873 0.10791H2.01792C1.19701 0.10791 0.87207 0.415751 0.87207 1.18536V9.29185C0.87207 10.0614 1.19701 10.3693 2.01792 10.3693H4.0873C4.90821 10.3693 5.23316 10.0614 5.23316 9.29185Z" fill="#898989" />
-                      <path d="M11.1335 9.29185V1.18536C11.1335 0.415751 10.8086 0.10791 9.98769 0.10791H7.91831C7.10311 0.10791 6.77246 0.415751 6.77246 1.18536V9.29185C6.77246 10.0614 7.0974 10.3693 7.91831 10.3693H9.98769C10.8086 10.3693 11.1335 10.0614 11.1335 9.29185Z" fill="#898989" />
-                    </svg>
+                    {menu.media.playing ? (
+                      <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.23316 9.29185V1.18536C5.23316 0.415751 4.90821 0.10791 4.0873 0.10791H2.01792C1.19701 0.10791 0.87207 0.415751 0.87207 1.18536V9.29185C0.87207 10.0614 1.19701 10.3693 2.01792 10.3693H4.0873C4.90821 10.3693 5.23316 10.0614 5.23316 9.29185Z" fill="#898989" />
+                        <path d="M11.1335 9.29185V1.18536C11.1335 0.415751 10.8086 0.10791 9.98769 0.10791H7.91831C7.10311 0.10791 6.77246 0.415751 6.77246 1.18536V9.29185C6.77246 10.0614 7.0974 10.3693 7.91831 10.3693H9.98769C10.8086 10.3693 11.1335 10.0614 11.1335 9.29185Z" fill="#898989" />
+                      </svg>
+                    ) : (
+                      <svg width="12" height="11" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 1.74084V8.26006C0 9.59524 1.58895 10.4331 2.85713 9.76554L5.95299 8.13743L9.04886 6.50252C10.317 5.83493 10.317 4.16595 9.04886 3.49836L5.95299 1.86346L2.85713 0.235365C1.58895 -0.432224 0 0.398851 0 1.74084Z" fill="#898989" />
+                      </svg>
+                    )}
                   </Flex>
                   <Flex align={'center'} justify={'center'} cursor={'pointer'} onClick={handleNextSong}>
                     <svg width="9" height="11" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">

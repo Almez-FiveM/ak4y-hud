@@ -267,20 +267,20 @@ $hexagonSecondSize: 2vw;
   z-index: 1;
   width: $hexagonSize;
   height: $hexagonSize;
-  transform: scaleY(0.5774) rotate(-45deg);
+  transform: scaleY(0.6) rotate(-45deg);
 }
 
 .hexagon-2th:before {
   top: -.8vh;
-  border-top: solid 7px #333333;
-  border-right: solid 7px #333333;
+  border-top: solid .2vw #333333;
+  border-right: solid .2vw #333333;
   background: transparent;
 }
 
 .hexagon-2th:after {
   bottom: -.8vh;
-  border-bottom: solid 7px #333333;
-  border-left: solid 7px #333333;
+  border-bottom: solid .2vw #333333;
+  border-left: solid .2vw #333333;
   background: transparent;
 }
 

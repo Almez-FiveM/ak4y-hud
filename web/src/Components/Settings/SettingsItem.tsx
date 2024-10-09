@@ -4,48 +4,22 @@ import { selectHud } from '../../Store/store';
 import { useSelector } from 'react-redux';
 import StatusList from '../../Constants/StatusList';
 interface SettingsItemProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   style?: React.CSSProperties;
   index?: number;
   click?: (index: number) => void;
 }
 
-const SettingsItem: React.FC<SettingsItemProps> = ({ children, style, index, click }) => {
+const SettingsItem: React.FC<SettingsItemProps> = ({style, index, click }) => {
   const hud = useSelector(selectHud);
   const isSelected = hud.selectedStatus === index;
   const axis = style?.flexDirection === 'column' ? 'row' : 'column';
   const StatusData = StatusList[index as number];
 
-  // find all .react-draggable in the settings-item-content and remove transform
-  useEffect(() => {
-    let content = document.getElementsByClassName('settings-item-content')[0];
-    let childrenArray = document.getElementsByClassName('react-draggable');
-
-    for (let i = 0; i < childrenArray.length; i++) {
-      const element = childrenArray[i];
-      let parent = element.parentElement;
-      let grandParent = parent?.parentElement;
-      if (grandParent?.parentElement?.parentElement?.classList.contains('settings-item-content')) {
-        element.setAttribute('style', 'transform: none !important');
-      }
-    }
-  }, []);
-
   return (
     <Flex
-      {...axis === 'row' ? {
-        style: {
-          ...style,
-          width: '100%',
-          height: '8.8vh',
-        }
-      } : {
-        style: {
-          ...style,
-          width: '100%',
-          height: '20vh',
-        }
-      }}
+      width={'100%'}
+      height={'95%'}
       className="settings-item"
       bg={'#272223'}
       border={'1px solid  rgba(255, 255, 255, 0.15)'}
@@ -76,9 +50,13 @@ const SettingsItem: React.FC<SettingsItemProps> = ({ children, style, index, cli
             width={'100%'}
             height={'60%'}
             justify={'center'}
-          // find .react-draggable in the children and remove transform
+            align={'center'}
           >
-            {children}
+            <img src={StatusData.image} alt="" width={'80%'} style={
+              {
+                objectFit: 'contain',
+              }
+            }/>
           </Flex>
         </Flex>
         <Divider w={'100%'}></Divider>

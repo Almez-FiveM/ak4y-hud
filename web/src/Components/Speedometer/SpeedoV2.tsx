@@ -32,7 +32,7 @@ const SpeedoV2 = () => {
         transform={'rotate(90deg)'}
         zIndex={2}
       >
-        <svg>
+        <svg style={{ transition: 'all 0.5s ease' }}>
           <circle
             cx={'14vh'}
             cy={'7.85vw'}
@@ -103,7 +103,7 @@ const SpeedoV2 = () => {
           />
         </svg>
       </Flex>
-      
+
       <Flex
         width={'100%'}
         height={'100%'}

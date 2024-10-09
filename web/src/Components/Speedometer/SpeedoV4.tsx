@@ -26,11 +26,12 @@ const SpeedoV4 = () => {
       boxSizing='border-box'
     >
       <Flex width={'95%'} align={"center"} justify={"center"} pos={'absolute'} height={'100%'} zIndex={999}>
-        <svg width="100%" height="100%" strokeDasharray={`${speedToDash} 1700`}           style={
-            {
-              filter: `drop-shadow(0px 0px 10px ${colord("#8A85DD").alpha(0.5).toHex()})`
-            }
+        <svg width="100%" height="100%" strokeDasharray={`${speedToDash} 1700`} style={
+          {
+            filter: `drop-shadow(0px 0px 10px ${colord("#8A85DD").alpha(0.5).toHex()})`,
+            transition: 'all 0.5s ease'
           }
+        }
           viewBox="0 0 272 272" fill="none" xmlns="http://www.w3.org/2000/svg">
           <mask id="path-1-inside-1_232_1007" fill="white">
             <path d="M136 272C99.9676 272 65.4078 257.701 39.909 232.242C14.4103 206.783 0.056764 172.246 0.000167763 136.214C-0.0564285 100.181 14.1885 65.5991 39.6072 40.0603C65.0258 14.5216 99.5405 0.113865 135.573 0.000671072C171.605 -0.112523 206.21 14.0781 231.788 39.4566C257.367 64.8351 271.829 99.3271 271.998 135.359C272.168 171.391 258.032 206.018 232.694 231.636C207.355 257.255 172.886 271.771 136.854 271.997L136.816 265.877C171.226 265.661 204.144 251.798 228.343 227.333C252.541 202.867 266.041 169.799 265.879 135.388C265.716 100.977 251.905 68.0375 227.478 43.801C203.05 19.5645 170.003 6.01254 135.592 6.12064C101.181 6.22874 68.2197 19.9881 43.9448 44.3776C19.67 68.7671 6.06611 101.793 6.12016 136.204C6.1742 170.615 19.8818 203.598 44.2331 227.911C68.5845 252.224 101.589 265.88 136 265.88L136 272Z" />
@@ -112,6 +113,16 @@ const SpeedoV4 = () => {
       >
       </Flex>
       <Flex
+        width={'fit-content'}
+        height={'auto'}
+        pos={'absolute'}
+        zIndex={92}
+        bottom={'-1.8vh'}
+      >
+        <Icons.GasPump size={'.6vw'} color={speedo.fuelColor} />
+        <Icons.Flash size={'.6vw'} color='#50FFB5' />
+      </Flex>
+      <Flex
         width={'100%'}
         height={'40%'}
         pos={'absolute'}
@@ -154,7 +165,7 @@ const SpeedoV4 = () => {
           </Flex>
           <Text fontSize={'.6vw'} fontWeight={600}>{speedo.speedometerType}</Text>
         </Flex>
-        <Text fontSize={'.8vw'} fontWeight={600}>(2)</Text>
+        <Text fontSize={'.8vw'} fontWeight={600}>({speedo.gear})</Text>
       </Flex>
       <Flex
         width={'100%'}
@@ -180,8 +191,17 @@ const SpeedoV4 = () => {
         borderRadius={'50%'}
         bg={'radial-gradient(70% 70% at 50% 50%, rgba(69, 69, 69, 0.78) 0%, rgba(24, 19, 33, 0.6474) 50%, rgba(95, 95, 95, 0.78) 100%)'}
         zIndex={1}
-        // border={'6px solid #606060'}
         boxSizing='border-box'
+      >
+      </Flex>
+      <Flex
+        width={'100%'}
+        height={'100%'}
+        borderRadius={'50%'}
+        zIndex={-1}
+        border={'6px solid #606060'}
+        boxSizing='border-box'
+        pos={'absolute'}
       >
       </Flex>
     </Flex>

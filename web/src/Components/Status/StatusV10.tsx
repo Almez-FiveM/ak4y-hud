@@ -74,7 +74,7 @@ const StatusV10 = () => {
                   >
                     <Box as={Icons[hud[status].icon]} size={'1.4vh'} color={hud[status].color} zIndex={1} />
                     {[...Array(5)].map((_, i) => {
-                      const thresholds = [80, 60, 40, 20, 0];
+                      const thresholds = [60, 80, 100, 20, 40];
                       let opacity = hud[status].value >= thresholds[i] ? 1 : 0.5;
                       if (i === 4 && hud[status].value === 0) opacity = 0.5;
                       return (
@@ -87,7 +87,7 @@ const StatusV10 = () => {
                           opacity={opacity}
                           filter={`drop-shadow(0px 0px 10px ${colord(hud[status].color).alpha(0.5).toHex()})`}
                         >
-                          <svg style={{ transform: 'rotate(150deg)', boxShadow: 'inset 0 0 2px rgba(0, 0, 0, 0.5)' }} width="1.5vw" height="1.25vh" viewBox="0 0 27 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <svg style={{ transform: 'rotate(150deg)'}} width="1.5vw" height="1.25vh" viewBox="0 0 27 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <mask id="path-1-outside-1_216_1039" maskUnits="userSpaceOnUse" x="-2.01072e-06" y="-1.61732e-06" width="27" height="12" fill="black">
                               <rect fill="white" x="-2.01072e-06" y="-1.61732e-06" width="27" height="12" />
                               <path d="M25.5001 7.19326C25.6976 7.51438 25.5935 7.93604 25.263 8.1176C21.6307 10.1134 17.5081 11.1087 13.3352 10.9906C9.16272 10.8726 5.10628 9.64617 1.59821 7.44888C1.27845 7.2486 1.19876 6.82124 1.41486 6.51196L4.79205 1.6785C5.00198 1.37804 5.41295 1.30203 5.72594 1.49278C8.07479 2.92427 10.7735 3.72291 13.5477 3.80139C16.3218 3.87987 19.0633 3.23513 21.4928 1.9388C21.8164 1.76612 22.2226 1.86585 22.4148 2.17827L25.5001 7.19326Z" />

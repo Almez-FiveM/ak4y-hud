@@ -46,7 +46,11 @@ const SpeedoItem: React.FC<SettingsItemProps> = ({ children, style, index, click
             }
           }
         >
-          {children}
+            <img src={StatusData.image} alt="" width={'35%'} style={
+              {
+                objectFit: 'contain',
+              }
+            }/>
         </Flex>
         <Divider w={'100%'}></Divider>
         <Flex

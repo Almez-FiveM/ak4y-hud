@@ -87,3 +87,16 @@ Config.RemoveStress = {
         enable = true,
     }
 }
+
+Translations = {
+  ["en"] = {
+      ["NITRO"] = "Nitro",
+      ["RUN_OUT_OF_NITRO"] = "Your nitro has run out!",
+      ["NO_NITRO"] = "You don't have any nitro!",
+      ["CANT_INSTALL_IN_CAR"] = "You can't install nitro while sitting in a car",
+      ["FILLED_UP_NITRO"] = "You have filled up your nitro!",
+      ["NO_CAR"] = "You are not near a vehicle!",
+      ["STRESS"] = "Stress",
+      ["YOUR_STRESS"] = "Your stress is %s",
+  }, 
+}

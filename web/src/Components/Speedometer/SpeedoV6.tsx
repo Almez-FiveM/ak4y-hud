@@ -6,7 +6,6 @@ import Icons from '../../Constants/Icons';
 
 const SpeedoV6 = () => {
   const speedo = useSelector(selectSpeedometer);
-  let speedToDash = speedo.speed * 5.35;
   let fuelToDash = speedo.fuel * 3.10;
   let nitrousToDash = speedo.nitrous * 3.10;
 
@@ -17,7 +16,7 @@ const SpeedoV6 = () => {
   if (resolution > 1920) {
     firstDeg = "150deg";
     secondDeg = "305deg";
-  } 
+  }
 
 
   return (

@@ -24,6 +24,8 @@ const StatusV5 = () => {
       pl={'2vw'}
       width={'18vw'}
       minH={'10vh'}
+      gap={'1.5vh'}
+      pb={'1vh'}
     >
       <Flex
         justifyContent={'space-between'}
@@ -34,7 +36,7 @@ const StatusV5 = () => {
       >
         {hud.health.visible && (<Flex
           gap={'.5vw'}
-          width={'45%'}
+          width={'48%'}
           height={'2.5vh'}
           justifyContent={'center'}
           alignItems={'center'}
@@ -57,7 +59,7 @@ const StatusV5 = () => {
         </Flex>)}
         {hud.armor.visible && (<Flex
           gap={'.5vw'}
-          width={'45%'}
+          width={'48%'}
           height={'2.5vh'}
           justifyContent={'center'}
           alignItems={'center'}
@@ -84,7 +86,7 @@ const StatusV5 = () => {
         display={'flex'}
         justifyContent={'center'}
         alignItems={'center'}
-        height={'auto'}
+        height={'7vh'}
         px={'1vw'}
         gap={'.5vw'}
       >
@@ -138,6 +140,11 @@ const StatusV5 = () => {
                   strokeDasharray={`${(hud["stress"].value / 100) * 113.097} 113.097`}
                   strokeLinecap={'round'}
                   strokeDashoffset={0}
+                  style={
+                    {
+                      filter: `drop-shadow(0 0 2px ${hud["stress"].color})`
+                    }
+                  }
                 />
                 <circle
                   cx={'1.25vw'}
@@ -208,6 +215,11 @@ const StatusV5 = () => {
                   strokeDasharray={`${(hud["hunger"].value / 100) * 113.097} 113.097`}
                   strokeLinecap={'round'}
                   strokeDashoffset={0}
+                  style={
+                    {
+                      filter: `drop-shadow(0 0 2px ${hud["hunger"].color})`
+                    }
+                  }
                 />
                 <circle
                   cx={'1.25vw'}
@@ -243,7 +255,7 @@ const StatusV5 = () => {
             alignItems={'center'}
             position={'relative'}
             boxSizing={'border-box'}
-            mb={'2vh'}
+            {...generalSettings.showPercentageInStatus && { marginBottom: '2vh', marginTop: '1vh' }}
           >
             <svg width="95" height="96" viewBox="0 0 95 96" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M21.3899 69.2905C24.5643 73.2125 28.5801 76.3702 33.1402 78.5299C37.7002 80.6896 42.6877 81.7959 47.7332 81.767C52.7787 81.738 57.7532 80.5745 62.2881 78.3626C66.8231 76.1507 70.8024 72.947 73.9315 68.9888L69.5708 65.5416C66.9588 68.8458 63.6369 71.5201 59.8513 73.3665C56.0656 75.2129 51.9132 76.1842 47.7013 76.2084C43.4894 76.2326 39.3261 75.3091 35.5195 73.5062C31.7129 71.7034 28.3605 69.0674 25.7107 65.7934L21.3899 69.2905Z"
@@ -326,6 +338,11 @@ const StatusV5 = () => {
                   strokeDasharray={`${(hud["stamina"].value / 100) * 113.097} 113.097`}
                   strokeLinecap={'round'}
                   strokeDashoffset={0}
+                  style={
+                    {
+                      filter: `drop-shadow(0 0 2px ${hud["stamina"].color})`
+                    }
+                  }
                 />
                 <circle
                   cx={'1.25vw'}
@@ -395,6 +412,11 @@ const StatusV5 = () => {
                   strokeDasharray={`${(hud["thirst"].value / 100) * 113.097} 113.097`}
                   strokeLinecap={'round'}
                   strokeDashoffset={0}
+                  style={
+                    {
+                      filter: `drop-shadow(0 0 2px ${hud["thirst"].color})`
+                    }
+                  }
                 />
                 <circle
                   cx={'1.25vw'}

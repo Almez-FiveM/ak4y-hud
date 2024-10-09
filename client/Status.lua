@@ -85,10 +85,8 @@ Citizen.CreateThread(function ()
     -- is left ctrl and mouse 1 pressed
     DisableControlAction(0, 36, true)
     if IsDisabledControlPressed(0, 36) then
-      print('pressed ctrl key')
       DisableControlAction(0, 24, true)
       if IsDisabledControlPressed(0, 24) then
-        print('pressed mouse 1')
         SetNuiFocus(true, true)
         controlsOn = true
       end
@@ -154,11 +152,14 @@ function UpdateMenuInfo()
       neons[i] = false
     end
   end
-  
+
+  local coords = GetEntityCoords(ped)
+  local streetHash, roadHash = GetStreetNameAtCoord(table.unpack(coords))
   SendReactMessage("updateMenuData", {
     time = hour .. ":" .. minute,
     nightMode = IsNight,
     vehicleDoors = vehicleDoors,
-    neons = neons
+    neons = neons,
+    streetName = GetStreetNameFromHashKey(streetHash)
   })
 end

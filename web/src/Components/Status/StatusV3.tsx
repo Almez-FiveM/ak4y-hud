@@ -14,6 +14,7 @@ interface HudStatus {
   value: number;
   translateX: number;
   translateY: number;
+  hideBelow: number;
 }
 
 const StatusV3 = () => {
@@ -32,7 +33,7 @@ const StatusV3 = () => {
       pl={'1vw'}
     >
       {hudList.map((status, index) => {
-        if (hud[status].visible) {
+        if (hud[status].visible && hud[status].hideBelow >= hud[status].value) {
           let dragging = false;
           const handleDrag = (e: any) => {
             dragging = true;

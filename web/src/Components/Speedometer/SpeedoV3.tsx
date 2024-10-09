@@ -8,8 +8,8 @@ const speedArray = [60, 80, 100, 120, 140, 160, 0, 20, 40];
 const SpeedoV3 = () => {
   const speedo = useSelector(selectSpeedometer);
   let speedToDash = speedo.speed * 3.42;
-  let fuelToDash = speedo.fuel * 1.7;
-  let nitrousToDash = speedo.nitrous * 1.75;
+  let fuelToDash = speedo.fuel * 1.52;
+  let nitrousToDash = speedo.nitrous * 1.31;
   return (
     <Flex
       display={'flex'}
@@ -174,7 +174,7 @@ const SpeedoV3 = () => {
             fill="transparent"
             stroke="#242627"
             strokeWidth=".6vw"
-            strokeDasharray={`222 280`}
+            strokeDasharray={`167 280`}
           />
           <circle
             cx="3vw"
@@ -183,7 +183,7 @@ const SpeedoV3 = () => {
             fill="transparent"
             stroke="#161616"
             strokeWidth=".6vw"
-            strokeDasharray={`205 280`}
+            strokeDasharray={`150 280`}
           />
           <circle
             cx="3vw"
@@ -218,16 +218,16 @@ const SpeedoV3 = () => {
             fill="transparent"
             stroke="#242627"
             strokeWidth=".4vw"
-            strokeDasharray={`186 280`}
+            strokeDasharray={`139 280`}
           />
           <circle
             cx="2vw"
             cy="2vw"
-            r="1.5vw"
+            r="1.6vw"
             fill="transparent"
             stroke="#161616"
             strokeWidth=".4vw"
-            strokeDasharray={`175 280`}
+            strokeDasharray={`130 280`}
           />
           <circle
             cx="2vw"

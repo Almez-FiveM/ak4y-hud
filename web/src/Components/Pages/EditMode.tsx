@@ -17,6 +17,7 @@ interface HudStatus {
   icon: keyof typeof Icons;
   color: string;
   value: number;
+  hideBelow: string;
 }
 
 const EditMode = () => {
@@ -41,6 +42,12 @@ const EditMode = () => {
     dispatch({ type: type, payload: { color: value } });
   }
 
+  const handleBelowChange = (key: string, value: string) => {
+    const type = 'UPDATE_' + key.toUpperCase() + '_DATA';
+
+    dispatch({ type: type, payload: { hideBelow: value } });
+  }
+
   const closeAllColorPickers = () => {
     setMicrophoneColorToggle(false);
     setHealthColorToggle(false);
@@ -53,7 +60,7 @@ const EditMode = () => {
 
   return (
     <>
-      <Flex pos={'absolute'} w={'26vw'} h={'14vh'} left={0} top={'5%'} right={0} margin={'auto'} align={'center'} justify={'center'} pt={'1.5vh'} zIndex={99}>
+      <Flex pos={'absolute'} w={'30vw'} h={'14vh'} left={0} top={'5%'} right={0} margin={'auto'} align={'center'} justify={'center'} pt={'1.5vh'} zIndex={99}>
         <Flex width={'100%'} height={'fit-content'} textAlign={'center'} justify={'center'} align={'center'} flexDir={'column'} gap={'1vh'}>
           <Flex bg={'#1a1a1a'} width={'100%'} height={'14vh'} borderRadius={'4px'} justify={'center'} align={'center'}>
             <Grid templateColumns="repeat(7, 1fr)" gap={'0.6vw'} alignItems={'center'}>
@@ -109,8 +116,13 @@ const EditMode = () => {
                     height={'24px'}
                     fontSize={'12px'}
                     placeholder='80'
+                    onChange={(e) => {
+                      handleBelowChange(key, e.target.value);
+                    }}
+                    value={hud[key].hideBelow}
                   />
-                  <Flex align={'center'} justify={'center'}
+                  <Flex 
+                    align={'center'} justify={'center'}
                     cursor={'pointer'}
                     onClick={() => handleVisibility(key)}
                     {...(hud[key].visible ? { opacity: 1 } : { opacity: 0.5 })}

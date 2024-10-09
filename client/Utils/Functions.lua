@@ -41,7 +41,7 @@ if GetResourceState("es_extended") == "started" then
       weaponLabel = plyWeapon.label,
       ammoCount = plyWeapon.metadata.ammo,
       ammoMax = plyWeapon.name ~= "" and GetMaxAmmoInClip(ped, GetHashKey(plyWeapon.name)) or 0,
-      time = hour .. ":" .. minute
+      time = hour .. ":" .. minute,
     })
   end
 else

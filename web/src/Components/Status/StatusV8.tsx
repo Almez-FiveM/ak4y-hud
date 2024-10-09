@@ -110,7 +110,19 @@ const StatusV8 = () => {
                       height={'6vh'}
                       clipPath={'polygon(50% 0, 50% 0, 100% 25%, 100% 75%, 50% 100%, 50% 100%, 0% 75%, 0% 25%)'}
                       zIndex={0}
-                      background={`conic-gradient(from 260.39deg at 33.58% 74.99%, rgba(0, 0, 0, 0) 0deg, ${hud[status].color} 0deg, rgba(0, 0, 0, 0) 360deg)`}
+                      // background={`conic-gradient(from 260deg at 33.58% ${hud[status].value}%, rgba(0, 0, 0, 0) 0deg, ${hud[status].color} 0deg, rgba(0, 0, 0, 0) 360deg)`}
+                      // background={`radial-gradient(35% 35% at 50% 50%, ${hud[status].color} 0%, #121212 100%)`}
+                      overflow={'hidden'}
+                    />
+                    <Box
+                      pos={'absolute'}
+                      width={'100%'}
+                      margin={0}
+                      height={'6vh'}
+                      clipPath={'polygon(50% 0, 50% 0, 100% 25%, 100% 75%, 50% 100%, 50% 100%, 0% 75%, 0% 25%)'}
+                      zIndex={0}
+                      // background={`conic-gradient(from 260deg at 33.58% ${hud[status].value}%, rgba(0, 0, 0, 0) 0deg, ${hud[status].color} 0deg, rgba(0, 0, 0, 0) 360deg)`}
+                      background={`linear-gradient(180deg, ${colord(hud[status].color).alpha(1).toHex()} 0%, #121212 ${hud[status].value}%)`}
                       overflow={'hidden'}
                     />
                     <Box
@@ -129,32 +141,33 @@ const StatusV8 = () => {
                       <Box as={Icons[hud[status].icon]} size={'1.4vh'} color={hud[status].color} zIndex={1} />
                     </Box>
                   </Flex>
-                  {/* {generalSettings.showPercentageInStatus && ( */}
-                  <Box
-                    position={'absolute'}
-                    bottom={'-4vh'}
-                    border={`1px solid ${hud[status].color}`}
-                    width={'4vh'}
-                    display={'flex'}
-                    justifyContent={'center'}
-                    alignItems={'center'}
-                    background={colord(hud[status].color).darken(0.35).toHex()}
-                    className='cubic-text-bg'
-                    _before={
-                      {
-                        background: hud[status].color,
+                  {generalSettings.showPercentageInStatus && (
+                    <Box
+                      position={'absolute'}
+                      bottom={'-4vh'}
+                      border={`1px solid ${hud[status].color}`}
+                      width={'4vh'}
+                      display={'flex'}
+                      justifyContent={'center'}
+                      alignItems={'center'}
+                      background={colord(hud[status].color).darken(0.35).toHex()}
+                      className='cubic-text-bg'
+                      _before={
+                        {
+                          background: hud[status].color,
+                        }
                       }
-                    }
-                    _after={
-                      {
-                        background: hud[status].color,
+                      _after={
+                        {
+                          background: hud[status].color,
+                        }
                       }
-                    }
-                  >
-                    <Text fontSize={'1vh'} color={'#fff'}>
-                      {hud[status].value + '%'}
-                    </Text>
-                  </Box>
+                    >
+                      <Text fontSize={'1vh'} color={'#fff'}>
+                        {hud[status].value + '%'}
+                      </Text>
+                    </Box>
+                  )}
                 </Flex>
               </Draggable>
             )

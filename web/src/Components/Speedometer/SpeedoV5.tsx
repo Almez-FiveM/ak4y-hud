@@ -142,7 +142,6 @@ const SpeedoV5 = () => {
             </linearGradient>
           </defs>
         </svg>
-
       </Flex>
 
       <Flex

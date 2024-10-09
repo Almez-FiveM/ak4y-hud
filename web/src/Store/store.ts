@@ -4,7 +4,7 @@ import storage from 'redux-persist/lib/storage'; // defaults to localStorage for
 import { fetchNui } from '../Helpers/fetchNui';
 
 const initialHudState = {
-  selectedStatus: 0,
+  selectedStatus: 7,
   microphone: {
     value: 10,
     color: '#FFF',
@@ -16,7 +16,7 @@ const initialHudState = {
     translateY: 0,
   },
   health: {
-    value: 20,
+    value: 30,
     color: '#FF3333',
     visible: true,
     hideBelow: 80,
@@ -26,7 +26,7 @@ const initialHudState = {
     translateY: 0,
   },
   armor: {
-    value: 40,
+    value: 60,
     color: '#339DFF',
     visible: true,
     hideBelow: 80,
@@ -56,7 +56,7 @@ const initialHudState = {
     translateY: 0,
   },
   stamina: {
-    value: 95,
+    value: 100,
     color: '#8133FF',
     visible: true,
     hideBelow: 80,
@@ -78,15 +78,15 @@ const initialHudState = {
 };
 
 const initialSpeedometerState = {
-  selectedSpeedometer: 4,
+  selectedSpeedometer: 1,
   speedometerVisible: true,
-  speed: 160,
+  speed: 30,
   speedometerType: 'KMH',
   speedometerColor: '#5ACBE3',
-  fuel: 75,
+  fuel: 100,
   fuelColor: '#FFD850',
   fuelIcon: "GasPump",
-  nitrous: 75,
+  nitrous: 100,
   nitrousColor: '#E35ABD',
   nitrousIcon: "Flash",
   seatbelt: false,
@@ -150,16 +150,16 @@ const initialMenuState = {
     volume: 100,
   },
   vehicleDoors: {
-    0: true,
-    1: true,
+    0: false,
+    1: false,
     2: false,
     3: false,
     4: false,
     5: false,
   },
   neons: {
-    0: true,
-    1: true,
+    0: false,
+    1: false,
     2: false,
     3: false,
   }

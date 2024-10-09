@@ -114,7 +114,6 @@ end)
 
 local MinimapEditMode = false
 RegisterNuiCallback('setMinimapEditMode', function(data, cb)
-  print("mapeditmode", data)
   MinimapEditMode = data
   if MinimapEditMode then
     Config.Notify("Minimap Edit Mode", "You can now move the minimap using arrow keys.", "info", 5e3, "fa-solid fa-map",
@@ -130,4 +129,9 @@ RegisterNuiCallback('setMinimapEditMode', function(data, cb)
     SetBigmapActive(false, false)
     DisplayRadar(true)
   end
+end)
+
+RegisterNuiCallback('toggleMinimap',  function (data)
+  local minimapState = data.showMinimap; -- 0 = hide, 1 = circle, 2 = square
+  
 end)

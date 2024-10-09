@@ -16,7 +16,6 @@ const SpeedoV1 = () => {
       mb={'4vh'}
       gap={'.25vw'}
       p={'.5vh .5vw'}
-
       filter={'drop-shadow(0 0 1vw #000)'}
     >
       <Flex
@@ -40,26 +39,10 @@ const SpeedoV1 = () => {
           width={'100%'}
           height={'100%'}
         >
-          <Box
-            pos={'absolute'}
-            width={'100%'}
-            height={'100%'}
-            display={'flex'}
-            justifyContent={'center'}
-            alignItems={'center'}
-          >
-            <Box
-              as={Icons.Flash}
-              size={'1.4vh'}
-              color={speedo.nitrousColor}
-              className='status-icon-gradient'
-              zIndex={1}
-            />
-          </Box>
-          <Box width={'100%'} height={'100%'} ml={'.6vw'}>
-            <svg width={'100%'} height={'100%'}>
+          <Flex width={'3.6vw'} height={'100%'} align={'center'} justify={'center'}>
+            <svg width={'100%'} height={'100%'} style={{position: 'absolute'}}>
               <circle
-                cx={'1.7vw'}
+                cx={'2.9vw'}
                 cy={'2vw'}
                 r={'1.5vw'}
                 fill={'transparent'}
@@ -71,25 +54,26 @@ const SpeedoV1 = () => {
                 strokeDashoffset={`0`}
               />
               <circle
-                cx={'1.7vw'}
+                cx={'2.9vw'}
                 cy={'2vw'}
                 r={'1.5vw'}
                 fill={'transparent'}
                 stroke={speedo.nitrousColor}
                 strokeWidth={'6px'}
-                strokeDasharray={`${(speedo.nitrous / 100) * 113.097} 113.097`}
+                strokeDasharray={`${(speedo.nitrous * 1.75)} 175`}
                 strokeLinecap={'round'}
                 strokeDashoffset={0}
               />
               <circle
-                cx={'1.7vw'}
+                cx={'2.9vw'}
                 cy={'2vw'}
                 r={'1.05vw'}
                 fill={colord(speedo.nitrousColor).alpha(0.2).toHex()}
                 strokeDashoffset={0}
               />
             </svg>
-          </Box>
+            <Icons.Flash color={speedo.nitrousColor} />
+          </Flex>
         </Flex>
       </Flex>
       <Flex

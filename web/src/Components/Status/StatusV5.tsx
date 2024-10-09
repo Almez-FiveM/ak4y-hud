@@ -9,6 +9,7 @@ interface HudStatus {
   icon: keyof typeof Icons;
   color: string;
   value: number;
+  hideBelow: number;
 }
 
 const StatusV5 = () => {
@@ -34,53 +35,59 @@ const StatusV5 = () => {
         width={'100%'}
         gap={'.25vw'}
       >
-        {hud.health.visible && (<Flex
-          gap={'.5vw'}
-          width={'48%'}
-          height={'2.5vh'}
-          justifyContent={'center'}
-          alignItems={'center'}
-        >
-          <Box as={Icons[hud["health"].icon]} size={'2vh'} color={hud["health"].color} />
+        {hud["health"].visible && hud["health"].hideBelow >= hud["health"].value && (
           <Flex
-            width={'100%'}
-            height={'.65vh'}
+            gap={'.5vw'}
+            width={'48%'}
+            height={'2.5vh'}
+            justifyContent={'center'}
             alignItems={'center'}
-            borderRadius={'2px'}
-            bg={colord(hud["health"].color).alpha(0.41).toHex()}
           >
-            <Box
-              width={`${hud["health"].value}%`}
-              height={'100%'}
-              bg={hud["health"].color}
+            <Box as={Icons[hud["health"].icon]} size={'2vh'} color={hud["health"].color} />
+            <Flex
+              width={'100%'}
+              height={'.65vh'}
+              alignItems={'center'}
               borderRadius={'2px'}
-            />
+              bg={colord(hud["health"].color).alpha(0.41).toHex()}
+            >
+              <Box
+                width={`${hud["health"].value}%`}
+                filter={`drop-shadow(0px 0px 10px ${hud["health"].color})`}
+                height={'100%'}
+                bg={hud["health"].color}
+                borderRadius={'2px'}
+              />
+            </Flex>
           </Flex>
-        </Flex>)}
-        {hud.armor.visible && (<Flex
-          gap={'.5vw'}
-          width={'48%'}
-          height={'2.5vh'}
-          justifyContent={'center'}
-          alignItems={'center'}
-        >
+        )}
+        {hud["armor"].visible && hud["armor"].hideBelow >= hud["armor"].value && (
           <Flex
-            width={'100%'}
-            height={'.65vh'}
+            gap={'.5vw'}
+            width={'48%'}
+            height={'2.5vh'}
+            justifyContent={'center'}
             alignItems={'center'}
-            flexDirection={'row-reverse'}
-            borderRadius={'2px'}
-            bg={colord(hud["armor"].color).alpha(0.41).toHex()}
           >
-            <Box
-              width={`${hud["health"].value}%`}
-              height={'100%'}
-              bg={hud["armor"].color}
+            <Flex
+              width={'100%'}
+              height={'.65vh'}
+              alignItems={'center'}
+              flexDirection={'row-reverse'}
               borderRadius={'2px'}
-            />
+              bg={colord(hud["armor"].color).alpha(0.41).toHex()}
+            >
+              <Box
+                width={`${hud["armor"].value}%`}
+                filter={`drop-shadow(0px 0px 10px ${hud["armor"].color})`}
+                height={'100%'}
+                bg={hud["armor"].color}
+                borderRadius={'2px'}
+              />
+            </Flex>
+            <Box as={Icons[hud["armor"].icon]} size={'2vh'} color={hud["armor"].color} />
           </Flex>
-          <Box as={Icons[hud["armor"].icon]} size={'2vh'} color={hud["armor"].color} />
-        </Flex>)}
+        )}
       </Flex>
       <Flex
         display={'flex'}
@@ -90,7 +97,7 @@ const StatusV5 = () => {
         px={'1vw'}
         gap={'.5vw'}
       >
-        {hud.stress.visible && (<Flex
+        {hud["stress"].visible && hud["stress"].hideBelow >= hud["stress"].value && (<Flex
           display={'flex'}
           justifyContent={'center'}
           alignItems={'center'}
@@ -165,7 +172,7 @@ const StatusV5 = () => {
           </Text>
         </Flex>
         )}
-        {hud.hunger.visible && (<Flex
+        {hud["hunger"].visible && hud["hunger"].hideBelow >= hud["hunger"].value && (<Flex
           display={'flex'}
           justifyContent={'center'}
           alignItems={'center'}
@@ -239,7 +246,7 @@ const StatusV5 = () => {
             {generalSettings.showPercentageInStatus && hud["hunger"].value + '%'}
           </Text>
         </Flex>)}
-        {hud.microphone.visible && (<Flex
+        {hud["microphone"].visible && hud["microphone"].hideBelow >= hud["microphone"].value && (<Flex
           display={'flex'}
           justifyContent={'center'}
           alignItems={'center'}
@@ -288,7 +295,7 @@ const StatusV5 = () => {
           </Flex>
 
         </Flex>)}
-        {hud.stamina.visible && (<Flex
+        {hud["stamina"].visible && hud["stamina"].hideBelow >= hud["stamina"].value && (<Flex
           display={'flex'}
           justifyContent={'center'}
           alignItems={'center'}
@@ -362,80 +369,82 @@ const StatusV5 = () => {
             {generalSettings.showPercentageInStatus && hud["stamina"].value + '%'}
           </Text>
         </Flex>)}
-        {hud.thirst.visible && (<Flex
-          display={'flex'}
-          justifyContent={'center'}
-          alignItems={'center'}
-          gap={'.25vw'}
-          flexDirection={'column'}
-        >
+        {hud["thirst"].visible && hud["thirst"].hideBelow >= hud["thirst"].value && (
           <Flex
-            width={'4.5vh'}
-            height={'4.5vh'}
-            background={colord(hud["thirst"].color).darken(0.45).toHex()}
-            borderRadius={'50%'}
             display={'flex'}
             justifyContent={'center'}
             alignItems={'center'}
-            position={'relative'}
-            boxSizing={'border-box'}
+            gap={'.25vw'}
+            flexDirection={'column'}
           >
-            <Box as={Icons[hud["thirst"].icon]}
-              size={'1.4vh'} color={hud["thirst"].color} />
-            <Box
-              pos={'absolute'}
-              top={0}
-              right={0}
-              width={'100%'}
-              height={'100%'}
+            <Flex
+              width={'4.5vh'}
+              height={'4.5vh'}
+              background={colord(hud["thirst"].color).darken(0.45).toHex()}
+              borderRadius={'50%'}
+              display={'flex'}
+              justifyContent={'center'}
+              alignItems={'center'}
+              position={'relative'}
+              boxSizing={'border-box'}
             >
-              <svg>
-                <circle
-                  cx={'1.22vw'}
-                  cy={'1.3vw'}
-                  r={'1.2vw'}
-                  fill={'transparent'}
-                  stroke={hud["thirst"].color}
-                  opacity={.4}
-                  strokeWidth={'2px'}
-                  strokeLinecap={'round'}
-                  strokeDasharray={`150`}
-                  strokeDashoffset={`0`}
-                />
-                <circle
-                  cx={'1.25vw'}
-                  cy={'1.30vw'}
-                  r={'1.2vw'}
-                  fill={'transparent'}
-                  stroke={hud["thirst"].color}
-                  strokeWidth={'2px'}
-                  strokeDasharray={`${(hud["thirst"].value / 100) * 113.097} 113.097`}
-                  strokeLinecap={'round'}
-                  strokeDashoffset={0}
-                  style={
-                    {
-                      filter: `drop-shadow(0 0 2px ${hud["thirst"].color})`
+              <Box as={Icons[hud["thirst"].icon]}
+                size={'1.4vh'} color={hud["thirst"].color} />
+              <Box
+                pos={'absolute'}
+                top={0}
+                right={0}
+                width={'100%'}
+                height={'100%'}
+              >
+                <svg>
+                  <circle
+                    cx={'1.22vw'}
+                    cy={'1.3vw'}
+                    r={'1.2vw'}
+                    fill={'transparent'}
+                    stroke={hud["thirst"].color}
+                    opacity={.4}
+                    strokeWidth={'2px'}
+                    strokeLinecap={'round'}
+                    strokeDasharray={`150`}
+                    strokeDashoffset={`0`}
+                  />
+                  <circle
+                    cx={'1.25vw'}
+                    cy={'1.30vw'}
+                    r={'1.2vw'}
+                    fill={'transparent'}
+                    stroke={hud["thirst"].color}
+                    strokeWidth={'2px'}
+                    strokeDasharray={`${(hud["thirst"].value / 100) * 113.097} 113.097`}
+                    strokeLinecap={'round'}
+                    strokeDashoffset={0}
+                    style={
+                      {
+                        filter: `drop-shadow(0 0 2px ${hud["thirst"].color})`
+                      }
                     }
-                  }
-                />
-                <circle
-                  cx={'1.25vw'}
-                  cy={'1.30vw'}
-                  r={'.9vw'}
-                  fill={'transparent'}
-                  stroke={hud["thirst"].color}
-                  strokeWidth={'1px'}
-                  strokeDasharray={`113.097`}
-                  strokeLinecap={'round'}
-                  strokeDashoffset={0}
-                />
-              </svg>
-            </Box>
+                  />
+                  <circle
+                    cx={'1.25vw'}
+                    cy={'1.30vw'}
+                    r={'.9vw'}
+                    fill={'transparent'}
+                    stroke={hud["thirst"].color}
+                    strokeWidth={'1px'}
+                    strokeDasharray={`113.097`}
+                    strokeLinecap={'round'}
+                    strokeDashoffset={0}
+                  />
+                </svg>
+              </Box>
+            </Flex>
+            <Text fontSize={'1.2vh'} color={hud["thirst"].color}>
+              {generalSettings.showPercentageInStatus && hud["thirst"].value + '%'}
+            </Text>
           </Flex>
-          <Text fontSize={'1.2vh'} color={hud["thirst"].color}>
-            {generalSettings.showPercentageInStatus && hud["thirst"].value + '%'}
-          </Text>
-        </Flex>)}
+        )}
       </Flex>
     </Flex>
   );

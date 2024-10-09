@@ -15,6 +15,7 @@ interface HudStatus {
   value: number;
   translateX: number;
   translateY: number;
+  hideBelow: number;
 }
 
 const StatusV2 = () => {
@@ -33,7 +34,7 @@ const StatusV2 = () => {
         pl={'1vw'}
       >
         {hudList.map((status, index) => {
-          if (hud[status].visible) {
+          if (hud[status].visible && hud[status].hideBelow >= hud[status].value) {
             let dragging = false;
             const handleDrag = (e: any) => {
               dragging = true;
@@ -59,6 +60,11 @@ const StatusV2 = () => {
                   gap={'.25vw'}
                   flexDirection={'column'}
                   pl={index === 0 ? '.2vw' : '0'}
+                  style={
+                    {
+                      filter: `drop-shadow(0 0 2px ${hud[status].color})`
+                    }
+                  }
                 >
                   <Flex
                     width={'4.5vh'}
@@ -101,14 +107,9 @@ const StatusV2 = () => {
                           fill={'transparent'}
                           stroke={hud[status].color}
                           strokeWidth={'2px'}
-                          strokeDasharray={`${(hud[status].value / 100) * 113.097} 113.097`}
+                          strokeDasharray={`${hud[status].value * 1.4} 140`}
                           strokeLinecap={'round'}
                           strokeDashoffset={0}
-                          style={
-                            {
-                              filter: `drop-shadow(0 0 2px ${hud[status].color})`
-                            }
-                          }
                         />
                         <circle
                           cx={'1.25vw'}
@@ -253,12 +254,12 @@ const StatusV2 = () => {
                           fill={'transparent'}
                           stroke={hud[status].color}
                           strokeWidth={'2px'}
-                          strokeDasharray={`${(hud[status].value / 100) * 113.097} 113.097`}
+                          strokeDasharray={`${(hud[status].value * 1.4)} 140`}
                           strokeLinecap={'round'}
                           strokeDashoffset={0}
                           style={
                             {
-                              filter: `drop-shadow(0 0 2px ${hud[status].color})`
+                              filter: `drop-shadow(0 0 2px ${hud[status].color})`,
                             }
                           }
                         />

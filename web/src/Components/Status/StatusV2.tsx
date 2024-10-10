@@ -249,22 +249,24 @@ const StatusV2 = () => {
                           strokeDasharray={`150`}
                           strokeDashoffset={`0`}
                         />
-                        <circle
-                          cx={'1.25vw'}
-                          cy={'1.30vw'}
-                          r={'1.2vw'}
-                          fill={'transparent'}
-                          stroke={hud[status].color}
-                          strokeWidth={'2px'}
-                          strokeDasharray={`${(hud[status].value * 1.4)} 140`}
-                          strokeLinecap={'round'}
-                          strokeDashoffset={0}
-                          style={
-                            {
-                              filter: `drop-shadow(0 0 2px ${hud[status].color})`,
+                        {hud[status].value > 0 && (
+                          <circle
+                            cx={'1.25vw'}
+                            cy={'1.30vw'}
+                            r={'1.2vw'}
+                            fill={'transparent'}
+                            stroke={hud[status].color}
+                            strokeWidth={'2px'}
+                            strokeDasharray={`${hud[status].value * 1.45} 145`}
+                            strokeLinecap={'round'}
+                            strokeDashoffset={0}
+                            style={
+                              {
+                                filter: `drop-shadow(0 0 2px ${hud[status].color})`,
+                              }
                             }
-                          }
-                        />
+                          />
+                        )}
                         <circle
                           cx={'1.25vw'}
                           cy={'1.30vw'}

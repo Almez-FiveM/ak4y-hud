@@ -195,9 +195,9 @@ const SpeedoV3 = () => {
             strokeDasharray={`${fuelToDash} 280`}
           />
         </svg>
-        <Flex width={'100%'} justify={'center'} flexDir={'column'} align={'center'} pos={'absolute'} bottom={'2.8vh'} fontSize={'.6vw'} fontFamily={'Orbitron'}>
+        <Flex width={'100%'} justify={'center'} flexDir={'column'} align={'center'} pos={'absolute'} bottom={'3vh'} gap={'.3vh'} fontSize={'.5vw'} fontFamily={'Orbitron'}>
           <Icons.GasPump size={'1.2vw'} color={'#FFB13C'} />
-          <Text>${speedo.fuel}%</Text>
+          <Text>{(speedo.fuel).toFixed(0)}%</Text>
         </Flex>
         <Flex width={'100%'} px={'1.5vw'} justify={'space-between'} pos={'absolute'} bottom={'1.5vh'} fontSize={'.5vw'} fontFamily={'Orbitron'}>
           <Text>0</Text>
@@ -241,7 +241,7 @@ const SpeedoV3 = () => {
         </svg>
         <Flex width={'100%'} justify={'center'} flexDir={'column'} align={'center'} pos={'absolute'} bottom={'1.5vh'} fontSize={'.4vw'} fontFamily={'Orbitron'}>
           <Icons.Flash size={'1.2vw'} color={'#AB8DFF'} />
-          <Text>${speedo.nitrous}%</Text>
+          <Text>{(speedo.nitrous).toFixed(0)}%</Text>
         </Flex>
         <Flex width={'100%'} px={'.8vw'} justify={'space-between'} pos={'absolute'} bottom={'.5vh'} fontSize={'.4vw'} fontFamily={'Orbitron'}>
           <Text>0</Text>

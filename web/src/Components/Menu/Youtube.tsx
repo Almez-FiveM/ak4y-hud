@@ -1,6 +1,6 @@
 import ReactPlayer from 'react-player/youtube'
 import { useSelector } from "react-redux";
-import { selectMenu, updateMenuData } from "../../Store/store";
+import { selectMenu, toggleSettingsMenu, updateMenuData } from "../../Store/store";
 import { useEffect } from 'react';
 import React from 'react';
 import { useDispatch } from 'react-redux';
@@ -93,6 +93,7 @@ const Youtube = () => {
 
   // reset media on mount
   useEffect(() => {
+    console.log('Youtube Mounted');
     dispatch(updateMenuData('media', {
       ...menu.media,
       thumbnail: 'https://files.catbox.moe/i5bfz3.png',
@@ -106,6 +107,8 @@ const Youtube = () => {
         currentTime: 0
       }
     }));
+    dispatch(updateMenuData('selectedMenu', 1));
+    dispatch(toggleSettingsMenu(false));
   }, []);
 
   return (

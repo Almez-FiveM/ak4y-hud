@@ -137,22 +137,24 @@ const StatusV5 = () => {
                   strokeDasharray={`150`}
                   strokeDashoffset={`0`}
                 />
-                <circle
-                  cx={'1.25vw'}
-                  cy={'1.30vw'}
-                  r={'1.2vw'}
-                  fill={'transparent'}
-                  stroke={hud["stress"].color}
-                  strokeWidth={'2px'}
-                  strokeDasharray={`${(hud["stress"].value / 100) * 113.097} 113.097`}
-                  strokeLinecap={'round'}
-                  strokeDashoffset={0}
-                  style={
-                    {
-                      filter: `drop-shadow(0 0 2px ${hud["stress"].color})`
+                {hud["stress"].value > 0 && (
+                  <circle
+                    cx={'1.25vw'}
+                    cy={'1.30vw'}
+                    r={'1.2vw'}
+                    fill={'transparent'}
+                    stroke={hud["stress"].color}
+                    strokeWidth={'2px'}
+                    strokeDasharray={`${(hud["stress"].value / 100) * 145} 145`}
+                    strokeLinecap={'round'}
+                    strokeDashoffset={0}
+                    style={
+                      {
+                        filter: `drop-shadow(0 0 2px ${hud["stress"].color})`
+                      }
                     }
-                  }
-                />
+                  />
+                )}
                 <circle
                   cx={'1.25vw'}
                   cy={'1.30vw'}
@@ -160,7 +162,7 @@ const StatusV5 = () => {
                   fill={'transparent'}
                   stroke={hud["stress"].color}
                   strokeWidth={'1px'}
-                  strokeDasharray={`113.097`}
+                  strokeDasharray={`145`}
                   strokeLinecap={'round'}
                   strokeDashoffset={0}
                 />
@@ -212,22 +214,24 @@ const StatusV5 = () => {
                   strokeDasharray={`150`}
                   strokeDashoffset={`0`}
                 />
-                <circle
-                  cx={'1.25vw'}
-                  cy={'1.30vw'}
-                  r={'1.2vw'}
-                  fill={'transparent'}
-                  stroke={hud["hunger"].color}
-                  strokeWidth={'2px'}
-                  strokeDasharray={`${(hud["hunger"].value / 100) * 113.097} 113.097`}
-                  strokeLinecap={'round'}
-                  strokeDashoffset={0}
-                  style={
-                    {
-                      filter: `drop-shadow(0 0 2px ${hud["hunger"].color})`
+                {hud["hunger"].value > 0 && (
+                  <circle
+                    cx={'1.25vw'}
+                    cy={'1.30vw'}
+                    r={'1.2vw'}
+                    fill={'transparent'}
+                    stroke={hud["hunger"].color}
+                    strokeWidth={'2px'}
+                    strokeDasharray={`${(hud["hunger"].value / 100) * 145} 145`}
+                    strokeLinecap={'round'}
+                    strokeDashoffset={0}
+                    style={
+                      {
+                        filter: `drop-shadow(0 0 2px ${hud["hunger"].color})`
+                      }
                     }
-                  }
-                />
+                  />
+                )}
                 <circle
                   cx={'1.25vw'}
                   cy={'1.30vw'}
@@ -235,7 +239,7 @@ const StatusV5 = () => {
                   fill={'transparent'}
                   stroke={hud["hunger"].color}
                   strokeWidth={'1px'}
-                  strokeDasharray={`113.097`}
+                  strokeDasharray={`145`}
                   strokeLinecap={'round'}
                   strokeDashoffset={0}
                 />
@@ -335,22 +339,24 @@ const StatusV5 = () => {
                   strokeDasharray={`150`}
                   strokeDashoffset={`0`}
                 />
-                <circle
-                  cx={'1.25vw'}
-                  cy={'1.30vw'}
-                  r={'1.2vw'}
-                  fill={'transparent'}
-                  stroke={hud["stamina"].color}
-                  strokeWidth={'2px'}
-                  strokeDasharray={`${(hud["stamina"].value / 100) * 113.097} 113.097`}
-                  strokeLinecap={'round'}
-                  strokeDashoffset={0}
-                  style={
-                    {
-                      filter: `drop-shadow(0 0 2px ${hud["stamina"].color})`
+                {hud["stamina"].value > 0 && (
+                  <circle
+                    cx={'1.25vw'}
+                    cy={'1.30vw'}
+                    r={'1.2vw'}
+                    fill={'transparent'}
+                    stroke={hud["stamina"].color}
+                    strokeWidth={'2px'}
+                    strokeDasharray={`${(hud["stamina"].value / 100) * 145} 145`}
+                    strokeLinecap={'round'}
+                    strokeDashoffset={0}
+                    style={
+                      {
+                        filter: `drop-shadow(0 0 2px ${hud["stamina"].color})`
+                      }
                     }
-                  }
-                />
+                  />
+                )}
                 <circle
                   cx={'1.25vw'}
                   cy={'1.30vw'}
@@ -358,7 +364,7 @@ const StatusV5 = () => {
                   fill={'transparent'}
                   stroke={hud["stamina"].color}
                   strokeWidth={'1px'}
-                  strokeDasharray={`113.097`}
+                  strokeDasharray={`145`}
                   strokeLinecap={'round'}
                   strokeDashoffset={0}
                 />
@@ -410,22 +416,24 @@ const StatusV5 = () => {
                     strokeDasharray={`150`}
                     strokeDashoffset={`0`}
                   />
-                  <circle
-                    cx={'1.25vw'}
-                    cy={'1.30vw'}
-                    r={'1.2vw'}
-                    fill={'transparent'}
-                    stroke={hud["thirst"].color}
-                    strokeWidth={'2px'}
-                    strokeDasharray={`${(hud["thirst"].value / 100) * 113.097} 113.097`}
-                    strokeLinecap={'round'}
-                    strokeDashoffset={0}
-                    style={
-                      {
-                        filter: `drop-shadow(0 0 2px ${hud["thirst"].color})`
+                  {hud["thirst"].value > 0 && (
+                    <circle
+                      cx={'1.25vw'}
+                      cy={'1.30vw'}
+                      r={'1.2vw'}
+                      fill={'transparent'}
+                      stroke={hud["thirst"].color}
+                      strokeWidth={'2px'}
+                      strokeDasharray={`${(hud["thirst"].value / 100) * 145} 145`}
+                      strokeLinecap={'round'}
+                      strokeDashoffset={0}
+                      style={
+                        {
+                          filter: `drop-shadow(0 0 2px ${hud["thirst"].color})`
+                        }
                       }
-                    }
-                  />
+                    />
+                  )}
                   <circle
                     cx={'1.25vw'}
                     cy={'1.30vw'}
@@ -433,7 +441,7 @@ const StatusV5 = () => {
                     fill={'transparent'}
                     stroke={hud["thirst"].color}
                     strokeWidth={'1px'}
-                    strokeDasharray={`113.097`}
+                    strokeDasharray={`145`}
                     strokeLinecap={'round'}
                     strokeDashoffset={0}
                   />

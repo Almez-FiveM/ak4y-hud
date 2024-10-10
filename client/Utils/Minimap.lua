@@ -129,6 +129,8 @@ RegisterNuiCallback('setMinimapEditMode', function(data, cb)
     SetBigmapActive(false, false)
     DisplayRadar(true)
   end
+
+  cb('ok')
 end)
 
 RegisterNuiCallback('toggleMinimap',  function (data)

@@ -82,11 +82,13 @@ const StatusV8 = () => {
                     left={'calc(50% - .35vh)'}
                     zIndex={99}
                   >
-                    <svg width="100%" height="100%" viewBox="0 0 42 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M41.2269 29.4812L0.563477 5.19227L7.65911 1.09863L41.2269 21.5668V29.4812Z"
-                        fill={hud[status].color}
-                      />
-                    </svg>
+                    {hud[status].value > 10 && (
+                      <svg width="100%" height="100%" viewBox="0 0 42 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M41.2269 29.4812L0.563477 5.19227L7.65911 1.09863L41.2269 21.5668V29.4812Z"
+                          fill={hud[status].color}
+                        />
+                      </svg>
+                    )}
                   </Box>
                   <Flex
                     width={'5vh'}
@@ -121,7 +123,6 @@ const StatusV8 = () => {
                       height={'6vh'}
                       clipPath={'polygon(50% 0, 50% 0, 100% 25%, 100% 75%, 50% 100%, 50% 100%, 0% 75%, 0% 25%)'}
                       zIndex={0}
-                      // background={`conic-gradient(from 260deg at 33.58% ${hud[status].value}%, rgba(0, 0, 0, 0) 0deg, ${hud[status].color} 0deg, rgba(0, 0, 0, 0) 360deg)`}
                       background={`linear-gradient(180deg, ${colord(hud[status].color).alpha(1).toHex()} 0%, #121212 ${hud[status].value}%)`}
                       overflow={'hidden'}
                     />

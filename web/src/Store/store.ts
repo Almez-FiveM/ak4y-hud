@@ -27,7 +27,7 @@ const initialHudState = {
     translateY: 0,
   },
   armor: {
-    value: 0,
+    value: 15,
     color: '#339DFF',
     visible: true,
     hideBelow: 100,

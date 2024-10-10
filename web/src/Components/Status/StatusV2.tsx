@@ -77,8 +77,10 @@ const StatusV2 = () => {
                     position={'relative'}
                     // is first child then add padding left
                     boxSizing={'border-box'}
+                    transform={'rotate(-90deg)'}
                   >
                     <Box as={Icons[hud[status].icon]}
+                      transform={'rotate(90deg)'}
                       size={'1.4vh'} color={hud[status].color} />
                     <Box
                       pos={'absolute'}
@@ -226,8 +228,10 @@ const StatusV2 = () => {
                     position={'relative'}
                     // is first child then add padding left
                     boxSizing={'border-box'}
+                    transform={'rotate(-90deg)'}
                   >
                     <Box as={Icons[hud[status].icon]}
+                      transform={'rotate(90deg)'}
                       size={'1.4vh'} color={hud[status].color} />
                     <Box
                       pos={'absolute'}

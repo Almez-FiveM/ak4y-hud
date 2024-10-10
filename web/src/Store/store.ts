@@ -6,7 +6,7 @@ import { fetchNui } from '../Helpers/fetchNui';
 const initialHudState = {
   selectedStatus: 0,
   microphone: {
-    value: 33,
+    value: 0,
     color: '#FFF',
     visible: true,
     hideBelow: 100,
@@ -27,7 +27,7 @@ const initialHudState = {
     translateY: 0,
   },
   armor: {
-    value: 15,
+    value: 0,
     color: '#339DFF',
     visible: true,
     hideBelow: 100,
